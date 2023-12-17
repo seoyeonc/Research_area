@@ -1,0 +1,33 @@
+project:
+  type: website
+
+website:
+  title: "Research"
+  
+  page-footer:
+    border: true
+    
+  navbar:
+    left:
+      - text: Main_Blog
+        href: https://seoyeonc.github.io/sy_hub/
+        
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/seoyeonc
+        
+format:
+  html:
+    theme: 
+        light: flatly
+    css: styles.css
+    toc: true
+    code-fold: false
+    code-line-numbers: false
+    code-copy: false
+
+
+
+
+
