@@ -16,7 +16,19 @@ website:
       - about.qmd
       - icon: github
         href: https://github.com/seoyeonc
-        
+  
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - 1_studies.qmd
+      - section: "**Research**"
+        contents:
+          - 2_no_category.qmd
+          - 3_pygod.qmd
+          - 4_llm.qmd
+      - 5_note.qmd
+
 format:
   html:
     theme: 
