@@ -25,8 +25,8 @@ website:
       - section: "**Research**"
         contents:
           - 2_no_category.qmd
-          - 3_pygod.qmd
-          - 4_llm.qmd
+          - 2_pygod.qmd
+          - 2_llm.qmd
 
 format:
   html:
