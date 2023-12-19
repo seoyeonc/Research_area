@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.4.527">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,11 +19,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -48,47 +49,17 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -110,7 +81,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -119,12 +96,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
@@ -134,44 +113,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Research</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://seoyeonc.github.io/sy_hub/">
- <span class="menu-text">Main_Blog</span></a>
+    <a class="nav-link" href="https://seoyeonc.github.io/sy_hub/"> 
+<span class="menu-text">Main_Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/seoyeonc"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/seoyeonc"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><strong>[LLM]</strong>LLAMA2</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>[LLM]</strong>LLAMA2</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -180,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block"><strong>[LLM]</strong>LLAMA2</h1>
+      <h1 class="title"><strong>[LLM]</strong>LLAMA2</h1>
                       </div>
   </div>
     
@@ -207,52 +193,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../1_studies.html" class="sidebar-item-text sidebar-link"><strong>Studies</strong></a>
+  <a href="../../../1_note.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Studies</strong></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true"><strong>Research</strong></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text"><strong>Research</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../2_no_category.html" class="sidebar-item-text sidebar-link"><strong>No Category</strong></a>
+  <a href="../../../2_no_category.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>No Category</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../3_pygod.html" class="sidebar-item-text sidebar-link"><strong>PYGOD</strong></a>
-  </div>
-</li>
+ <span class="menu-text">3_pygod.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../4_llm.html" class="sidebar-item-text sidebar-link"><strong>LLM</strong></a>
-  </div>
-</li>
+ <span class="menu-text">4_llm.qmd</span>
+  </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../5_note.html" class="sidebar-item-text sidebar-link"><strong>Notes</strong></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -287,10 +268,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+
 <p>https://huggingface.co/Trelis</p>
 <section id="import" class="level1">
 <h1>Import</h1>
-<div class="cell" data-execution_count="44">
+<div id="05ea4af3-1006-4a87-89d6-9cb8630d4aa9" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install -q transformers accelerate sentencepiece</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># !huggingface-cli login</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoTokenizer</span>
@@ -460,7 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="load-a-model-tokenizer">Load a model &amp; tokenizer</h2>
 <section id="chat-version은-txt-주고-받는-모델" class="level3">
 <h3 class="anchored" data-anchor-id="chat-version은-txt-주고-받는-모델">1. chat version은 txt 주고 받는 모델</h3>
-<div class="cell" data-execution_count="69">
+<div id="054c1247-d20c-4fb4-a31a-9198167645f4" class="cell" data-execution_count="69">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> <span class="st">"meta-llama/Llama-2-7b-chat-hf"</span></span></code></pre></div>
 </div>
 <p><code>AutoTokenizer.from_pretrained</code></p>
@@ -469,7 +451,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>인증한 tokenizer를 자동으로 선택하고 사용</li>
 </ul>
 <p><em>꼭 모델을 지정해주고 입력, 바로 모델을 pretrainded에 넣으면 에러 뜸</em></p>
-<div class="cell" data-execution_count="70">
+<div id="50183d44-5a52-4e0e-bfb6-3584b20a4bbc" class="cell" data-execution_count="70">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    model,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    use_auth_token<span class="op">=</span><span class="va">True</span>,</span>
@@ -482,7 +464,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>"text-generation"</code> 쓰면 입력 문장 이어서 텍스트 생성하도록 함.</li>
 <li><code>device_map="auto"</code> 쓰면 gpu 혹은 cpu 자동 할당</li>
 </ul>
-<div class="cell" data-execution_count="71">
+<div id="dbcefe88-9c5a-4236-8613-67784f47f7d5" class="cell" data-execution_count="71">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> transformers.pipeline(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"text-generation"</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span>model,</span>
@@ -523,7 +505,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         - `"zero-shot-image-classification"`: will return a [`ZeroShotImageClassificationPipeline`].
         - `"zero-shot-audio-classification"`: will return a [`ZeroShotAudioClassificationPipeline`].
         - `"zero-shot-object-detection"`: will return a [`ZeroShotObjectDetectionPipeline`].</code></pre>
-<div class="cell" data-execution_count="72">
+<div id="70a1db02-9d06-458e-80b0-ccc6ad3d7117" class="cell" data-execution_count="72">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gen(x, max_length<span class="op">=</span><span class="dv">200</span>):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    sequences <span class="op">=</span> pipeline(</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        x,</span>
@@ -536,7 +518,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sequences[<span class="dv">0</span>][<span class="st">"generated_text"</span>].replace(x, <span class="st">""</span>)</span></code></pre></div>
 </div>
-<div class="cell" data-execution_count="73">
+<div id="3c1b599c-a119-44ec-9c2e-7f272a03bb0a" class="cell" data-execution_count="73">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gen(<span class="st">'I liked "Breaking Bad" and "Band of Brothers". Do you have any recommendations of other shows I might like?</span><span class="ch">\n</span><span class="st">'</span>))</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -549,7 +531,7 @@ Answer: Yes, definitely! If you enjoyed "Breaking Bad" and "Band of Brothers," h
 3. "Mad Men" - Set in the 1960s, this AMC series follows the lives ofбад advertising execut</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="74">
+<div id="55228d89-8e25-4afc-b8aa-64ca1de75aae" class="cell" data-execution_count="74">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gen(<span class="st">"대한민국에서 유명한 인공지능 유튜버 3명만 나열해봐."</span>, <span class="dv">500</span>))</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -559,7 +541,7 @@ Answer: Yes, definitely! If you enjoyed "Breaking Bad" and "Band of Brothers," h
 3. 파이널 (Final) - 약 100만 subscribe, 1500만 조회수</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="75">
+<div id="8f6b02e7-24a4-4e48-b09d-28c7008d0f4f" class="cell" data-execution_count="75">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gen(<span class="st">"유튜브 빵형의 개발도상국 채널 알아?"</span>, <span class="dv">500</span>))</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -593,7 +575,7 @@ Answer: Yes, definitely! If you enjoyed "Breaking Bad" and "Band of Brothers," h
 </section>
 <section id="단순-txt-생성하는-모델" class="level3">
 <h3 class="anchored" data-anchor-id="단순-txt-생성하는-모델">2. 단순 txt 생성하는 모델</h3>
-<div class="cell" data-execution_count="64">
+<div id="e6e930d8-4c30-4f09-9ed4-0bc543622f78" class="cell" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>model2 <span class="op">=</span> <span class="st">"meta-llama/Llama-2-7b-hf"</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>tokenizer2 <span class="op">=</span> AutoTokenizer.from_pretrained(</span>
@@ -611,7 +593,7 @@ Answer: Yes, definitely! If you enjoyed "Breaking Bad" and "Band of Brothers," h
 <pre><code>Loading checkpoint shards: 100%|██████████| 2/2 [00:05&lt;00:00,  2.62s/it]</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="65">
+<div id="627dc998-dd32-4053-8789-9d0e3ac89ec3" class="cell" data-execution_count="65">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gen2(x, max_length<span class="op">=</span><span class="dv">200</span>):</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    sequences <span class="op">=</span> pipeline2(</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        x,</span>
@@ -624,7 +606,7 @@ Answer: Yes, definitely! If you enjoyed "Breaking Bad" and "Band of Brothers," h
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sequences[<span class="dv">0</span>][<span class="st">"generated_text"</span>].replace(x, <span class="st">""</span>)</span></code></pre></div>
 </div>
-<div class="cell" data-execution_count="66">
+<div id="ad258ca8-8e8e-437a-8e93-f07ed18874a9" class="cell" data-execution_count="66">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gen2(<span class="st">'I liked "Breaking Bad" and "Band of Brothers". Do you have any recommendations of other shows I might like?</span><span class="ch">\n</span><span class="st">'</span>))</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>I'm a fan of "The Wire" and "The Sopranos" but I'm not sure if you're into gangster movies.
@@ -649,7 +631,7 @@ I'm a big fan of "The Wire" and</code></pre>
 <li>framework 사용할 수 있는 모델..다 적용되지는 않는다.</li>
 </ul></li>
 </ul>
-<div class="cell" data-execution_count="16">
+<div id="80df3051-dec2-48dd-aafd-8e1e94f66ccb" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>checkpoint <span class="op">=</span> <span class="st">"facebook/bart-base"</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(<span class="st">'distilroberta-base'</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>feature_extractor <span class="op">=</span> transformers.pipeline(<span class="st">"feature-extraction"</span>,framework<span class="op">=</span><span class="st">"pt"</span>,model<span class="op">=</span>checkpoint,tokenizer<span class="op">=</span>tokenizer)</span>
@@ -663,7 +645,7 @@ I'm a big fan of "The Wire" and</code></pre>
 <li>9개의 토큰으로 분리됌.</li>
 <li>768차원</li>
 </ul>
-<div class="cell" data-execution_count="17">
+<div id="827dabe5-3e15-4ad9-8396-294f42dc439a" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Reducing along the first dimension to get a 768 dimensional array</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>feature_extractor(text,return_tensors <span class="op">=</span> <span class="st">"pt"</span>)[<span class="dv">0</span>].shape</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
@@ -673,13 +655,13 @@ I'm a big fan of "The Wire" and</code></pre>
 <ul>
 <li>feature_extractor의 결과는 torch로 지정해줘서 torch 로 나옴</li>
 </ul>
-<div class="cell" data-execution_count="18">
+<div id="8c04f2e4-28b7-4fab-9e9c-ef9f46dc556d" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>feature_extractor(text,return_tensors <span class="op">=</span> <span class="st">"pt"</span>)[<span class="dv">0</span>].numpy().mean(axis<span class="op">=</span><span class="dv">0</span>).shape</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>(768,)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="19">
+<div id="d4f97bd1-11db-4f43-b498-9d56642a2775" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>feature_extractor(text,return_tensors <span class="op">=</span> <span class="st">"pt"</span>)[<span class="dv">0</span>].numpy().mean(axis<span class="op">=</span><span class="dv">1</span>).shape</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>(9,)</code></pre>
@@ -688,71 +670,76 @@ I'm a big fan of "The Wire" and</code></pre>
 <ul>
 <li>특징 추출</li>
 </ul>
-<div class="cell" data-execution_count="20">
+<div id="7a003a70-642e-4757-8f35-d43e7900c885" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>plt.plot(feature_extractor(text,return_tensors <span class="op">=</span> <span class="st">"pt"</span>)[<span class="dv">0</span>].numpy().mean(axis<span class="op">=</span><span class="dv">0</span>)) <span class="co"># 특징 추출</span></span></code></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-09-08-llama2_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="2023-09-08-llama2_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-execution_count="21">
+</div>
+<div id="15c7f82b-0969-4934-90be-4cfc9f98cccd" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(feature_extractor(text,return_tensors <span class="op">=</span> <span class="st">"pt"</span>)[<span class="dv">0</span>].numpy().mean(axis<span class="op">=</span><span class="dv">0</span>)).describe()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>0</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>768.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>0.083737</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>0.882607</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>-4.869781</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>-0.423363</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>0.095451</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>0.632395</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>2.976899</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>768.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>0.083737</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>0.882607</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>-4.869781</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>-0.423363</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>0.095451</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>0.632395</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>2.976899</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="52">
+<div id="9950bafb-6817-4c71-913e-4e8c80f4f2b4" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>feature_extractor(text,return_tensors <span class="op">=</span> <span class="st">"pt"</span>)[<span class="dv">0</span>].numpy().mean(axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>array([0.04353118, 0.07581159, 0.0764325 , 0.09305001, 0.08523342,
        0.09044287, 0.09453633, 0.09341192, 0.10118499], dtype=float32)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="57">
+<div id="38a26d7f-e51a-4990-a11e-7ea7cdb79b81" class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>np.array(feature_extractor.predict(<span class="st">"I do not know"</span>)[<span class="dv">0</span>]).mean(axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="57">
 <pre><code>array([0.04564792, 0.0685828 , 0.09174387, 0.08442586, 0.09680472,
@@ -762,7 +749,7 @@ I'm a big fan of "The Wire" and</code></pre>
 </section>
 <section id="특징화-2토큰화한-후-특징-추출" class="level3">
 <h3 class="anchored" data-anchor-id="특징화-2토큰화한-후-특징-추출">특징화 2(토큰화한 후 특징 추출)</h3>
-<div class="cell" data-execution_count="25">
+<div id="99729ec1-c61d-4215-ae1c-471e797179ba" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">=</span> tokenizer(text,return_tensors<span class="op">=</span><span class="st">"pt"</span>,max_length<span class="op">=</span><span class="dv">9</span>)<span class="op">;</span>inputs</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Truncation was not explicitly activated but `max_length` is provided a specific value, please use `truncation=True` to explicitly truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.</code></pre>
@@ -771,19 +758,19 @@ I'm a big fan of "The Wire" and</code></pre>
 <pre><code>{'input_ids': tensor([[    0, 44820,   268,    16,    41,  6344,  5560,   328,     2]]), 'attention_mask': tensor([[1, 1, 1, 1, 1, 1, 1, 1, 1]])}</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="26">
+<div id="d8397645-c64e-4a03-8aeb-35526b0a7886" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(inputs.input_ids[<span class="dv">0</span>]), <span class="bu">len</span>(inputs.attention_mask[<span class="dv">0</span>])</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>(9, 9)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="27">
+<div id="25770e01-e6e4-4dad-b40f-dd69b444ccf1" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>inputs[<span class="dv">0</span>]</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>Encoding(num_tokens=9, attributes=[ids, type_ids, tokens, offsets, attention_mask, special_tokens_mask, overflowing])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="28">
+<div id="d5efe3dd-3e77-4b92-843f-a25957314533" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>tokenizer.decode(inputs.input_ids[<span class="dv">0</span>])</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>'&lt;s&gt;Transformers is an awesome library!&lt;/s&gt;'</code></pre>
@@ -792,16 +779,20 @@ I'm a big fan of "The Wire" and</code></pre>
 <ul>
 <li>특징 추출(outputs[0][0]~outputs[0][4] 까지 존재)</li>
 </ul>
-<div class="cell" data-execution_count="29">
+<div id="9abab761-92a0-4a29-a74c-e41f4db2d26a" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">=</span> feature_extractor(<span class="op">*</span>inputs)<span class="op">;</span>plt.plot(outputs[<span class="dv">0</span>][<span class="dv">0</span>])</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Ignoring args : ('attention_mask',)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-09-08-llama2_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="2023-09-08-llama2_files/figure-html/cell-25-output-2.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-execution_count="30">
+</div>
+<div id="01774365-2729-420d-a4e3-65881296491d" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(outputs[<span class="dv">0</span>][<span class="dv">0</span>])</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>768</code></pre>
@@ -845,10 +836,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -858,8 +848,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -874,6 +873,233 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -914,6 +1140,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

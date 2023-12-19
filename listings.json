@@ -1,46 +1,45 @@
 [
   {
-    "listing": "/3_pygod.html",
+    "listing": "/2_llm.html",
     "items": [
-      "/posts/Research/3_pygod/2023-10-26-pygod.html",
-      "/posts/Research/3_pygod/2023-09-07-ANOMALOUS.html",
-      "/posts/Research/3_pygod/2023-07-22-ls2.out.html"
+      "/posts/2_research/2_llm/2023-09-08-llama2.html",
+      "/posts/2_research/2_llm/2023-08-26-zero-shot.html"
     ]
   },
   {
-    "listing": "/4_llm.html",
+    "listing": "/1_note.html",
     "items": [
-      "/posts/Research/4_llm/2023-09-08-llama2.html",
-      "/posts/Research/4_llm/2023-08-26-zero-shot.html"
-    ]
-  },
-  {
-    "listing": "/2_no_category.html",
-    "items": [
-      "/posts/Research/2_no_category/2023-07-10-fraud_data.html",
-      "/posts/Research/2_no_category/2023-07-08-stock_on_graph.html",
-      "/posts/Research/2_no_category/2023-07-07-Stock_Crawling.html"
+      "/posts/1_note/2023-12-20-note.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
-      "/posts/Research/3_pygod/2023-10-26-pygod.html",
-      "/posts/Research/4_llm/2023-09-08-llama2.html",
-      "/posts/Research/3_pygod/2023-09-07-ANOMALOUS.html",
-      "/posts/Research/4_llm/2023-08-26-zero-shot.html",
-      "/posts/Research/2_no_category/2023-07-10-fraud_data.html",
-      "/posts/Research/2_no_category/2023-07-08-stock_on_graph.html",
-      "/posts/Research/3_pygod/2023-07-22-ls2.out.html",
-      "/posts/Research/2_no_category/2023-07-07-Stock_Crawling.html"
+      "/posts/1_note/2023-12-20-note.html",
+      "/posts/2_research/2_pygod/2023-10-26-pygod.html",
+      "/posts/2_research/2_llm/2023-09-08-llama2.html",
+      "/posts/2_research/2_pygod/2023-09-07-ANOMALOUS.html",
+      "/posts/2_research/2_llm/2023-08-26-zero-shot.html",
+      "/posts/2_research/2_no_category/2023-07-10-fraud_data.html",
+      "/posts/2_research/2_no_category/2023-07-08-stock_on_graph.html",
+      "/posts/2_research/2_pygod/2023-07-22-ls2.out.html",
+      "/posts/2_research/2_no_category/2023-07-07-Stock_Crawling.html"
     ]
   },
   {
-    "listing": "/5_note.html",
-    "items": []
+    "listing": "/2_no_category.html",
+    "items": [
+      "/posts/2_research/2_no_category/2023-07-10-fraud_data.html",
+      "/posts/2_research/2_no_category/2023-07-08-stock_on_graph.html",
+      "/posts/2_research/2_no_category/2023-07-07-Stock_Crawling.html"
+    ]
   },
   {
-    "listing": "/1_studies.html",
-    "items": []
+    "listing": "/2_pygod.html",
+    "items": [
+      "/posts/2_research/2_pygod/2023-10-26-pygod.html",
+      "/posts/2_research/2_pygod/2023-09-07-ANOMALOUS.html",
+      "/posts/2_research/2_pygod/2023-07-22-ls2.out.html"
+    ]
   }
 ]
