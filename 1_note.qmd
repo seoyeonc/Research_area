@@ -1,7 +1,7 @@
 ---
-title: "**Notes**"
+title: "**Studies**"
 listing:
-  contents: posts/3_note
+  contents: posts/1_note
   sort: "date desc"
   type: table
   categories: false
