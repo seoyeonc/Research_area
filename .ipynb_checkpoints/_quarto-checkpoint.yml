@@ -27,11 +27,12 @@ website:
           - 2_no_category.qmd
           - 2_pygod.qmd
           - 2_llm.qmd
+          - 2_gglite.qmd
 
 format:
   html:
     theme: 
-        light: flatly
+        light: pulse
     css: styles.css
     toc: true
     code-fold: false
