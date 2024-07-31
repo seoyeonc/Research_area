@@ -62,7 +62,7 @@
     "href": "posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html",
     "title": "[Farm Data] Graphs",
     "section": "",
-    "text": "Ref: 농림축산식품부 농업경영체 등록정보 현황서비스"
+    "text": "import pandas as pd\nimport plotly.express as px"
   },
   {
     "objectID": "posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html#농업경영체-현황농업인_지역별-농업인-현황",
