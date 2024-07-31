@@ -46,7 +46,7 @@
   {
     "objectID": "posts/2_research/2_no_category/2024-07-28-Science_Idea.html",
     "href": "posts/2_research/2_no_category/2024-07-28-Science_Idea.html",
-    "title": "Research",
+    "title": "[Crime Data] Graphs",
     "section": "",
     "text": "import pandas as pd\nimport plotly.express as px\n\n\ndf = pd.read_csv('./dataset/대검찰청_범죄발생월_20171231.csv', encoding='cp949')\n\n\ndf_melted = df.melt(id_vars='범죄분류', var_name='월', value_name='건수')\n\nfig = px.line(df_melted, x='월', y='건수', color='범죄분류', title='월별 범죄 발생 건수')\nfig.update_layout(xaxis_title='월', yaxis_title='건수')\n\nfig.show()\n\n                                                \n\n\n\ndf = pd.read_csv('./dataset/범죄발생_월_2018.csv', encoding='cp949')\n\n\ndf_melted = df.melt(id_vars='범죄분류', var_name='월', value_name='건수')\n\nfig = px.line(df_melted, x='월', y='건수', color='범죄분류', title='월별 범죄 발생 건수')\nfig.update_layout(xaxis_title='월', yaxis_title='건수')\n\nfig.show()\n\n                                                \n\n\n\ndf = pd.read_csv('./dataset/범죄발생_월_2019.csv', encoding='cp949')\n\n\ndf_melted = df.melt(id_vars='범죄분류', var_name='월', value_name='건수')\n\nfig = px.line(df_melted, x='월', y='건수', color='범죄분류', title='월별 범죄 발생 건수')\nfig.update_layout(xaxis_title='월', yaxis_title='건수')\n\nfig.show()"
   },
@@ -385,7 +385,7 @@
   {
     "objectID": "posts/2_research/2_no_category/2024-07-29-Data_Safe_Idea.html",
     "href": "posts/2_research/2_no_category/2024-07-29-Data_Safe_Idea.html",
-    "title": "Research",
+    "title": "[Farm Data] Graphs",
     "section": "",
     "text": "import pandas as pd\nimport plotly.express as px\n\nhttps://edu.agrix.go.kr/uni_docs7/biOlap/dashBoard.do\n\ndf_2015 = pd.read_csv('./dataset/Farm_dataset/2015_농업경영체 현황(농업인)_지역별 농업인 현황.csv',header=1).iloc[:-1,:4].rename(columns={'Unnamed: 0': '시도명','Unnamed: 1': '농업인수'})\ndf_2015 = df_2015.assign(남성비율 = round(df_2015['남']/df_2015['농업인수'],2)).assign(여성비율 = round(df_2015['여']/df_2015['농업인수'],2)).assign(연도 = 2015)\n# df_2015['여성비율'].mean()\n# df_2015['남성비율'].mean()\n\n\ndfs = []\n\nyears = range(2015, 2024)\n\nfor year in years:\n    file_path = f'./dataset/Farm_dataset/{year}_농업경영체 현황(농업인)_지역별 농업인 현황.csv'\n    df = pd.read_csv(file_path, header=1).iloc[:-1, :4]\n    df = df.rename(columns={'Unnamed: 0': '시도명', 'Unnamed: 1': '농업인수'})\n    df = df.assign(남성비율 = round((df['남'] / df['농업인수'])*100, 2))\n    df = df.assign(여성비율 = round((df['여'] / df['농업인수'])*100, 2))\n    df = df.assign(연도 = year)\n    dfs.append(df)\ndf_all = pd.concat(dfs, ignore_index=True)\n\n\nfig = px.line(df_all, x='연도', y='여성비율', color='시도명',\n              title='연도별 여성 비율',\n              labels={'연도': '연도', '여성비율': '여성 비율'},\n              markers=True)\nfig\n\n                                                \n\n\n\ndf_avg = df_all.groupby('연도').agg({\n    '남성비율': 'mean',\n    '여성비율': 'mean'\n}).reset_index()\nfig = px.line(df_avg, x='연도', y=['남성비율', '여성비율'],\n              title='연도별 평균 남성비율과 여성비율',\n              labels={'연도': '연도', 'value': '비율 (%)'},\n              markers=True)\nfig.update_layout(showlegend=False)\nfig"
   },
