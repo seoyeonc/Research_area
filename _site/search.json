@@ -62,7 +62,7 @@
     "href": "posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html",
     "title": "[Farm Data] Graphs",
     "section": "",
-    "text": "import pandas as pd\nimport plotly.express as px\nimport plotly.graph_objects as go\nimport warnings\nwarnings.filterwarnings('ignore', category=UserWarning, module='openpyxl')"
+    "text": "import pandas as pd\nimport plotly.express as px\nimport plotly.graph_objects as go\nfrom plotly.subplots import make_subplots\nimport warnings\nwarnings.filterwarnings('ignore', category=UserWarning, module='openpyxl')"
   },
   {
     "objectID": "posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html#농업경영체-현황농업인_지역별-농업인-현황",
@@ -84,6 +84,27 @@
     "title": "[Farm Data] Graphs",
     "section": "농업경영체현황(농업인)_지역별공동경영주현황",
     "text": "농업경영체현황(농업인)_지역별공동경영주현황\n\ndfs = []\n\nyears = range(2018, 2024)\n\nfor year in years:\n    file_path = f'./dataset/Farm_dataset/{year}_농업경영체현황(농업인)_지역별공동경영주현황.xlsx'\n    df = pd.read_excel(file_path, header=1).iloc[:-1, [0,1,2,11]]\n    df = df.rename(columns={'Unnamed: 0': '시도명', 'Unnamed: 1': '농업인수','계':'남성','계.1':'여성'})\n    df = df.assign(남성비율 = round((df['남성'] / df['농업인수'])*100, 2))\n    df = df.assign(여성비율 = round((df['여성'] / df['농업인수'])*100, 2))\n    df = df.assign(연도 = year)\n    dfs.append(df)\ndf_all = pd.concat(dfs, ignore_index=True)\n\n\nfig = px.line(df_all, x='연도', y='여성비율', color='시도명',\n              title='연도별 여성 비율',\n              labels={'연도': '연도', '여성비율': '여성 비율'},\n              markers=True)\nfig\n\n                                                \n\n\n\ndf_avg = df_all.groupby('연도').agg({\n    '남성비율': 'mean',\n    '여성비율': 'mean'\n}).reset_index()\nfig = px.line(df_avg, x='연도', y=['남성비율', '여성비율'],\n              title='연도별 평균 남성비율과 여성비율',\n              labels={'연도': '연도', 'value': '비율 (%)'},\n              markers=True)\nfig.update_layout(showlegend=False)\nfig"
+  },
+  {
+    "objectID": "posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html#교육_참여를_위한_개선_필요사항",
+    "href": "posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html#교육_참여를_위한_개선_필요사항",
+    "title": "[Farm Data] Graphs",
+    "section": "교육_참여를_위한_개선_필요사항",
+    "text": "교육_참여를_위한_개선_필요사항\n\ndf = pd.read_csv('./dataset/Farm_dataset/2023_교육_참여를_위한_개선_필요사항.csv',header=1).iloc[[6,7,8,9],1:].T.reset_index().rename(columns={6:'40대 이하',7:'50대',8:'60대',9:'70대 이상'}).iloc[2:,:]\n\n\nfig = make_subplots(rows=2, cols=2, \n                    specs=[[{'type': 'pie'}, {'type': 'pie'}], \n                           [{'type': 'pie'}, {'type': 'pie'}]])\nfig.add_trace(go.Pie(labels=df['index'], values=df['40대 이하'],name=\"40대 이하\"), 1, 1)\nfig.add_trace(go.Pie(labels=df['index'], values=df['50대'],name=\"50대\"), 1, 2)\nfig.add_trace(go.Pie(labels=df['index'], values=df['60대'],name=\"60대\"), 2, 1)\nfig.add_trace(go.Pie(labels=df['index'], values=df['70대 이상'],name=\"70대 이상\"), 2, 2)\n\n\nfig.update_layout(\n    title_text='여성의 연령대별 교육 참여를 위한 개선 필요사항',\n    title_x=0.5,  # Center the title\n    legend=dict(\n        orientation=\"h\",  # Horizontal legend\n        yanchor=\"top\",\n        y=-0.2,  # Move legend below the plot\n        xanchor=\"center\",\n        x=0.5\n    ),\n    width=1000,\n    height=800\n)\n\nfig.show()"
+  },
+  {
+    "objectID": "posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html#디지털_기술_활용_역량",
+    "href": "posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html#디지털_기술_활용_역량",
+    "title": "[Farm Data] Graphs",
+    "section": "2023_디지털_기술_활용_역량",
+    "text": "2023_디지털_기술_활용_역량\n\ndf = pd.read_csv('./dataset/Farm_dataset/2023_디지털_기술_활용_역량.csv',header=0).iloc[[0,1,9],:].T.iloc[2:,:].rename(columns = {0:'cat',1:'항목',9:'value'}).query(\"항목 != '사례수 (명)'\")\n# 40대 이하# 40대 이하\ndf['value'] = pd.to_numeric(df['value'], errors='coerce')\ndf.loc[df.groupby('cat')['value'].idxmax()]\n\n\n\n\n\n\n\n\ncat\n항목\nvalue\n\n\n\n\n2023.39\n셀프주유소\n혼자 능숙하게 사용함 (%)\n85.1\n\n\n2023.14\n소셜미디어 서비스\n혼자 능숙하게 사용함 (%)\n85.8\n\n\n2023.4\n스마트폰/PC 정보검색\n혼자 능숙하게 사용함 (%)\n99.4\n\n\n2023.24\n온라인 공공행정 서비스\n혼자 능숙하게 사용함 (%)\n73.9\n\n\n2023.29\n온라인 금융거래\n혼자 능숙하게 사용함 (%)\n95.0\n\n\n2023.19\n온라인 예약/쇼핑/결제\n혼자 능숙하게 사용함 (%)\n98.5\n\n\n2023.9\n이메일/메신저 사용\n혼자 능숙하게 사용함 (%)\n95.6\n\n\n2023.34\n키오스크 주문\n혼자 능숙하게 사용함 (%)\n96.2\n\n\n\n\n\n\n\n\ndf = pd.read_csv('./dataset/Farm_dataset/2023_디지털_기술_활용_역량.csv',header=0).iloc[[0,1,10],:].T.iloc[2:,:].rename(columns = {0:'cat',1:'항목',10:'value'}).query(\"항목 != '사례수 (명)'\")\n# 50대\ndf['value'] = pd.to_numeric(df['value'], errors='coerce')\ndf.loc[df.groupby('cat')['value'].idxmax()]\n\n\n\n\n\n\n\n\ncat\n항목\nvalue\n\n\n\n\n2023.39\n셀프주유소\n혼자 능숙하게 사용함 (%)\n73.8\n\n\n2023.14\n소셜미디어 서비스\n혼자 능숙하게 사용함 (%)\n64.2\n\n\n2023.4\n스마트폰/PC 정보검색\n혼자 능숙하게 사용함 (%)\n91.8\n\n\n2023.24\n온라인 공공행정 서비스\n혼자 능숙하게 사용함 (%)\n43.5\n\n\n2023.29\n온라인 금융거래\n혼자 능숙하게 사용함 (%)\n86.2\n\n\n2023.19\n온라인 예약/쇼핑/결제\n혼자 능숙하게 사용함 (%)\n76.8\n\n\n2023.9\n이메일/메신저 사용\n혼자 능숙하게 사용함 (%)\n86.1\n\n\n2023.34\n키오스크 주문\n혼자 능숙하게 사용함 (%)\n71.1\n\n\n\n\n\n\n\n\ndf = pd.read_csv('./dataset/Farm_dataset/2023_디지털_기술_활용_역량.csv',header=0).iloc[[0,1,11],:].T.iloc[2:,:].rename(columns = {0:'cat',1:'항목',11:'value'}).query(\"항목 != '사례수 (명)'\")\n# 60대\ndf['value'] = pd.to_numeric(df['value'], errors='coerce')\ndf.loc[df.groupby('cat')['value'].idxmax()]\n\n\n\n\n\n\n\n\ncat\n항목\nvalue\n\n\n\n\n2023.39\n셀프주유소\n혼자 능숙하게 사용함 (%)\n48.0\n\n\n2023.14\n소셜미디어 서비스\n혼자 능숙하게 사용함 (%)\n31.3\n\n\n2023.4\n스마트폰/PC 정보검색\n혼자 능숙하게 사용함 (%)\n72.1\n\n\n2023.21\n온라인 공공행정 서비스\n전혀 사용할 줄 모름 (%)\n35.6\n\n\n2023.29\n온라인 금융거래\n혼자 능숙하게 사용함 (%)\n43.4\n\n\n2023.19\n온라인 예약/쇼핑/결제\n혼자 능숙하게 사용함 (%)\n33.0\n\n\n2023.9\n이메일/메신저 사용\n혼자 능숙하게 사용함 (%)\n79.3\n\n\n2023.34\n키오스크 주문\n혼자 능숙하게 사용함 (%)\n35.2\n\n\n\n\n\n\n\n\ndf = pd.read_csv('./dataset/Farm_dataset/2023_디지털_기술_활용_역량.csv',header=0).iloc[[0,1,12],:].T.iloc[2:,:].rename(columns = {0:'cat',1:'항목',12:'value'}).query(\"항목 != '사례수 (명)'\")\n# 70대 이상\ndf['value'] = pd.to_numeric(df['value'], errors='coerce')\ndf.loc[df.groupby('cat')['value'].idxmax()]\n\n\n\n\n\n\n\n\ncat\n항목\nvalue\n\n\n\n\n2023.40\n셀프주유소\n비해당 (%)\n62.4\n\n\n2023.11\n소셜미디어 서비스\n전혀 사용할 줄 모름 (%)\n73.8\n\n\n2023.1\n스마트폰/PC 정보검색\n전혀 사용할 줄 모름 (%)\n35.5\n\n\n2023.21\n온라인 공공행정 서비스\n전혀 사용할 줄 모름 (%)\n79.8\n\n\n2023.26\n온라인 금융거래\n전혀 사용할 줄 모름 (%)\n66.6\n\n\n2023.16\n온라인 예약/쇼핑/결제\n전혀 사용할 줄 모름 (%)\n70.4\n\n\n2023.6\n이메일/메신저 사용\n전혀 사용할 줄 모름 (%)\n34.9\n\n\n2023.31\n키오스크 주문\n전혀 사용할 줄 모름 (%)\n61.4"
+  },
+  {
+    "objectID": "posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html#여성농업인의_자격증_보유_현황",
+    "href": "posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html#여성농업인의_자격증_보유_현황",
+    "title": "[Farm Data] Graphs",
+    "section": "여성농업인의_자격증_보유_현황",
+    "text": "여성농업인의_자격증_보유_현황\n\ndf = pd.read_csv('./dataset/Farm_dataset/2023_여성농업인의_자격증_보유_현황.csv').iloc[7:11,[1,-1]].rename(columns={'구분(2)':'연령','2023.4':'자격증 평균 보유 수'})\ndf['자격증 평균 보유 수'] = pd.to_numeric(df['자격증 평균 보유 수'], errors='coerce')\nfig = px.bar(df, x='연령', y='자격증 평균 보유 수')\nfig.show()"
   },
   {
     "objectID": "posts/2_research/2_pygod/2023-10-26-pygod.html",
