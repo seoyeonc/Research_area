@@ -29,6 +29,7 @@ website:
           - 2_llm.qmd
           - 2_gglite.qmd
           - 2_report.qmd
+          - 2_coding.qmd
 
 format:
   html:
