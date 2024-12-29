@@ -13,11 +13,10 @@
     ]
   },
   {
-    "listing": "/2_pygod.html",
+    "listing": "/2_report.html",
     "items": [
-      "/posts/2_research/2_pygod/2023-10-26-pygod.html",
-      "/posts/2_research/2_pygod/2023-09-07-ANOMALOUS.html",
-      "/posts/2_research/2_pygod/2023-07-22-ls2.out.html"
+      "/posts/2_research/2_report/2024-12-03-Report_Creditcard.html",
+      "/posts/2_research/2_report/2024-12-01-Report_Crime.html"
     ]
   },
   {
@@ -30,7 +29,10 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/2_research/2_report/2024-12-01-Report_.html",
+      "/posts/2_research/2_coding/2024-12-29-Coding_1.html",
+      "/posts/2_research/2_coding/2024-12-20-Python.html",
+      "/posts/2_research/2_report/2024-12-03-Report_Creditcard.html",
+      "/posts/2_research/2_report/2024-12-01-Report_Crime.html",
       "/posts/2_research/2_no_category/2024-10-13-bigcontest.html",
       "/posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html",
       "/posts/2_research/2_no_category/2024-06-02-hellokan.html",
@@ -59,9 +61,18 @@
     ]
   },
   {
-    "listing": "/2_report.html",
+    "listing": "/2_pygod.html",
     "items": [
-      "/posts/2_research/2_report/2024-12-01-Report_.html"
+      "/posts/2_research/2_pygod/2023-10-26-pygod.html",
+      "/posts/2_research/2_pygod/2023-09-07-ANOMALOUS.html",
+      "/posts/2_research/2_pygod/2023-07-22-ls2.out.html"
+    ]
+  },
+  {
+    "listing": "/2_coding.html",
+    "items": [
+      "/posts/2_research/2_coding/2024-12-29-Coding_1.html",
+      "/posts/2_research/2_coding/2024-12-20-Python.html"
     ]
   }
 ]

@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="pykan">
-<meta name="dcterms.date" content="2024-06-02">
+<meta name="author" content="SEOYEON CHOI">
+<meta name="dcterms.date" content="2024-12-01">
 
-<title>Research - Kolmogorov-Arnold Network (KAN)</title>
+<title>Research - [Report]Credit Card</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -102,36 +102,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -179,7 +153,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Kolmogorov-Arnold Network (KAN)</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>[Report]</strong>Credit Card</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -192,7 +166,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Kolmogorov-Arnold Network (KAN)</h1>
+      <h1 class="title"><strong>[Report]</strong>Credit Card</h1>
                       </div>
   </div>
     
@@ -202,14 +176,14 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>pykan </p>
+               <p>SEOYEON CHOI </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 2, 2024</p>
+        <p class="date">December 1, 2024</p>
       </div>
     </div>
     
@@ -290,12 +264,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#hello-kan" id="toc-hello-kan" class="nav-link active" data-scroll-target="#hello-kan">Hello, KAN!</a>
-  <ul class="collapse">
-  <li><a href="#kolmogorov-arnold-representation-theorem" id="toc-kolmogorov-arnold-representation-theorem" class="nav-link" data-scroll-target="#kolmogorov-arnold-representation-theorem">Kolmogorov-Arnold representation theorem</a></li>
-  <li><a href="#kolmogorov-arnold-network-kan" id="toc-kolmogorov-arnold-network-kan" class="nav-link" data-scroll-target="#kolmogorov-arnold-network-kan">Kolmogorov-Arnold Network (KAN)</a></li>
-  <li><a href="#get-started-with-kans" id="toc-get-started-with-kans" class="nav-link" data-scroll-target="#get-started-with-kans">Get started with KANs</a></li>
-  </ul></li>
+  <li><a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import">Import</a></li>
   </ul>
 </nav>
     </div>
@@ -306,164 +275,675 @@ window.Quarto = {
 
 
 
-<p>ref: https://github.com/KindXiaoming/pykan?tab=readme-ov-file</p>
-<section id="hello-kan" class="level1">
-<h1>Hello, KAN!</h1>
-<section id="kolmogorov-arnold-representation-theorem" class="level3">
-<h3 class="anchored" data-anchor-id="kolmogorov-arnold-representation-theorem">Kolmogorov-Arnold representation theorem</h3>
-<p>Kolmogorov-Arnold representation theorem states that if <span class="math inline">\(f\)</span> is a multivariate continuous function on a bounded domain, then it can be written as a finite composition of continuous functions of a single variable and the binary operation of addition. More specifically, for a smooth <span class="math inline">\(f : [0,1]^n \to \mathbb{R}\)</span>,</p>
-<p><span class="math display">\[f(x) = f(x_1,...,x_n)=\sum_{q=1}^{2n+1}\Phi_q(\sum_{p=1}^n \phi_{q,p}(x_p))\]</span></p>
-<p>where <span class="math inline">\(\phi_{q,p}:[0,1]\to\mathbb{R}\)</span> and <span class="math inline">\(\Phi_q:\mathbb{R}\to\mathbb{R}\)</span>. In a sense, they showed that the only true multivariate function is addition, since every other function can be written using univariate functions and sum. However, this 2-Layer width-<span class="math inline">\((2n+1)\)</span> Kolmogorov-Arnold representation may not be smooth due to its limited expressive power. We augment its expressive power by generalizing it to arbitrary depths and widths.</p>
-</section>
-<section id="kolmogorov-arnold-network-kan" class="level3">
-<h3 class="anchored" data-anchor-id="kolmogorov-arnold-network-kan">Kolmogorov-Arnold Network (KAN)</h3>
-<p>The Kolmogorov-Arnold representation can be written in matrix form</p>
-<p><span class="math display">\[f(x)={\bf \Phi}_{\rm out}\circ{\bf \Phi}_{\rm in}\circ {\bf x}\]</span></p>
-<p>where</p>
-<p><span class="math display">\[{\bf \Phi}_{\rm in}= \begin{pmatrix} \phi_{1,1}(\cdot) &amp; \cdots &amp; \phi_{1,n}(\cdot) \\ \vdots &amp; &amp; \vdots \\ \phi_{2n+1,1}(\cdot) &amp; \cdots &amp; \phi_{2n+1,n}(\cdot) \end{pmatrix},\quad {\bf \Phi}_{\rm out}=\begin{pmatrix} \Phi_1(\cdot) &amp; \cdots &amp; \Phi_{2n+1}(\cdot)\end{pmatrix}\]</span></p>
-<p>We notice that both <span class="math inline">\({\bf \Phi}_{\rm in}\)</span> and <span class="math inline">\({\bf \Phi}_{\rm out}\)</span> are special cases of the following function matrix <span class="math inline">\({\bf \Phi}\)</span> (with <span class="math inline">\(n_{\rm in}\)</span> inputs, and <span class="math inline">\(n_{\rm out}\)</span> outputs), we call a Kolmogorov-Arnold layer:</p>
-<p><span class="math display">\[{\bf \Phi}= \begin{pmatrix} \phi_{1,1}(\cdot) &amp; \cdots &amp; \phi_{1,n_{\rm in}}(\cdot) \\ \vdots &amp; &amp; \vdots \\ \phi_{n_{\rm out},1}(\cdot) &amp; \cdots &amp; \phi_{n_{\rm out},n_{\rm in}}(\cdot) \end{pmatrix}\]</span></p>
-<p><span class="math inline">\({\bf \Phi}_{\rm in}\)</span> corresponds to <span class="math inline">\(n_{\rm in}=n, n_{\rm out}=2n+1\)</span>, and <span class="math inline">\({\bf \Phi}_{\rm out}\)</span> corresponds to <span class="math inline">\(n_{\rm in}=2n+1, n_{\rm out}=1\)</span>.</p>
-<p>After defining the layer, we can construct a Kolmogorov-Arnold network simply by stacking layers! Let’s say we have <span class="math inline">\(L\)</span> layers, with the <span class="math inline">\(l^{\rm th}\)</span> layer <span class="math inline">\({\bf \Phi}_l\)</span> have shape <span class="math inline">\((n_{l+1}, n_{l})\)</span>. Then the whole network is</p>
-<p><span class="math display">\[{\rm KAN}({\bf x})={\bf \Phi}_{L-1}\circ\cdots \circ{\bf \Phi}_1\circ{\bf \Phi}_0\circ {\bf x}\]</span></p>
-<p>In constrast, a Multi-Layer Perceptron is interleaved by linear layers <span class="math inline">\({\bf W}_l\)</span> and nonlinearities <span class="math inline">\(\sigma\)</span>:</p>
-<p><span class="math display">\[{\rm MLP}({\bf x})={\bf W}_{L-1}\circ\sigma\circ\cdots\circ {\bf W}_1\circ\sigma\circ {\bf W}_0\circ {\bf x}\]</span></p>
-<p>A KAN can be easily visualized. (1) A KAN is simply stack of KAN layers. (2) Each KAN layer can be visualized as a fully-connected layer, with a 1D function placed on each edge. Let’s see an example below.</p>
-</section>
-<section id="get-started-with-kans" class="level3">
-<h3 class="anchored" data-anchor-id="get-started-with-kans">Get started with KANs</h3>
-<p>Initialize KAN</p>
-<div id="2075ef56" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> kan <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create a KAN: 2D inputs, 1D output, and 5 hidden neurons. cubic spline (k=3), 5 grid intervals (grid=5).</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> KAN(width<span class="op">=</span>[<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">1</span>], grid<span class="op">=</span><span class="dv">5</span>, k<span class="op">=</span><span class="dv">3</span>, seed<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<p><a href="https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud">kaggle</a></p>
+<p><code>-</code> 맥락</p>
+<ul>
+<li>신용카드 회사는 고객이 구매하지 않은 품목에 대해 청구되지 않도록, 신용카드 사기 거래를 인식하는 것이 중요합니다.</li>
+</ul>
+<p><code>-</code> 내용</p>
+<ul>
+<li>이 데이터셋은 2013년 9월, 유럽 카드 소유자가 만든 거래를 포함합니다.</li>
+<li>2일 동안의 거래가 포함되어 있으며, 총 284,807건 중 492건(0.172%)이 사기로 분류된 불균형 데이터셋입니다.</li>
+<li>입력 변수는 PCA 변환을 통해 얻은 수치형 데이터로, 원래의 특성과 배경 정보는 제공되지 않습니다.</li>
+<li>Time: 첫 거래로부터 각 거래까지 경과 시간(초).</li>
+<li>Amount: 거래 금액. 비용 민감 학습에 사용할 수 있음.</li>
+<li>Class: 반응 변수. 1(사기), 0(정상 거래).</li>
+</ul>
+<p><code>-</code>권장 사항</p>
+<ul>
+<li>데이터 불균형으로 인해 <strong>정확도는 Precision-Recall Curve(AUPRC)</strong>로 측정하는 것이 적합합니다.</li>
+<li>혼동행렬 기반 정확도는 유의미하지 않음.</li>
+</ul>
+<hr>
+<div id="b24815a7-eea0-4e26-8157-e4f09dc5d898" class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 한글 폰트를 사용하기 위해 필요한 코드입니다.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.font_manager <span class="im">as</span> fm</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 'NotoSansKR-Regular.otf' 파일을 사용하여 한글 폰트를 지정하고, 폰트 매니저에 추가합니다.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>fe <span class="op">=</span> fm.FontEntry(fname<span class="op">=</span><span class="st">'NotoSansKR-Regular.otf'</span>, name<span class="op">=</span><span class="st">'NotoSansKR'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>fm.fontManager.ttflist.insert(<span class="dv">0</span>, fe)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>plt.rc(<span class="st">'font'</span>, family<span class="op">=</span><span class="st">'NotoSansKR'</span>)</span></code></pre></div>
 </div>
-<p>Create dataset</p>
-<div id="46717e8b" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create dataset f(x,y) = exp(sin(pi*x)+y^2)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: torch.exp(torch.sin(torch.pi<span class="op">*</span>x[:,[<span class="dv">0</span>]]) <span class="op">+</span> x[:,[<span class="dv">1</span>]]<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> create_dataset(f, n_var<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dataset[<span class="st">'train_input'</span>].shape, dataset[<span class="st">'train_label'</span>].shape</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>(torch.Size([1000, 2]), torch.Size([1000, 1]))</code></pre>
+<section id="import" class="level1">
+<h1>Import</h1>
+<div id="e4428601-8a11-4d8f-af64-bbdd6c348218" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div>
+</div>
+<div id="96347389-f839-4755-9d9e-4ea1b84c4139" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../../../delete_/creditcard.csv'</span>, encoding<span class="op">=</span><span class="st">'cp949'</span>)</span></code></pre></div>
+</div>
+<div id="ad844d2d-3585-46f2-8713-8b72496135e0" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">V1</th>
+<th data-quarto-table-cell-role="th">V2</th>
+<th data-quarto-table-cell-role="th">V3</th>
+<th data-quarto-table-cell-role="th">V4</th>
+<th data-quarto-table-cell-role="th">V5</th>
+<th data-quarto-table-cell-role="th">V6</th>
+<th data-quarto-table-cell-role="th">V7</th>
+<th data-quarto-table-cell-role="th">V8</th>
+<th data-quarto-table-cell-role="th">V9</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">V21</th>
+<th data-quarto-table-cell-role="th">V22</th>
+<th data-quarto-table-cell-role="th">V23</th>
+<th data-quarto-table-cell-role="th">V24</th>
+<th data-quarto-table-cell-role="th">V25</th>
+<th data-quarto-table-cell-role="th">V26</th>
+<th data-quarto-table-cell-role="th">V27</th>
+<th data-quarto-table-cell-role="th">V28</th>
+<th data-quarto-table-cell-role="th">Amount</th>
+<th data-quarto-table-cell-role="th">Class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.0</td>
+<td>-1.359807</td>
+<td>-0.072781</td>
+<td>2.536347</td>
+<td>1.378155</td>
+<td>-0.338321</td>
+<td>0.462388</td>
+<td>0.239599</td>
+<td>0.098698</td>
+<td>0.363787</td>
+<td>...</td>
+<td>-0.018307</td>
+<td>0.277838</td>
+<td>-0.110474</td>
+<td>0.066928</td>
+<td>0.128539</td>
+<td>-0.189115</td>
+<td>0.133558</td>
+<td>-0.021053</td>
+<td>149.62</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.0</td>
+<td>1.191857</td>
+<td>0.266151</td>
+<td>0.166480</td>
+<td>0.448154</td>
+<td>0.060018</td>
+<td>-0.082361</td>
+<td>-0.078803</td>
+<td>0.085102</td>
+<td>-0.255425</td>
+<td>...</td>
+<td>-0.225775</td>
+<td>-0.638672</td>
+<td>0.101288</td>
+<td>-0.339846</td>
+<td>0.167170</td>
+<td>0.125895</td>
+<td>-0.008983</td>
+<td>0.014724</td>
+<td>2.69</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1.0</td>
+<td>-1.358354</td>
+<td>-1.340163</td>
+<td>1.773209</td>
+<td>0.379780</td>
+<td>-0.503198</td>
+<td>1.800499</td>
+<td>0.791461</td>
+<td>0.247676</td>
+<td>-1.514654</td>
+<td>...</td>
+<td>0.247998</td>
+<td>0.771679</td>
+<td>0.909412</td>
+<td>-0.689281</td>
+<td>-0.327642</td>
+<td>-0.139097</td>
+<td>-0.055353</td>
+<td>-0.059752</td>
+<td>378.66</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1.0</td>
+<td>-0.966272</td>
+<td>-0.185226</td>
+<td>1.792993</td>
+<td>-0.863291</td>
+<td>-0.010309</td>
+<td>1.247203</td>
+<td>0.237609</td>
+<td>0.377436</td>
+<td>-1.387024</td>
+<td>...</td>
+<td>-0.108300</td>
+<td>0.005274</td>
+<td>-0.190321</td>
+<td>-1.175575</td>
+<td>0.647376</td>
+<td>-0.221929</td>
+<td>0.062723</td>
+<td>0.061458</td>
+<td>123.50</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2.0</td>
+<td>-1.158233</td>
+<td>0.877737</td>
+<td>1.548718</td>
+<td>0.403034</td>
+<td>-0.407193</td>
+<td>0.095921</td>
+<td>0.592941</td>
+<td>-0.270533</td>
+<td>0.817739</td>
+<td>...</td>
+<td>-0.009431</td>
+<td>0.798278</td>
+<td>-0.137458</td>
+<td>0.141267</td>
+<td>-0.206010</td>
+<td>0.502292</td>
+<td>0.219422</td>
+<td>0.215153</td>
+<td>69.99</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">284802</td>
+<td>172786.0</td>
+<td>-11.881118</td>
+<td>10.071785</td>
+<td>-9.834783</td>
+<td>-2.066656</td>
+<td>-5.364473</td>
+<td>-2.606837</td>
+<td>-4.918215</td>
+<td>7.305334</td>
+<td>1.914428</td>
+<td>...</td>
+<td>0.213454</td>
+<td>0.111864</td>
+<td>1.014480</td>
+<td>-0.509348</td>
+<td>1.436807</td>
+<td>0.250034</td>
+<td>0.943651</td>
+<td>0.823731</td>
+<td>0.77</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">284803</td>
+<td>172787.0</td>
+<td>-0.732789</td>
+<td>-0.055080</td>
+<td>2.035030</td>
+<td>-0.738589</td>
+<td>0.868229</td>
+<td>1.058415</td>
+<td>0.024330</td>
+<td>0.294869</td>
+<td>0.584800</td>
+<td>...</td>
+<td>0.214205</td>
+<td>0.924384</td>
+<td>0.012463</td>
+<td>-1.016226</td>
+<td>-0.606624</td>
+<td>-0.395255</td>
+<td>0.068472</td>
+<td>-0.053527</td>
+<td>24.79</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">284804</td>
+<td>172788.0</td>
+<td>1.919565</td>
+<td>-0.301254</td>
+<td>-3.249640</td>
+<td>-0.557828</td>
+<td>2.630515</td>
+<td>3.031260</td>
+<td>-0.296827</td>
+<td>0.708417</td>
+<td>0.432454</td>
+<td>...</td>
+<td>0.232045</td>
+<td>0.578229</td>
+<td>-0.037501</td>
+<td>0.640134</td>
+<td>0.265745</td>
+<td>-0.087371</td>
+<td>0.004455</td>
+<td>-0.026561</td>
+<td>67.88</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">284805</td>
+<td>172788.0</td>
+<td>-0.240440</td>
+<td>0.530483</td>
+<td>0.702510</td>
+<td>0.689799</td>
+<td>-0.377961</td>
+<td>0.623708</td>
+<td>-0.686180</td>
+<td>0.679145</td>
+<td>0.392087</td>
+<td>...</td>
+<td>0.265245</td>
+<td>0.800049</td>
+<td>-0.163298</td>
+<td>0.123205</td>
+<td>-0.569159</td>
+<td>0.546668</td>
+<td>0.108821</td>
+<td>0.104533</td>
+<td>10.00</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">284806</td>
+<td>172792.0</td>
+<td>-0.533413</td>
+<td>-0.189733</td>
+<td>0.703337</td>
+<td>-0.506271</td>
+<td>-0.012546</td>
+<td>-0.649617</td>
+<td>1.577006</td>
+<td>-0.414650</td>
+<td>0.486180</td>
+<td>...</td>
+<td>0.261057</td>
+<td>0.643078</td>
+<td>0.376777</td>
+<td>0.008797</td>
+<td>-0.473649</td>
+<td>-0.818267</td>
+<td>-0.002415</td>
+<td>0.013649</td>
+<td>217.00</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>284807 rows × 31 columns</p>
 </div>
 </div>
-<p>Plot KAN at initialization</p>
-<div id="ac76f858" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot KAN at initialization</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>model(dataset[<span class="st">'train_input'</span>])<span class="op">;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>model.plot(beta<span class="op">=</span><span class="dv">100</span>)</span></code></pre></div>
+</div>
+<div id="c1beb24a-21fc-4f33-9283-9ae2c003d498" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.plot(df.Amount,<span class="st">'.'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.plot(df.Class,<span class="st">'.'</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="2024-06-02-hellokan_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="2024-12-03-Report_Creditcard_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Train KAN with sparsity regularization</p>
-<div id="97111d75" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># train the model</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>model.train(dataset, opt<span class="op">=</span><span class="st">"LBFGS"</span>, steps<span class="op">=</span><span class="dv">20</span>, lamb<span class="op">=</span><span class="fl">0.01</span>, lamb_entropy<span class="op">=</span><span class="fl">10.</span>)<span class="op">;</span></span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>train loss: 1.33e-01 | test loss: 1.38e-01 | reg: 2.67e+01 : 100%|██| 20/20 [00:04&lt;00:00,  4.04it/s]</code></pre>
+<div id="465a5d14-2f93-44b9-ba57-68eb3b138fb2" class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.Class.value_counts()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="58">
+<pre><code>0    284315
+1       492
+Name: Class, dtype: int64</code></pre>
 </div>
 </div>
-<p>Plot trained KAN</p>
-<div id="3f95fcdd" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model.plot()</span></code></pre></div>
-<div class="cell-output cell-output-display">
+<div id="52b220fb-4fb7-477e-a3cf-65d5bc282080" class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df[df.Class<span class="op">==</span><span class="dv">1</span>]</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="59">
 <div>
-<figure class="figure">
-<p><img src="2024-06-02-hellokan_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
-</figure>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">V1</th>
+<th data-quarto-table-cell-role="th">V2</th>
+<th data-quarto-table-cell-role="th">V3</th>
+<th data-quarto-table-cell-role="th">V4</th>
+<th data-quarto-table-cell-role="th">V5</th>
+<th data-quarto-table-cell-role="th">V6</th>
+<th data-quarto-table-cell-role="th">V7</th>
+<th data-quarto-table-cell-role="th">V8</th>
+<th data-quarto-table-cell-role="th">V9</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">V21</th>
+<th data-quarto-table-cell-role="th">V22</th>
+<th data-quarto-table-cell-role="th">V23</th>
+<th data-quarto-table-cell-role="th">V24</th>
+<th data-quarto-table-cell-role="th">V25</th>
+<th data-quarto-table-cell-role="th">V26</th>
+<th data-quarto-table-cell-role="th">V27</th>
+<th data-quarto-table-cell-role="th">V28</th>
+<th data-quarto-table-cell-role="th">Amount</th>
+<th data-quarto-table-cell-role="th">Class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">541</td>
+<td>406.0</td>
+<td>-2.312227</td>
+<td>1.951992</td>
+<td>-1.609851</td>
+<td>3.997906</td>
+<td>-0.522188</td>
+<td>-1.426545</td>
+<td>-2.537387</td>
+<td>1.391657</td>
+<td>-2.770089</td>
+<td>...</td>
+<td>0.517232</td>
+<td>-0.035049</td>
+<td>-0.465211</td>
+<td>0.320198</td>
+<td>0.044519</td>
+<td>0.177840</td>
+<td>0.261145</td>
+<td>-0.143276</td>
+<td>0.00</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">623</td>
+<td>472.0</td>
+<td>-3.043541</td>
+<td>-3.157307</td>
+<td>1.088463</td>
+<td>2.288644</td>
+<td>1.359805</td>
+<td>-1.064823</td>
+<td>0.325574</td>
+<td>-0.067794</td>
+<td>-0.270953</td>
+<td>...</td>
+<td>0.661696</td>
+<td>0.435477</td>
+<td>1.375966</td>
+<td>-0.293803</td>
+<td>0.279798</td>
+<td>-0.145362</td>
+<td>-0.252773</td>
+<td>0.035764</td>
+<td>529.00</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4920</td>
+<td>4462.0</td>
+<td>-2.303350</td>
+<td>1.759247</td>
+<td>-0.359745</td>
+<td>2.330243</td>
+<td>-0.821628</td>
+<td>-0.075788</td>
+<td>0.562320</td>
+<td>-0.399147</td>
+<td>-0.238253</td>
+<td>...</td>
+<td>-0.294166</td>
+<td>-0.932391</td>
+<td>0.172726</td>
+<td>-0.087330</td>
+<td>-0.156114</td>
+<td>-0.542628</td>
+<td>0.039566</td>
+<td>-0.153029</td>
+<td>239.93</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">6108</td>
+<td>6986.0</td>
+<td>-4.397974</td>
+<td>1.358367</td>
+<td>-2.592844</td>
+<td>2.679787</td>
+<td>-1.128131</td>
+<td>-1.706536</td>
+<td>-3.496197</td>
+<td>-0.248778</td>
+<td>-0.247768</td>
+<td>...</td>
+<td>0.573574</td>
+<td>0.176968</td>
+<td>-0.436207</td>
+<td>-0.053502</td>
+<td>0.252405</td>
+<td>-0.657488</td>
+<td>-0.827136</td>
+<td>0.849573</td>
+<td>59.00</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6329</td>
+<td>7519.0</td>
+<td>1.234235</td>
+<td>3.019740</td>
+<td>-4.304597</td>
+<td>4.732795</td>
+<td>3.624201</td>
+<td>-1.357746</td>
+<td>1.713445</td>
+<td>-0.496358</td>
+<td>-1.282858</td>
+<td>...</td>
+<td>-0.379068</td>
+<td>-0.704181</td>
+<td>-0.656805</td>
+<td>-1.632653</td>
+<td>1.488901</td>
+<td>0.566797</td>
+<td>-0.010016</td>
+<td>0.146793</td>
+<td>1.00</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">279863</td>
+<td>169142.0</td>
+<td>-1.927883</td>
+<td>1.125653</td>
+<td>-4.518331</td>
+<td>1.749293</td>
+<td>-1.566487</td>
+<td>-2.010494</td>
+<td>-0.882850</td>
+<td>0.697211</td>
+<td>-2.064945</td>
+<td>...</td>
+<td>0.778584</td>
+<td>-0.319189</td>
+<td>0.639419</td>
+<td>-0.294885</td>
+<td>0.537503</td>
+<td>0.788395</td>
+<td>0.292680</td>
+<td>0.147968</td>
+<td>390.00</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">280143</td>
+<td>169347.0</td>
+<td>1.378559</td>
+<td>1.289381</td>
+<td>-5.004247</td>
+<td>1.411850</td>
+<td>0.442581</td>
+<td>-1.326536</td>
+<td>-1.413170</td>
+<td>0.248525</td>
+<td>-1.127396</td>
+<td>...</td>
+<td>0.370612</td>
+<td>0.028234</td>
+<td>-0.145640</td>
+<td>-0.081049</td>
+<td>0.521875</td>
+<td>0.739467</td>
+<td>0.389152</td>
+<td>0.186637</td>
+<td>0.76</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">280149</td>
+<td>169351.0</td>
+<td>-0.676143</td>
+<td>1.126366</td>
+<td>-2.213700</td>
+<td>0.468308</td>
+<td>-1.120541</td>
+<td>-0.003346</td>
+<td>-2.234739</td>
+<td>1.210158</td>
+<td>-0.652250</td>
+<td>...</td>
+<td>0.751826</td>
+<td>0.834108</td>
+<td>0.190944</td>
+<td>0.032070</td>
+<td>-0.739695</td>
+<td>0.471111</td>
+<td>0.385107</td>
+<td>0.194361</td>
+<td>77.89</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">281144</td>
+<td>169966.0</td>
+<td>-3.113832</td>
+<td>0.585864</td>
+<td>-5.399730</td>
+<td>1.817092</td>
+<td>-0.840618</td>
+<td>-2.943548</td>
+<td>-2.208002</td>
+<td>1.058733</td>
+<td>-1.632333</td>
+<td>...</td>
+<td>0.583276</td>
+<td>-0.269209</td>
+<td>-0.456108</td>
+<td>-0.183659</td>
+<td>-0.328168</td>
+<td>0.606116</td>
+<td>0.884876</td>
+<td>-0.253700</td>
+<td>245.00</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">281674</td>
+<td>170348.0</td>
+<td>1.991976</td>
+<td>0.158476</td>
+<td>-2.583441</td>
+<td>0.408670</td>
+<td>1.151147</td>
+<td>-0.096695</td>
+<td>0.223050</td>
+<td>-0.068384</td>
+<td>0.577829</td>
+<td>...</td>
+<td>-0.164350</td>
+<td>-0.295135</td>
+<td>-0.072173</td>
+<td>-0.450261</td>
+<td>0.313267</td>
+<td>-0.289617</td>
+<td>0.002988</td>
+<td>-0.015309</td>
+<td>42.53</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>492 rows × 31 columns</p>
 </div>
-</div>
-</div>
-<p>Prune KAN and replot (keep the original shape)</p>
-<div id="1269a698" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>model.prune()</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>model.plot(mask<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="2024-06-02-hellokan_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Prune KAN and replot (get a smaller shape)</p>
-<div id="7fe6fb12" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model.prune()</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>model(dataset[<span class="st">'train_input'</span>])</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>model.plot()</span></code></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="2024-06-02-hellokan_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Continue training and replot</p>
-<div id="18a2db11" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>model.train(dataset, opt<span class="op">=</span><span class="st">"LBFGS"</span>, steps<span class="op">=</span><span class="dv">50</span>)<span class="op">;</span></span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>train loss: 1.98e-03 | test loss: 2.06e-03 | reg: 1.33e+01 : 100%|██| 50/50 [00:08&lt;00:00,  5.75it/s]</code></pre>
-</div>
-</div>
-<div id="af27aba7" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>model.plot()</span></code></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="2024-06-02-hellokan_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Automatically or manually set activation functions to be symbolic</p>
-<div id="b3c0642b" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mode <span class="op">=</span> <span class="st">"auto"</span> <span class="co"># "manual"</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> mode <span class="op">==</span> <span class="st">"manual"</span>:</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># manual mode</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    model.fix_symbolic(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="st">'sin'</span>)<span class="op">;</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    model.fix_symbolic(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="st">'x^2'</span>)<span class="op">;</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    model.fix_symbolic(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="st">'exp'</span>)<span class="op">;</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> mode <span class="op">==</span> <span class="st">"auto"</span>:</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># automatic mode</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    lib <span class="op">=</span> [<span class="st">'x'</span>,<span class="st">'x^2'</span>,<span class="st">'x^3'</span>,<span class="st">'x^4'</span>,<span class="st">'exp'</span>,<span class="st">'log'</span>,<span class="st">'sqrt'</span>,<span class="st">'tanh'</span>,<span class="st">'sin'</span>,<span class="st">'abs'</span>]</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    model.auto_symbolic(lib<span class="op">=</span>lib)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>fixing (0,0,0) with sin, r2=0.9842764139175415
-fixing (0,0,1) with sin, r2=0.9388346076011658
-fixing (0,0,2) with sin, r2=0.9999294877052307
-fixing (0,1,0) with sin, r2=0.9892179369926453
-fixing (0,1,1) with x^4, r2=0.7073873281478882
-fixing (0,1,2) with x^2, r2=0.9999879002571106
-fixing (1,0,0) with tanh, r2=0.9250213503837585
-fixing (1,1,0) with abs, r2=0.9714484810829163
-fixing (1,2,0) with exp, r2=0.999997079372406</code></pre>
-</div>
-</div>
-<p>Continue training to almost machine precision</p>
-<div id="c0800415" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>model.train(dataset, opt<span class="op">=</span><span class="st">"LBFGS"</span>, steps<span class="op">=</span><span class="dv">50</span>)<span class="op">;</span></span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>train loss: 7.10e-03 | test loss: 6.93e-03 | reg: 1.47e+01 : 100%|██| 50/50 [00:02&lt;00:00, 24.17it/s]</code></pre>
-</div>
-</div>
-<p>Obtain the symbolic formula</p>
-<div id="bf44f7e0" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>model.symbolic_formula()[<span class="dv">0</span>][<span class="dv">0</span>]</span></code></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
-<p><span class="math inline">\(\displaystyle 0.99 e^{1.01 x_{2}^{2} + 1.0 \sin{\left(3.13 x_{1} \right)}} - 0.03 \tanh{\left(5.56 \sin{\left(1.07 x_{1} - 0.75 \right)} - 0.6 \sin{\left(1.6 x_{2} + 1.58 \right)} + 2.63 \right)} + 0.2 \left|{0.01 \left(0.02 - x_{2}\right)^{4} - 0.23 \sin{\left(2.95 x_{1} - 9.8 \right)} + 0.17}\right| - 0.03\)</span></p>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
