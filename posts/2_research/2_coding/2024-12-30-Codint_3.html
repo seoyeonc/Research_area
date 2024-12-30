@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="SEOYEON CHOI">
-<meta name="dcterms.date" content="2024-12-29">
+<meta name="dcterms.date" content="2024-12-30">
 
-<title>Research - [Coding Test]붕대감기</title>
+<title>Research - [Coding Test]이웃한 칸</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -150,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>[Coding Test]</strong>붕대감기</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>[Coding Test]</strong>이웃한 칸</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -163,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><strong>[Coding Test]</strong>붕대감기</h1>
+      <h1 class="title"><strong>[Coding Test]</strong>이웃한 칸</h1>
                       </div>
   </div>
     
@@ -180,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 29, 2024</p>
+        <p class="date">December 30, 2024</p>
       </div>
     </div>
     
@@ -266,135 +266,102 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p><code>-</code> 링크</p>
-<p>https://school.programmers.co.kr/learn/courses/30/lessons/250137</p>
 <p><code>-</code> 문제</p>
-<p>어떤 게임에는 붕대 감기라는 기술이 있습니다.</p>
-<p>붕대 감기는 t초 동안 붕대를 감으면서 1초마다 x만큼의 체력을 회복합니다. t초 연속으로 붕대를 감는 데 성공한다면 y만큼의 체력을 추가로 회복합니다. 게임 캐릭터에는 최대 체력이 존재해 현재 체력이 최대 체력보다 커지는 것은 불가능합니다.</p>
-<p>기술을 쓰는 도중 몬스터에게 공격을 당하면 기술이 취소되고, 공격을 당하는 순간에는 체력을 회복할 수 없습니다. 몬스터에게 공격당해 기술이 취소당하거나 기술이 끝나면 그 즉시 붕대 감기를 다시 사용하며, 연속 성공 시간이 0으로 초기화됩니다.</p>
-<p>몬스터의 공격을 받으면 정해진 피해량만큼 현재 체력이 줄어듭니다. 이때, 현재 체력이 0 이하가 되면 캐릭터가 죽으며 더 이상 체력을 회복할 수 없습니다.</p>
-<p>당신은 붕대감기 기술의 정보, 캐릭터가 가진 최대 체력과 몬스터의 공격 패턴이 주어질 때 캐릭터가 끝까지 생존할 수 있는지 궁금합니다.</p>
-<p>붕대 감기 기술의 시전 시간, 1초당 회복량, 추가 회복량을 담은 1차원 정수 배열 bandage와 최대 체력을 의미하는 정수 health, 몬스터의 공격 시간과 피해량을 담은 2차원 정수 배열 attacks가 매개변수로 주어집니다. 모든 공격이 끝난 직후 남은 체력을 return 하도록 solution 함수를 완성해 주세요. 만약 몬스터의 공격을 받고 캐릭터의 체력이 0 이하가 되어 죽는다면 -1을 return 해주세요.</p>
-<div id="8fd33e73-eaa5-41c2-a100-500aed605600" class="cell" data-execution_count="463">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solution(bandage, health, attacks):</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    time_attacks <span class="op">=</span> [attack[<span class="dv">0</span>] <span class="cf">for</span> attack <span class="kw">in</span> attacks]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    value_attacks <span class="op">=</span> [attack[<span class="dv">1</span>] <span class="cf">for</span> attack <span class="kw">in</span> attacks]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    max_health <span class="op">=</span> health</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    time <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    con_attack <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    j <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> current_time <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, attacks[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>] <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        time <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> j <span class="op">&lt;</span> <span class="bu">len</span>(time_attacks) <span class="kw">and</span> current_time <span class="op">==</span> time_attacks[j]:</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            health <span class="op">-=</span> value_attacks[j]</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>            con_attack <span class="op">=</span> <span class="dv">0</span>  </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            j <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            con_attack <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            health <span class="op">=</span> <span class="bu">min</span>(max_health, health <span class="op">+</span> bandage[<span class="dv">1</span>])</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> con_attack <span class="op">==</span> bandage[<span class="dv">0</span>]:</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                health <span class="op">=</span> <span class="bu">min</span>(max_health, health <span class="op">+</span> bandage[<span class="dv">2</span>])</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                con_attack <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> health <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> health <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    answer <span class="op">=</span> health</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> answer</span></code></pre></div>
+<p>각 칸마다 색이 칠해진 2차원 격자 보드판이 있습니다. 그중 한 칸을 골랐을 때, 위, 아래, 왼쪽, 오른쪽 칸 중 같은 색깔로 칠해진 칸의 개수를 구하려고 합니다.</p>
+<p>보드의 각 칸에 칠해진 색깔 이름이 담긴 이차원 문자열 리스트 board와 고른 칸의 위치를 나타내는 두 정수 h, w가 주어질 때 board[h][w]와 이웃한 칸들 중 같은 색으로 칠해져 있는 칸의 개수를 return 하도록 solution 함수를 완성해 주세요.</p>
+<p>이웃한 칸들 중 몇 개의 칸이 같은 색으로 색칠되어 있는지 확인하는 과정은 다음과 같습니다.</p>
+<ol type="1">
+<li>정수를 저장할 변수 n을 만들고 board의 길이를 저장합니다.</li>
+<li>같은 색으로 색칠된 칸의 개수를 저장할 변수 count를 만들고 0을 저장합니다.</li>
+<li>h와 w의 변화량을 저장할 정수 리스트 dh, dw를 만들고 각각 [0, 1, -1, 0], [1, 0, 0, -1]을 저장합니다.</li>
+<li>반복문을 이용해 i 값을 0부터 3까지 1 씩 증가시키며 아래 작업을 반복합니다. 4-1. 체크할 칸의 h, w 좌표를 나타내는 변수 h_check, w_check를 만들고 각각 h + dh[i], w + dw[i]를 저장합니다. 4-2. h_check가 0 이상 n 미만이고 w_check가 0 이상 n 미만이라면 다음을 수행합니다. 4-2-a. board[h][w]와 board[h_check][w_check]의 값이 동일하다면 count의 값을 1 증가시킵니다.</li>
+<li>count의 값을 return합니다.</li>
+</ol>
+<p>위의 의사코드와 작동방식이 다른 코드를 작성해도 상관없습니다.</p>
+<p>제한사항</p>
+<p>1 ≤ board의 길이 ≤ 7</p>
+<p>board의 길이와 board[n]의 길이는 동일합니다.</p>
+<p>0 ≤ h, w &lt; board의 길이</p>
+<p>1 ≤ board[h][w]의 길이 ≤ 10</p>
+<p>board[h][w]는 영어 소문자로만 이루어져 있습니다.</p>
+<p><code>-</code> 답</p>
+<div id="4eeb0b2b-9dc3-4991-8aa2-8b14addac6e4" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solution(board, h, w):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(board)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    dh <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    dw <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">4</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        h_check <span class="op">=</span> h <span class="op">+</span> dh[i]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        w_check <span class="op">=</span> w <span class="op">+</span> dw[i]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> h_check <span class="op">&gt;=</span> <span class="dv">0</span> <span class="kw">and</span> h_check <span class="op">&lt;</span> n <span class="kw">and</span> w_check <span class="op">&gt;=</span> <span class="dv">0</span> <span class="kw">and</span> w_check <span class="op">&lt;</span> n:</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> board[h][w] <span class="op">==</span> board[h_check][w_check]:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    answer <span class="op">=</span> count</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> answer</span></code></pre></div>
 </div>
-<div id="f0e032f5-2ef9-418d-b3fe-315a20158372" class="cell" data-execution_count="464">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>solution([<span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">5</span>],<span class="dv">30</span>,[[<span class="dv">2</span>, <span class="dv">10</span>], [<span class="dv">9</span>, <span class="dv">15</span>], [<span class="dv">10</span>, <span class="dv">5</span>], [<span class="dv">11</span>, <span class="dv">5</span>]])</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 5</span></span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="464">
-<pre><code>5</code></pre>
+<div id="301f524b-2697-4a16-a143-2fd7eb470bbd" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>solution([[<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"red"</span>], [<span class="st">"red"</span>, <span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"orange"</span>], [<span class="st">"blue"</span>, <span class="st">"orange"</span>, <span class="st">"red"</span>, <span class="st">"red"</span>], [<span class="st">"orange"</span>, <span class="st">"orange"</span>, <span class="st">"red"</span>, <span class="st">"blue"</span>]],<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>2</code></pre>
 </div>
 </div>
-<div id="ba41ef28-43a1-4692-94cc-c2281a5cefcd" class="cell" data-execution_count="465">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>solution([<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">7</span>],<span class="dv">20</span>,[[<span class="dv">1</span>, <span class="dv">15</span>], [<span class="dv">5</span>, <span class="dv">16</span>], [<span class="dv">8</span>, <span class="dv">6</span>]])</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -1</span></span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="465">
-<pre><code>-1</code></pre>
+<div id="b6c9c569-7d2c-4098-92ac-5c9975bcb47a" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>solution([[<span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>], [<span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"yellow"</span>], [<span class="st">"yellow"</span>, <span class="st">"blue"</span>, <span class="st">"blue"</span>]],<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>1</code></pre>
 </div>
 </div>
-<div id="46e62d57-59ee-4d1d-b8e5-79c72b191e5b" class="cell" data-execution_count="466">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>solution([<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">7</span>],<span class="dv">20</span>,[[<span class="dv">1</span>, <span class="dv">15</span>], [<span class="dv">5</span>, <span class="dv">16</span>], [<span class="dv">8</span>, <span class="dv">6</span>]]) </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -1</span></span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="466">
-<pre><code>-1</code></pre>
+<p><code>-</code> 한 줄씩</p>
+<div id="b69092df-2c0b-4c95-a351-5b51f8505487" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>board <span class="op">=</span> [[<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"red"</span>], [<span class="st">"red"</span>, <span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"orange"</span>], [<span class="st">"blue"</span>, <span class="st">"orange"</span>, <span class="st">"red"</span>, <span class="st">"red"</span>], [<span class="st">"orange"</span>, <span class="st">"orange"</span>, <span class="st">"red"</span>, <span class="st">"blue"</span>]]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> <span class="dv">1</span></span></code></pre></div>
+</div>
+<ol type="1">
+<li>정수를 저장할 변수 n을 만들고 board의 길이를 저장합니다.</li>
+</ol>
+<div id="bc627cad-ca1c-4098-9800-ac0d61160e8e" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(board)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>n</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>4</code></pre>
 </div>
 </div>
-<div id="d2f38de4-02f1-4efa-bff4-be7991c24ef6" class="cell" data-execution_count="467">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>solution([<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>],<span class="dv">5</span>,[[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">2</span>]])</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 3</span></span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="467">
-<pre><code>3</code></pre>
+<ol start="2" type="1">
+<li>같은 색으로 색칠된 칸의 개수를 저장할 변수 count를 만들고 0을 저장합니다.</li>
+</ol>
+<div id="a0f5d49b-5a10-49e2-8688-19360d180b9d" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
 </div>
+<ol start="3" type="1">
+<li>h와 w의 변화량을 저장할 정수 리스트 dh, dw를 만들고 각각 [0, 1, -1, 0], [1, 0, 0, -1]을 저장합니다.</li>
+</ol>
+<div id="0369f250-a690-4dd3-a21d-c7fe9b8ba678" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dh <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>dw <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
 </div>
-<p><code>-</code> 힌줄씩</p>
-<p>bandage는 [시전 시간, 초당 회복량, 추가 회복량] 형태의 길이가 3인 정수 배열입</p>
-<div id="91d88454-04b3-4b27-8993-cfccb462b138" class="cell" data-execution_count="481">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>bandage <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">5</span>]</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>health <span class="op">=</span> <span class="dv">30</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>attacks <span class="op">=</span> [[<span class="dv">2</span>, <span class="dv">10</span>], [<span class="dv">9</span>, <span class="dv">15</span>], [<span class="dv">10</span>, <span class="dv">5</span>], [<span class="dv">11</span>, <span class="dv">5</span>]]</span></code></pre></div>
+<ol start="4" type="1">
+<li>반복문을 이용해 i 값을 0부터 3까지 1 씩 증가시키며 아래 작업을 반복합니다. 4-1. 체크할 칸의 h, w 좌표를 나타내는 변수 h_check, w_check를 만들고 각각 h + dh[i], w + dw[i]를 저장합니다. 4-2. h_check가 0 이상 n 미만이고 w_check가 0 이상 n 미만이라면 다음을 수행합니다. 4-2-a. board[h][w]와 board[h_check][w_check]의 값이 동일하다면 count의 값을 1 증가시킵니다.</li>
+</ol>
+<div id="1584cb07-2ffc-4027-aba1-58c8a363e5b9" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">4</span>):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    h_check <span class="op">=</span> h <span class="op">+</span> dh[i]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    w_check <span class="op">=</span> w <span class="op">+</span> dw[i]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> h_check <span class="op">&gt;=</span> <span class="dv">0</span> <span class="kw">and</span> h_check <span class="op">&lt;</span> n <span class="kw">and</span> w_check <span class="op">&gt;=</span> <span class="dv">0</span> <span class="kw">and</span> w_check <span class="op">&lt;</span> n:</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> board[h][w] <span class="op">==</span> board[h_check][w_check]:</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            count <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
 </div>
-<p><code>-</code> 공격 시간과 값 구분</p>
-<div id="7c4211f7-a46f-46e3-b394-f1d563cec817" class="cell" data-execution_count="482">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>time_attacks <span class="op">=</span> [attack[<span class="dv">0</span>] <span class="cf">for</span> attack <span class="kw">in</span> attacks]</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>time_attacks</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="482">
-<pre><code>[2, 9, 10, 11]</code></pre>
-</div>
-</div>
-<div id="f9d1d361-0243-48eb-8a20-44a25052d365" class="cell" data-execution_count="483">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>value_attacks <span class="op">=</span> [attack[<span class="dv">1</span>] <span class="cf">for</span> attack <span class="kw">in</span> attacks]</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>value_attacks</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="483">
-<pre><code>[10, 15, 5, 5]</code></pre>
-</div>
-</div>
-<p><code>-</code> 필요한 변수</p>
-<div id="00afa86f-d885-4b6a-8657-95633d75c4d7" class="cell" data-execution_count="484">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>max_health <span class="op">=</span> health</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>con_attack <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
-</div>
-<p>붕대 감기는 t초 동안 붕대를 감으면서 1초마다 x만큼의 체력을 회복합니다. t초 연속으로 붕대를 감는 데 성공한다면 y만큼의 체력을 추가로 회복합니다. 게임 캐릭터에는 최대 체력이 존재해 현재 체력이 최대 체력보다 커지는 것은 불가능합니다.</p>
-<p>기술을 쓰는 도중 몬스터에게 공격을 당하면 기술이 취소되고, 공격을 당하는 순간에는 체력을 회복할 수 없습니다. 몬스터에게 공격당해 기술이 취소당하거나 기술이 끝나면 그 즉시 붕대 감기를 다시 사용하며, 연속 성공 시간이 0으로 초기화됩니다.</p>
-<p>몬스터의 공격을 받으면 정해진 피해량만큼 현재 체력이 줄어듭니다. 이때, 현재 체력이 0 이하가 되면 캐릭터가 죽으며 더 이상 체력을 회복할 수 없습니다.</p>
-<div id="0ab7ee2f-81b1-4f35-a793-299f986d4e29" class="cell" data-execution_count="485">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> current_time <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, attacks[<span class="op">-</span><span class="dv">1</span>][<span class="dv">0</span>] <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    time <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> j <span class="op">&lt;</span> <span class="bu">len</span>(time_attacks) <span class="kw">and</span> current_time <span class="op">==</span> time_attacks[j]:</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        health <span class="op">-=</span> value_attacks[j]</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        con_attack <span class="op">=</span> <span class="dv">0</span>  </span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        j <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: </span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>        con_attack <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>        health <span class="op">=</span> <span class="bu">min</span>(max_health, health <span class="op">+</span> bandage[<span class="dv">1</span>])</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> con_attack <span class="op">==</span> bandage[<span class="dv">0</span>]:</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>            health <span class="op">=</span> <span class="bu">min</span>(max_health, health <span class="op">+</span> bandage[<span class="dv">2</span>])</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>            con_attack <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> health <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span></code></pre></div>
-</div>
-<div id="b38a7081-0f08-4d47-9518-eebe51125220" class="cell" data-execution_count="492">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> health <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    health<span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span></code></pre></div>
-</div>
-<div id="424727dc-ac0f-441e-99b8-76a9d78ac928" class="cell" data-execution_count="494">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>answer <span class="op">=</span> health</span></code></pre></div>
-</div>
-<div id="28f5bbec-bf08-424a-b8d7-51cea8edded8" class="cell" data-execution_count="495">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>answer</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="495">
-<pre><code>5</code></pre>
+<ol start="5" type="1">
+<li>count의 값을 return합니다.</li>
+</ol>
+<div id="2b0500ee-3b74-4ea7-a546-5ff9a1338054" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>count</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>2</code></pre>
 </div>
 </div>
 
