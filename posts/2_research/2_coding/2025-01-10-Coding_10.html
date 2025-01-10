@@ -264,6 +264,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#용어" id="toc-용어" class="nav-link active" data-scroll-target="#용어">용어</a></li>
   <li><a href="#예제-1" id="toc-예제-1" class="nav-link" data-scroll-target="#예제-1">예제 1</a></li>
   <li><a href="#예제-2" id="toc-예제-2" class="nav-link" data-scroll-target="#예제-2">예제 2</a></li>
+  <li><a href="#예제-3" id="toc-예제-3" class="nav-link" data-scroll-target="#예제-3">예제 3</a></li>
+  <li><a href="#예제-4" id="toc-예제-4" class="nav-link" data-scroll-target="#예제-4">예제 4</a></li>
+  <li><a href="#예제-5" id="toc-예제-5" class="nav-link" data-scroll-target="#예제-5">예제 5</a></li>
   </ul>
 </nav>
     </div>
@@ -576,6 +579,528 @@ deque([('F', ['A', 'C', 'F']), ('F', ['A', 'B', 'E', 'F'])])
 최단 경로: ['A', 'C', 'F']</code></pre>
 </div>
 </div>
+</section>
+<section id="예제-3" class="level1">
+<h1>예제 3</h1>
+<div id="a3c74de1-c9dd-4ee9-8d5b-ba7ed65dde49" class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bfs_maze(maze, start, goal):</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    rows, cols <span class="op">=</span> <span class="bu">len</span>(maze), <span class="bu">len</span>(maze[<span class="dv">0</span>])</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    directions <span class="op">=</span> [(<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">0</span>), (<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>), (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>)]  <span class="co"># 동, 남, 서, 북</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    queue <span class="op">=</span> deque([(start, <span class="dv">0</span>)])  <span class="co"># (위치, 거리)</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    visited <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>    visited.add(start)</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> queue:</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>        (x, y), distance <span class="op">=</span> queue.popleft()</span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (x, y) <span class="op">==</span> goal:</span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> distance</span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> dx, dy <span class="kw">in</span> directions:</span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>            nx, ny <span class="op">=</span> x <span class="op">+</span> dx, y <span class="op">+</span> dy</span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="dv">0</span> <span class="op">&lt;=</span> nx <span class="op">&lt;</span> rows <span class="kw">and</span> <span class="dv">0</span> <span class="op">&lt;=</span> ny <span class="op">&lt;</span> cols <span class="kw">and</span> maze[nx][ny] <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> (nx, ny) <span class="kw">not</span> <span class="kw">in</span> visited:</span>
+<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a>                queue.append(((nx, ny), distance <span class="op">+</span> <span class="dv">1</span>))</span>
+<span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a>                visited.add((nx, ny))</span>
+<span id="cb49-21"><a href="#cb49-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb49-22"><a href="#cb49-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span>  <span class="co"># 목표에 도달할 수 없는 경우</span></span></code></pre></div>
+</div>
+<div id="02d478f0-c9f7-433a-9016-c84fd8424d02" class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>maze <span class="op">=</span> [</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>],</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>],</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>],</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div>
+</div>
+<div id="a168fa43-ae3f-4428-8d5d-bc48dd4139b3" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>start <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>goal <span class="op">=</span> (<span class="dv">4</span>, <span class="dv">4</span>)</span></code></pre></div>
+</div>
+<div id="b74920b4-f30b-40dd-8729-0879de9d76e7" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"최단 거리:"</span>, bfs_maze(maze, start, goal))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>최단 거리: 8</code></pre>
+</div>
+</div>
+<p><code>-</code> 한 줄씩</p>
+<div id="a86473fd-87f6-4d70-9a73-aca3ee21d199" class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>rows, cols <span class="op">=</span> <span class="bu">len</span>(maze), <span class="bu">len</span>(maze[<span class="dv">0</span>])</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>rows, cols</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="72">
+<pre><code>(5, 5)</code></pre>
+</div>
+</div>
+<div id="32d3d2d5-ed78-4889-99b4-ca42a0c90bfd" class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>directions <span class="op">=</span> [(<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">0</span>), (<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>), (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>)]  <span class="co"># 동, 남, 서, 북</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>directions</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="73">
+<pre><code>[(0, 1), (1, 0), (0, -1), (-1, 0)]</code></pre>
+</div>
+</div>
+<div id="eefedb1f-a48c-447e-ac83-f46c0c975ab6" class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>queue <span class="op">=</span> deque([(start, <span class="dv">0</span>)])  <span class="co"># (위치, 거리)</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>queue</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="74">
+<pre><code>deque([((0, 0), 0)])</code></pre>
+</div>
+</div>
+<div id="5468dac5-21d0-4d75-9bc5-00ffd1898ed9" class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>visited <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>visited</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="75">
+<pre><code>set()</code></pre>
+</div>
+</div>
+<div id="e11f42f1-7b33-4f85-83e2-a37f21a1fc3b" class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>visited.add(start)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>visited</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="76">
+<pre><code>{(0, 0)}</code></pre>
+</div>
+</div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> queue:</span></code></pre></div>
+<div id="47e9ae90-1444-4d05-8568-0995f7d9d2b8" class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>(x, y), distance <span class="op">=</span> queue.popleft()</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>(x, y), distance</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="77">
+<pre><code>((0, 0), 0)</code></pre>
+</div>
+</div>
+<div id="7ca82d31-7b0a-4b6a-9c09-600c5361fd6e" class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x, y) <span class="op">==</span> goal:</span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># return distance</span></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="va">True</span>)</span></code></pre></div>
+</div>
+<div id="28c061e0-68c1-4849-80cb-2d98413ce37e" class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dx, dy <span class="kw">in</span> directions:</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(dx, dy)</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>    nx, ny <span class="op">=</span> x <span class="op">+</span> dx, y <span class="op">+</span> dy</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0 1
+1 0
+0 -1
+-1 0</code></pre>
+</div>
+</div>
+<div id="ff4866be-e4b6-4e3e-9b1a-15697aaa2f5b" class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="dv">0</span> <span class="op">&lt;=</span> nx <span class="op">&lt;</span> rows <span class="kw">and</span> <span class="dv">0</span> <span class="op">&lt;=</span> ny <span class="op">&lt;</span> cols <span class="kw">and</span> maze[nx][ny] <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> (nx, ny) <span class="kw">not</span> <span class="kw">in</span> visited:</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>    queue.append(((nx, ny), distance <span class="op">+</span> <span class="dv">1</span>))</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>    visited.add((nx, ny))</span></code></pre></div>
+</div>
+<div id="8fbecc10-1590-4fd5-b364-10e5cd804d9f" class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>queue,visited</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="84">
+<pre><code>(deque([]), {(0, 0)})</code></pre>
+</div>
+</div>
+<p><code>-</code> print 해보기</p>
+<div id="191f9782-ad62-4d74-b789-3bf7ced62321" class="cell" data-execution_count="108">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bfs_maze(maze, start, goal):</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>    rows, cols <span class="op">=</span> <span class="bu">len</span>(maze), <span class="bu">len</span>(maze[<span class="dv">0</span>])</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>    directions <span class="op">=</span> [(<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">0</span>), (<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>), (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>)]  <span class="co"># 동, 남, 서, 북</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>    queue <span class="op">=</span> deque([(start, <span class="dv">0</span>)])  <span class="co"># (위치, 거리)</span></span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>    visited <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>    visited.add(start)</span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'처음 방문 </span><span class="sc">{</span>visited<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> queue:</span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>        (x, y), distance <span class="op">=</span> queue.popleft()</span>
+<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (x, y) <span class="op">==</span> goal:</span>
+<span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> distance</span>
+<span id="cb73-14"><a href="#cb73-14" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb73-15"><a href="#cb73-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> dx, dy <span class="kw">in</span> directions:</span>
+<span id="cb73-16"><a href="#cb73-16" aria-hidden="true" tabindex="-1"></a>            nx, ny <span class="op">=</span> x <span class="op">+</span> dx, y <span class="op">+</span> dy</span>
+<span id="cb73-17"><a href="#cb73-17" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb73-18"><a href="#cb73-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="dv">0</span> <span class="op">&lt;=</span> nx <span class="op">&lt;</span> rows <span class="kw">and</span> <span class="dv">0</span> <span class="op">&lt;=</span> ny <span class="op">&lt;</span> cols <span class="kw">and</span> maze[nx][ny] <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> (nx, ny) <span class="kw">not</span> <span class="kw">in</span> visited:</span>
+<span id="cb73-19"><a href="#cb73-19" aria-hidden="true" tabindex="-1"></a>                queue.append(((nx, ny), distance <span class="op">+</span> <span class="dv">1</span>))</span>
+<span id="cb73-20"><a href="#cb73-20" aria-hidden="true" tabindex="-1"></a>                visited.add((nx, ny))</span>
+<span id="cb73-21"><a href="#cb73-21" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(nx,ny)</span>
+<span id="cb73-22"><a href="#cb73-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb73-23"><a href="#cb73-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span>  <span class="co"># 목표에 도달할 수 없는 경우</span></span></code></pre></div>
+</div>
+<div id="2269daf2-725c-44d8-a74b-5804f90243cc" class="cell" data-execution_count="109">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>maze <span class="op">=</span> [</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>],</span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>],</span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>],</span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div>
+</div>
+<div id="35c89f9c-cbfa-4a7d-8d30-5edcecdbb798" class="cell" data-execution_count="110">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>start <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>goal <span class="op">=</span> (<span class="dv">4</span>, <span class="dv">4</span>)</span></code></pre></div>
+</div>
+<div id="6f8aef6e-cb1e-4e19-adb6-5ad9eb9349ac" class="cell" data-execution_count="111">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>bfs_maze(maze, start, goal)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>처음 방문 {(0, 0)}
+1 0
+2 0
+2 1
+3 0
+2 2
+4 0
+1 2
+4 1
+0 2
+4 2
+0 3
+4 3
+0 4
+4 4
+1 4</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="111">
+<pre><code>8</code></pre>
+</div>
+</div>
+</section>
+<section id="예제-4" class="level1">
+<h1>예제 4</h1>
+<p>섬의 개수 구하기</p>
+<div id="b8b97dab-4804-41d6-8620-e8500e58d289" class="cell" data-execution_count="112">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_islands(grid):</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>    rows, cols <span class="op">=</span> <span class="bu">len</span>(grid), <span class="bu">len</span>(grid[<span class="dv">0</span>])</span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>    visited <span class="op">=</span> [[<span class="va">False</span>] <span class="op">*</span> cols <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(rows)]</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>    directions <span class="op">=</span> [(<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">0</span>), (<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>), (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>)]</span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> bfs(x, y):</span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>        queue <span class="op">=</span> deque([(x, y)])</span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>        visited[x][y] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> queue:</span>
+<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a>            cx, cy <span class="op">=</span> queue.popleft()</span>
+<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> dx, dy <span class="kw">in</span> directions:</span>
+<span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a>                nx, ny <span class="op">=</span> cx <span class="op">+</span> dx, cy <span class="op">+</span> dy</span>
+<span id="cb79-14"><a href="#cb79-14" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="dv">0</span> <span class="op">&lt;=</span> nx <span class="op">&lt;</span> rows <span class="kw">and</span> <span class="dv">0</span> <span class="op">&lt;=</span> ny <span class="op">&lt;</span> cols <span class="kw">and</span> grid[nx][ny] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> <span class="kw">not</span> visited[nx][ny]:</span>
+<span id="cb79-15"><a href="#cb79-15" aria-hidden="true" tabindex="-1"></a>                    queue.append((nx, ny))</span>
+<span id="cb79-16"><a href="#cb79-16" aria-hidden="true" tabindex="-1"></a>                    visited[nx][ny] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb79-17"><a href="#cb79-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-18"><a href="#cb79-18" aria-hidden="true" tabindex="-1"></a>    island_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb79-19"><a href="#cb79-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(rows):</span>
+<span id="cb79-20"><a href="#cb79-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(cols):</span>
+<span id="cb79-21"><a href="#cb79-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> grid[i][j] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> <span class="kw">not</span> visited[i][j]:</span>
+<span id="cb79-22"><a href="#cb79-22" aria-hidden="true" tabindex="-1"></a>                bfs(i, j)</span>
+<span id="cb79-23"><a href="#cb79-23" aria-hidden="true" tabindex="-1"></a>                island_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb79-24"><a href="#cb79-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-25"><a href="#cb79-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> island_count</span></code></pre></div>
+</div>
+<div id="cbe4e07f-c08e-4ac4-905a-5854e8830da7" class="cell" data-execution_count="113">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> [</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>],</span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>],</span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div>
+</div>
+<div id="046b6a4e-6149-4a2f-a03d-71edd1463b9e" class="cell" data-execution_count="114">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"섬의 개수:"</span>, count_islands(grid))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>섬의 개수: 3</code></pre>
+</div>
+</div>
+<p><code>-</code> 한 줄씩</p>
+<div id="7621b9a1-9ac4-4074-894e-7eb41c22d1bd" class="cell" data-execution_count="122">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>rows, cols <span class="op">=</span> <span class="bu">len</span>(grid), <span class="bu">len</span>(grid[<span class="dv">0</span>])</span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>rows, cols</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="122">
+<pre><code>(4, 5)</code></pre>
+</div>
+</div>
+<div id="70cd8336-59f2-4888-99eb-18e47996fff6" class="cell" data-execution_count="123">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>visited <span class="op">=</span> [[<span class="va">False</span>] <span class="op">*</span> cols <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(rows)]</span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>visited</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="123">
+<pre><code>[[False, False, False, False, False],
+ [False, False, False, False, False],
+ [False, False, False, False, False],
+ [False, False, False, False, False]]</code></pre>
+</div>
+</div>
+<div id="0c91acd8-f850-4e5e-bf98-c72be2a6a35b" class="cell" data-execution_count="124">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>directions <span class="op">=</span> [(<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">0</span>), (<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>), (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>)]</span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>directions</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="124">
+<pre><code>[(0, 1), (1, 0), (0, -1), (-1, 0)]</code></pre>
+</div>
+</div>
+<div id="298407b0-1e9a-4c01-a9e0-596cfa021c5a" class="cell" data-execution_count="126">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bfs(x, y):</span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>    queue <span class="op">=</span> deque([(x, y)])</span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>    visited[x][y] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>    cx, cy <span class="op">=</span> queue.popleft()</span>
+<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> dx, dy <span class="kw">in</span> directions:</span>
+<span id="cb89-8"><a href="#cb89-8" aria-hidden="true" tabindex="-1"></a>        nx, ny <span class="op">=</span> cx <span class="op">+</span> dx, cy <span class="op">+</span> dy</span>
+<span id="cb89-9"><a href="#cb89-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="dv">0</span> <span class="op">&lt;=</span> nx <span class="op">&lt;</span> rows <span class="kw">and</span> <span class="dv">0</span> <span class="op">&lt;=</span> ny <span class="op">&lt;</span> cols <span class="kw">and</span> grid[nx][ny] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> <span class="kw">not</span> visited[nx][ny]:</span>
+<span id="cb89-10"><a href="#cb89-10" aria-hidden="true" tabindex="-1"></a>            queue.append((nx, ny))</span>
+<span id="cb89-11"><a href="#cb89-11" aria-hidden="true" tabindex="-1"></a>            visited[nx][ny] <span class="op">=</span> <span class="va">True</span></span></code></pre></div>
+</div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> queue:</span></code></pre></div>
+<div id="59b2b557-f217-4f00-92b1-fcdd2580c575" class="cell" data-execution_count="127">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>island_count <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
+</div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(rows):</span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(cols):</span></code></pre></div>
+<div id="edeca33d-6df2-4ec1-a4d5-a398d620d373" class="cell" data-execution_count="128">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>j<span class="op">=</span><span class="dv">0</span></span></code></pre></div>
+</div>
+<div id="0fc2fa1a-23bb-4d85-90fc-59dfd93cf11b" class="cell" data-execution_count="129">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> grid[i][j] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> <span class="kw">not</span> visited[i][j]:</span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>    bfs(i, j)</span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>    island_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>island_count</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="129">
+<pre><code>1</code></pre>
+</div>
+</div>
+<p><code>-</code> 결과 하나씩</p>
+<div id="5cbc58fe-1129-4cc9-99fb-fbdb12199d60" class="cell" data-execution_count="130">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_islands(grid):</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rows, cols: 격자의 행과 열의 개수를 저장합니다.</span></span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>    rows, cols <span class="op">=</span> <span class="bu">len</span>(grid), <span class="bu">len</span>(grid[<span class="dv">0</span>])</span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># visited 리스트: 각 위치의 방문 여부를 기록합니다.</span></span>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>    visited <span class="op">=</span> [[<span class="va">False</span>] <span class="op">*</span> cols <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(rows)]</span>
+<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># directions 리스트: 현재 위치에서 상하좌우 탐색을 위한 방향 정보를 나타냅니다.</span></span>
+<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a>    directions <span class="op">=</span> [(<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">0</span>), (<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>), (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>)]</span>
+<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># (0, 1): 오른쪽</span></span>
+<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># (1, 0): 아래쪽</span></span>
+<span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># (0, -1): 왼쪽</span></span>
+<span id="cb96-11"><a href="#cb96-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># (-1, 0): 위쪽</span></span>
+<span id="cb96-12"><a href="#cb96-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-13"><a href="#cb96-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># bfs(x, y) 함수: 특정 육지에서 시작하여 연결된 모든 육지를 탐색하고 방문합니다.</span></span>
+<span id="cb96-14"><a href="#cb96-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> bfs(x, y):</span>
+<span id="cb96-15"><a href="#cb96-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 큐(queue)에 시작 좌표 (x, y)를 추가합니다.</span></span>
+<span id="cb96-16"><a href="#cb96-16" aria-hidden="true" tabindex="-1"></a>        queue <span class="op">=</span> deque([(x, y)])</span>
+<span id="cb96-17"><a href="#cb96-17" aria-hidden="true" tabindex="-1"></a>        visited[x][y] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb96-18"><a href="#cb96-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-19"><a href="#cb96-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 큐가 빌 때까지 연결된 모든 육지를 탐색하며 방문 여부를 기록합니다.</span></span>
+<span id="cb96-20"><a href="#cb96-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> queue:</span>
+<span id="cb96-21"><a href="#cb96-21" aria-hidden="true" tabindex="-1"></a>            <span class="co"># (0,0)에서 첫 번째 1을 발견하고 BFS 탐색을 시작합니다.</span></span>
+<span id="cb96-22"><a href="#cb96-22" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 이 위치와 연결된 (0,1) 및 (1,0) 위치도 큐에 추가되고 방문됩니다.</span></span>
+<span id="cb96-23"><a href="#cb96-23" aria-hidden="true" tabindex="-1"></a>            <span class="co"># (1,3)에서 두 번째 1을 발견하면 BFS 탐색을 통해 (1,4)와 (2,3)을 방문합니다.</span></span>
+<span id="cb96-24"><a href="#cb96-24" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 큐가 빌 때까지 상하좌우 연결된 육지를 탐색하며 방문합니다.</span></span>
+<span id="cb96-25"><a href="#cb96-25" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 방문한 위치는 다시 탐색하지 않도록 visited에 표시합니다.</span></span>
+<span id="cb96-26"><a href="#cb96-26" aria-hidden="true" tabindex="-1"></a>            cx, cy <span class="op">=</span> queue.popleft()</span>
+<span id="cb96-27"><a href="#cb96-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> dx, dy <span class="kw">in</span> directions:</span>
+<span id="cb96-28"><a href="#cb96-28" aria-hidden="true" tabindex="-1"></a>                nx, ny <span class="op">=</span> cx <span class="op">+</span> dx, cy <span class="op">+</span> dy</span>
+<span id="cb96-29"><a href="#cb96-29" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="dv">0</span> <span class="op">&lt;=</span> nx <span class="op">&lt;</span> rows <span class="kw">and</span> <span class="dv">0</span> <span class="op">&lt;=</span> ny <span class="op">&lt;</span> cols <span class="kw">and</span> grid[nx][ny] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> <span class="kw">not</span> visited[nx][ny]:</span>
+<span id="cb96-30"><a href="#cb96-30" aria-hidden="true" tabindex="-1"></a>                    queue.append((nx, ny))</span>
+<span id="cb96-31"><a href="#cb96-31" aria-hidden="true" tabindex="-1"></a>                    visited[nx][ny] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb96-32"><a href="#cb96-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-33"><a href="#cb96-33" aria-hidden="true" tabindex="-1"></a>    island_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb96-34"><a href="#cb96-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(rows):</span>
+<span id="cb96-35"><a href="#cb96-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(cols):</span>
+<span id="cb96-36"><a href="#cb96-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> grid[i][j] <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> <span class="kw">not</span> visited[i][j]:</span>
+<span id="cb96-37"><a href="#cb96-37" aria-hidden="true" tabindex="-1"></a>                bfs(i, j) <span class="co"># 연결된 육지 탐색</span></span>
+<span id="cb96-38"><a href="#cb96-38" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f'육지를 탐색한 좌표 </span><span class="sc">{</span>i<span class="sc">,</span>j<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb96-39"><a href="#cb96-39" aria-hidden="true" tabindex="-1"></a>                island_count <span class="op">+=</span> <span class="dv">1</span> <span class="co"># 새로운 섬 발견 시 개수 증가</span></span>
+<span id="cb96-40"><a href="#cb96-40" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb96-41"><a href="#cb96-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 격자의 모든 위치를 순회하며 아직 방문하지 않은 육지를 발견할 때마다 BFS 탐색을 수행합니다.</span></span>
+<span id="cb96-42"><a href="#cb96-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># BFS 탐색이 끝난 후 island_count를 증가시켜 섬 개수를 기록합니다.</span></span>
+<span id="cb96-43"><a href="#cb96-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-44"><a href="#cb96-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> island_count</span></code></pre></div>
+</div>
+<ul>
+<li>1은 육지를 나타내며, 상하좌우로 연결된 1은 하나의 섬입니다.</li>
+<li>이 예제에서는 총 3개의 섬이 있습니다:</li>
+<li>첫 번째 섬: (0,0), (0,1), (1,0)</li>
+<li>두 번째 섬: (1,3), (1,4), (2,3)</li>
+<li>세 번째 섬: (3,1), (3,2)</li>
+</ul>
+<div id="6f9fc658-b1b6-455e-95cf-cbf9cdce01a3" class="cell" data-execution_count="131">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> [</span>
+<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
+<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>],</span>
+<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>],</span>
+<span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb97-6"><a href="#cb97-6" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div>
+</div>
+<div id="d3603524-4dda-4f4e-a624-93a7e52352ec" class="cell" data-execution_count="132">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"섬의 개수:"</span>, count_islands(grid))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>육지를 탐색한 좌표 (0, 0)
+육지를 탐색한 좌표 (1, 3)
+육지를 탐색한 좌표 (3, 1)
+섬의 개수: 3</code></pre>
+</div>
+</div>
+<ul>
+<li>BFS를 선택한 이유</li>
+<li>BFS는 가까운 노드부터 탐색하므로 섬의 각 부분을 효율적으로 탐색할 수 있습니다.</li>
+<li>모든 연결된 육지를 한 번에 탐색하며 이미 방문한 위치를 다시 탐색하지 않기 때문에 탐색 중복을 방지합니다.</li>
+</ul>
+</section>
+<section id="예제-5" class="level1">
+<h1>예제 5</h1>
+<div id="66f5d6e0-f555-4a98-8079-b0418144538c" class="cell" data-execution_count="133">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TreeNode:</span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, val<span class="op">=</span><span class="dv">0</span>, left<span class="op">=</span><span class="va">None</span>, right<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.val <span class="op">=</span> val</span>
+<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left <span class="op">=</span> left</span>
+<span id="cb100-5"><a href="#cb100-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right <span class="op">=</span> right</span>
+<span id="cb100-6"><a href="#cb100-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-7"><a href="#cb100-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> deque</span>
+<span id="cb100-8"><a href="#cb100-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-9"><a href="#cb100-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> level_order_traversal(root):</span>
+<span id="cb100-10"><a href="#cb100-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> root:</span>
+<span id="cb100-11"><a href="#cb100-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> []</span>
+<span id="cb100-12"><a href="#cb100-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-13"><a href="#cb100-13" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb100-14"><a href="#cb100-14" aria-hidden="true" tabindex="-1"></a>    queue <span class="op">=</span> deque([root])</span>
+<span id="cb100-15"><a href="#cb100-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-16"><a href="#cb100-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> queue:</span>
+<span id="cb100-17"><a href="#cb100-17" aria-hidden="true" tabindex="-1"></a>        level <span class="op">=</span> []</span>
+<span id="cb100-18"><a href="#cb100-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(queue)):</span>
+<span id="cb100-19"><a href="#cb100-19" aria-hidden="true" tabindex="-1"></a>            node <span class="op">=</span> queue.popleft()</span>
+<span id="cb100-20"><a href="#cb100-20" aria-hidden="true" tabindex="-1"></a>            level.append(node.val)</span>
+<span id="cb100-21"><a href="#cb100-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> node.left:</span>
+<span id="cb100-22"><a href="#cb100-22" aria-hidden="true" tabindex="-1"></a>                queue.append(node.left)</span>
+<span id="cb100-23"><a href="#cb100-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> node.right:</span>
+<span id="cb100-24"><a href="#cb100-24" aria-hidden="true" tabindex="-1"></a>                queue.append(node.right)</span>
+<span id="cb100-25"><a href="#cb100-25" aria-hidden="true" tabindex="-1"></a>        result.append(level)</span>
+<span id="cb100-26"><a href="#cb100-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-27"><a href="#cb100-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code></pre></div>
+</div>
+<div id="2ceee0ce-bb53-4d17-a97e-f5d469539284" class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 트리 생성</span></span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>root <span class="op">=</span> TreeNode(<span class="dv">1</span>)</span>
+<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>root.left <span class="op">=</span> TreeNode(<span class="dv">2</span>)</span>
+<span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a>root.right <span class="op">=</span> TreeNode(<span class="dv">3</span>)</span>
+<span id="cb101-5"><a href="#cb101-5" aria-hidden="true" tabindex="-1"></a>root.left.left <span class="op">=</span> TreeNode(<span class="dv">4</span>)</span>
+<span id="cb101-6"><a href="#cb101-6" aria-hidden="true" tabindex="-1"></a>root.left.right <span class="op">=</span> TreeNode(<span class="dv">5</span>)</span>
+<span id="cb101-7"><a href="#cb101-7" aria-hidden="true" tabindex="-1"></a>root.right.right <span class="op">=</span> TreeNode(<span class="dv">6</span>)</span></code></pre></div>
+</div>
+<div id="627dfb7e-47fb-4454-9597-8cb93d0e5401" class="cell" data-execution_count="135">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"레벨별 탐색 결과:"</span>, level_order_traversal(root))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>레벨별 탐색 결과: [[1], [2, 3], [4, 5, 6]]</code></pre>
+</div>
+</div>
+<p><code>-</code> 한 줄씩</p>
+<p>트리를 만드는 과정</p>
+<div id="f8d0ff80-2586-4888-90fe-9594c1ae5c10" class="cell" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TreeNode:</span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, val<span class="op">=</span><span class="dv">0</span>, left<span class="op">=</span><span class="va">None</span>, right<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.val <span class="op">=</span> val</span>
+<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left <span class="op">=</span> left</span>
+<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right <span class="op">=</span> right</span></code></pre></div>
+</div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> root:</span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> []</span></code></pre></div>
+<div id="23b6f4e6-47f3-4af9-b1be-49df233c35b4" class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> []</span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="141">
+<pre><code>[]</code></pre>
+</div>
+</div>
+<div id="d699f76e-5fc1-47f1-91d5-8751b94ab983" class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>queue <span class="op">=</span> deque([root])</span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>queue</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="142">
+<pre><code>deque([&lt;__main__.TreeNode at 0x7f9463197040&gt;])</code></pre>
+</div>
+</div>
+<div id="95b69a6d-dcf6-40a6-8664-6ab2b5e6cc00" class="cell" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> queue:</span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a>    level <span class="op">=</span> []</span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(queue)):</span>
+<span id="cb110-4"><a href="#cb110-4" aria-hidden="true" tabindex="-1"></a>        node <span class="op">=</span> queue.popleft()</span>
+<span id="cb110-5"><a href="#cb110-5" aria-hidden="true" tabindex="-1"></a>        level.append(node.val)</span>
+<span id="cb110-6"><a href="#cb110-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> node.left:</span>
+<span id="cb110-7"><a href="#cb110-7" aria-hidden="true" tabindex="-1"></a>            queue.append(node.left)</span>
+<span id="cb110-8"><a href="#cb110-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> node.right:</span>
+<span id="cb110-9"><a href="#cb110-9" aria-hidden="true" tabindex="-1"></a>            queue.append(node.right)</span>
+<span id="cb110-10"><a href="#cb110-10" aria-hidden="true" tabindex="-1"></a>    result.append(level)</span>
+<span id="cb110-11"><a href="#cb110-11" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="143">
+<pre><code>[[1], [2, 3], [4, 5, 6]]</code></pre>
+</div>
+</div>
+<p><code>-</code> 설명</p>
+<ul>
+<li><p>아래 이진구조</p>
+<pre><code> 1
+/ \</code></pre>
+<p>2 3 / &nbsp;<br>
+4 5 6</p></li>
+</ul>
+<div id="dd7d95b0-7918-4fb4-84a0-403f8b1e285f" class="cell" data-execution_count="167">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TreeNode 클래스는 각 노드를 나타냅니다.</span></span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TreeNode:</span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 각 노드는 값을 저장하는 val, 왼쪽 자식을 가리키는 left, 오른쪽 자식을 가리키는 right 속성을 가집니다.</span></span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, val<span class="op">=</span><span class="dv">0</span>, left<span class="op">=</span><span class="va">None</span>, right<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.val <span class="op">=</span> val</span>
+<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.left <span class="op">=</span> left</span>
+<span id="cb113-7"><a href="#cb113-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.right <span class="op">=</span> right</span>
+<span id="cb113-8"><a href="#cb113-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-9"><a href="#cb113-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 탐색을 위해 큐(queue)를 사용합니다. 큐는 deque를 통해 효율적으로 구현됩니다.</span></span>
+<span id="cb113-10"><a href="#cb113-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 트리가 비어 있는 경우 빈 리스트를 반환합니다.</span></span>
+<span id="cb113-11"><a href="#cb113-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> deque</span>
+<span id="cb113-12"><a href="#cb113-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-13"><a href="#cb113-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> level_order_traversal(root):</span>
+<span id="cb113-14"><a href="#cb113-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> root:</span>
+<span id="cb113-15"><a href="#cb113-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> []</span>
+<span id="cb113-16"><a href="#cb113-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-17"><a href="#cb113-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># result: 각 레벨의 탐색 결과를 저장합니다.</span></span>
+<span id="cb113-18"><a href="#cb113-18" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb113-19"><a href="#cb113-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># queue: 현재 탐색할 노드들을 저장합니다. 처음에는 루트 노드 root만 포함합니다.</span></span>
+<span id="cb113-20"><a href="#cb113-20" aria-hidden="true" tabindex="-1"></a>    queue <span class="op">=</span> deque([root])</span>
+<span id="cb113-21"><a href="#cb113-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-22"><a href="#cb113-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 큐 순회: 큐에 있는 노드를 하나씩 꺼내 현재 레벨의 노드 값(node.val)을 level 리스트에 추가합니다.</span></span>
+<span id="cb113-23"><a href="#cb113-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> queue:</span>
+<span id="cb113-24"><a href="#cb113-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 각 레벨에 대해 현재 큐의 길이만큼 반복하여 해당 레벨의 모든 노드를 탐색합니다.</span></span>
+<span id="cb113-25"><a href="#cb113-25" aria-hidden="true" tabindex="-1"></a>        level <span class="op">=</span> []</span>
+<span id="cb113-26"><a href="#cb113-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(queue)):</span>
+<span id="cb113-27"><a href="#cb113-27" aria-hidden="true" tabindex="-1"></a>            node <span class="op">=</span> queue.popleft()</span>
+<span id="cb113-28"><a href="#cb113-28" aria-hidden="true" tabindex="-1"></a>            level.append(node.val)</span>
+<span id="cb113-29"><a href="#cb113-29" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb113-30"><a href="#cb113-30" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 현재 노드가 왼쪽 또는 오른쪽 자식을 가지면 그 자식을 큐에 추가합니다.</span></span>
+<span id="cb113-31"><a href="#cb113-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> node.left:</span>
+<span id="cb113-32"><a href="#cb113-32" aria-hidden="true" tabindex="-1"></a>                queue.append(node.left)</span>
+<span id="cb113-33"><a href="#cb113-33" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 이렇게 하면 다음 레벨의 노드들이 큐에 저장됩니다.</span></span>
+<span id="cb113-34"><a href="#cb113-34" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> node.right:</span>
+<span id="cb113-35"><a href="#cb113-35" aria-hidden="true" tabindex="-1"></a>                queue.append(node.right)</span>
+<span id="cb113-36"><a href="#cb113-36" aria-hidden="true" tabindex="-1"></a>        result.append(level)</span>
+<span id="cb113-37"><a href="#cb113-37" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'레벨 </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb113-38"><a href="#cb113-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-39"><a href="#cb113-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code></pre></div>
+</div>
+<div id="23d0b892-776a-4346-a25c-a63dd1025cbd" class="cell" data-execution_count="170">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 트리 생성</span></span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>root <span class="op">=</span> TreeNode(<span class="dv">1</span>)</span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a>root.left <span class="op">=</span> TreeNode(<span class="dv">2</span>)</span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a>root.right <span class="op">=</span> TreeNode(<span class="dv">3</span>)</span>
+<span id="cb114-5"><a href="#cb114-5" aria-hidden="true" tabindex="-1"></a>root.left.left <span class="op">=</span> TreeNode(<span class="dv">4</span>)</span>
+<span id="cb114-6"><a href="#cb114-6" aria-hidden="true" tabindex="-1"></a>root.left.right <span class="op">=</span> TreeNode(<span class="dv">5</span>)</span>
+<span id="cb114-7"><a href="#cb114-7" aria-hidden="true" tabindex="-1"></a>root.right.right <span class="op">=</span> TreeNode(<span class="dv">6</span>)</span></code></pre></div>
+</div>
+<div id="ffd7f007-7b44-4c06-8ffd-68b37b4074b5" class="cell" data-execution_count="171">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"레벨별 탐색 결과:"</span>, level_order_traversal(root))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>레벨 [[1]]
+레벨 [[1], [2, 3]]
+레벨 [[1], [2, 3], [4, 5, 6]]
+레벨별 탐색 결과: [[1], [2, 3], [4, 5, 6]]</code></pre>
+</div>
+</div>
+<ul>
+<li><p>큐 상태 변화:</p></li>
+<li><p>Level 1: [1] =&gt; 큐에 [2, 3] 추가</p></li>
+<li><p>Level 2: [2, 3] =&gt; 큐에 [4, 5, 6] 추가</p></li>
+<li><p>Level 3: [4, 5, 6] =&gt; 큐 비어있음 (탐색 종료)</p></li>
+<li><p>BFS 선택 이유</p></li>
+<li><p>BFS는 레벨 순서 탐색에 적합합니다.</p></li>
+<li><p>각 레벨을 탐색하면서 자연스럽게 층별 탐색 결과를 얻을 수 있습니다.</p></li>
+</ul>
 
 
 </section>
