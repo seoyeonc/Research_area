@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="SEOYEON CHOI">
+<meta name="dcterms.date" content="2025-01-12">
 
-<title>Research - Coding Test</title>
+<title>Research - [Coding Test]요격 시스템</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +102,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Research</span>
     </a>
   </div>
@@ -155,7 +131,7 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -174,7 +150,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_no_category.html"><strong>Research</strong></a></li><li class="breadcrumb-item"><a href="./2_coding.html"><strong>Coding Test</strong></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>[Coding Test]</strong>요격 시스템</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -184,7 +160,35 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><strong>[Coding Test]</strong>요격 시스템</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>SEOYEON CHOI </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 12, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -196,7 +200,7 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_note.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../1_note.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>Studies</strong></span></a>
   </div>
 </li>
@@ -211,37 +215,37 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_no_category.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../2_no_category.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>No Category</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_pygod.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../2_pygod.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>PYGOD</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_llm.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../2_llm.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>LLM</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_gglite.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../2_gglite.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>gglite</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_report.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../2_report.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>Report</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_coding.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../2_coding.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>Coding Test</strong></span></a>
   </div>
 </li>
@@ -252,200 +256,86 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_no_category.html"><strong>Research</strong></a></li><li class="breadcrumb-item"><a href="./2_coding.html"><strong>Coding Test</strong></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><strong>Coding Test</strong></h1>
+
+
+
+
+<p><code>-</code> 링크</p>
+<p>https://school.programmers.co.kr/learn/courses/30/lessons/181188</p>
+<p><code>-</code> 문제</p>
+<p>문제 설명</p>
+<p>A 나라가 B 나라를 침공하였습니다. B 나라의 대부분의 전략 자원은 아이기스 군사 기지에 집중되어 있기 때문에 A 나라는 B 나라의 아이기스 군사 기지에 융단폭격을 가했습니다.</p>
+<p>A 나라의 공격에 대항하여 아이기스 군사 기지에서는 무수히 쏟아지는 폭격 미사일들을 요격하려고 합니다. 이곳에는 백발백중을 자랑하는 요격 시스템이 있지만 운용 비용이 상당하기 때문에 미사일을 최소로 사용해서 모든 폭격 미사일을 요격하려 합니다.</p>
+<p>A 나라와 B 나라가 싸우고 있는 이 세계는 2 차원 공간으로 이루어져 있습니다. A 나라가 발사한 폭격 미사일은 x 축에 평행한 직선 형태의 모양이며 개구간을 나타내는 정수 쌍 (s, e) 형태로 표현됩니다. B 나라는 특정 x 좌표에서 y 축에 수평이 되도록 미사일을 발사하며, 발사된 미사일은 해당 x 좌표에 걸쳐있는 모든 폭격 미사일을 관통하여 한 번에 요격할 수 있습니다. 단, 개구간 (s, e)로 표현되는 폭격 미사일은 s와 e에서 발사하는 요격 미사일로는 요격할 수 없습니다. 요격 미사일은 실수인 x 좌표에서도 발사할 수 있습니다.</p>
+<p>각 폭격 미사일의 x 좌표 범위 목록 targets이 매개변수로 주어질 때, 모든 폭격 미사일을 요격하기 위해 필요한 요격 미사일 수의 최솟값을 return 하도록 solution 함수를 완성해 주세요.</p>
+<p>제한 사항</p>
+<p>1 ≤ targets의 길이 ≤ 500,000</p>
+<p>targets의 각 행은 [s,e] 형태입니다.</p>
+<p>이는 한 폭격 미사일의 x 좌표 범위를 나타내며, 개구간 (s, e)에서 요격해야 합니다.</p>
+<p>0 ≤ s &lt; e ≤ 100,000,000</p>
+<p><code>-</code> 답</p>
+<div id="989c3748-c2a8-47a4-bc79-368bc18ecd0c" class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solution(targets):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    targets.sort(key <span class="op">=</span> <span class="kw">lambda</span> x:[x[<span class="dv">1</span>],x[<span class="dv">0</span>]])</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    count, end <span class="op">=</span> <span class="dv">0</span>,<span class="dv">0</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> target <span class="kw">in</span> targets:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> target[<span class="dv">0</span>] <span class="op">&gt;=</span> end:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            end <span class="op">=</span> target[<span class="dv">1</span>]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    answer <span class="op">=</span> count</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> answer</span></code></pre></div>
 </div>
-
-
-
-<div class="quarto-title-meta column-page-right">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1736607600000" data-listing-file-modified-sort="1737026139269" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="274" data-listing-title-sort="**[Coding Test]**요격 시스템" data-listing-filename-sort="2025-01-12-Coding_12.ipynb">
-<td>
-<span class="listing-date">Jan 12, 2025</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2025-01-12-Coding_12.html" class="title listing-title"><strong>[Coding Test]</strong>요격 시스템</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1736434800000" data-listing-file-modified-sort="1736545220699" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129" data-listing-title-sort="**[Coding Test]**BFS" data-listing-filename-sort="2025-01-10-Coding_10.ipynb">
-<td>
-<span class="listing-date">Jan 10, 2025</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2025-01-10-Coding_10.html" class="title listing-title"><strong>[Coding Test]</strong>BFS</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1736348400000" data-listing-file-modified-sort="1736298150312" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="499" data-listing-title-sort="**[Coding Test]**아날로그 시계" data-listing-filename-sort="2025-01-09-Coding_11.ipynb">
-<td>
-<span class="listing-date">Jan 9, 2025</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2025-01-09-Coding_11.html" class="title listing-title"><strong>[Coding Test]</strong>아날로그 시계</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1736089200000" data-listing-file-modified-sort="1736127166454" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="220" data-listing-title-sort="**[Coding Test]**달리기경주" data-listing-filename-sort="2025-01-06-Coding_9.ipynb">
-<td>
-<span class="listing-date">Jan 6, 2025</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2025-01-06-Coding_9.html" class="title listing-title"><strong>[Coding Test]</strong>달리기경주</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1735916400000" data-listing-file-modified-sort="1736121031833" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="327" data-listing-title-sort="**[Coding Test]**석유시추" data-listing-filename-sort="2025-01-04-Coding_8.ipynb">
-<td>
-<span class="listing-date">Jan 4, 2025</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2025-01-04-Coding_8.html" class="title listing-title"><strong>[Coding Test]</strong>석유시추</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="5" data-listing-date-sort="1735743600000" data-listing-file-modified-sort="1735831949673" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="473" data-listing-title-sort="**[Coding Test]**도넛과 막대 그래프" data-listing-filename-sort="2025-01-02-Coding_7.ipynb">
-<td>
-<span class="listing-date">Jan 2, 2025</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2025-01-02-Coding_7.html" class="title listing-title"><strong>[Coding Test]</strong>도넛과 막대 그래프</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="6" data-listing-date-sort="1735657200000" data-listing-file-modified-sort="1735725359838" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="450" data-listing-title-sort="**[Coding Test]**충돌 위험 찾기" data-listing-filename-sort="2025-01-01-Coding_6.ipynb">
-<td>
-<span class="listing-date">Jan 1, 2025</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2025-01-01-Coding_6.html" class="title listing-title"><strong>[Coding Test]</strong>충돌 위험 찾기</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="7" data-listing-date-sort="1735570800000" data-listing-file-modified-sort="1735626857403" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="690" data-listing-title-sort="**[Coding Test]**퍼즐 게임 챌린지" data-listing-filename-sort="2024-12-31-Coding_5.ipynb">
-<td>
-<span class="listing-date">Dec 31, 2024</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2024-12-31-Coding_5.html" class="title listing-title"><strong>[Coding Test]</strong>퍼즐 게임 챌린지</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="8" data-listing-date-sort="1735484400000" data-listing-file-modified-sort="1735538608541" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210" data-listing-title-sort="**[Coding Test]**데이터 분석" data-listing-filename-sort="2024-12-30-Coding_4.ipynb">
-<td>
-<span class="listing-date">Dec 30, 2024</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2024-12-30-Coding_4.html" class="title listing-title"><strong>[Coding Test]</strong>데이터 분석</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="9" data-listing-date-sort="1735484400000" data-listing-file-modified-sort="1735536536088" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="323" data-listing-title-sort="**[Coding Test]**이웃한 칸" data-listing-filename-sort="2024-12-30-Coding_3.ipynb">
-<td>
-<span class="listing-date">Dec 30, 2024</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2024-12-30-Coding_3.html" class="title listing-title"><strong>[Coding Test]</strong>이웃한 칸</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="10" data-listing-date-sort="1735398000000" data-listing-file-modified-sort="1735467839662" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="264" data-listing-title-sort="**[Coding Test]**가장 많이 받은 선물" data-listing-filename-sort="2024-12-29-Coding_2.ipynb">
-<td>
-<span class="listing-date">Dec 29, 2024</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2024-12-29-Coding_2.html" class="title listing-title"><strong>[Coding Test]</strong>가장 많이 받은 선물</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="11" data-listing-date-sort="1735398000000" data-listing-file-modified-sort="1735461890299" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="312" data-listing-title-sort="**[Coding Test]**가장 많이 받은 선물" data-listing-filename-sort="2024-12-29-Coding_1.ipynb">
-<td>
-<span class="listing-date">Dec 29, 2024</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2024-12-29-Coding_1.html" class="title listing-title"><strong>[Coding Test]</strong>가장 많이 받은 선물</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="12" data-listing-date-sort="1734620400000" data-listing-file-modified-sort="1735461481185" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="170" data-listing-title-sort="**[Coding Test]**파이썬 자료 구조" data-listing-filename-sort="2024-12-20-Python.ipynb">
-<td>
-<span class="listing-date">Dec 20, 2024</span>
-</td>
-<td>
-<a href="./posts/2_research/2_coding/2024-12-20-Python.html" class="title listing-title"><strong>[Coding Test]</strong>파이썬 자료 구조</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
+<div id="8f262c86-1f8b-4f31-af64-8456a1b3ed3a" class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>solution([[<span class="dv">4</span>,<span class="dv">5</span>],[<span class="dv">4</span>,<span class="dv">8</span>],[<span class="dv">10</span>,<span class="dv">14</span>],[<span class="dv">11</span>,<span class="dv">13</span>],[<span class="dv">5</span>,<span class="dv">12</span>],[<span class="dv">3</span>,<span class="dv">7</span>],[<span class="dv">1</span>,<span class="dv">4</span>]])</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 3</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="69">
+<pre><code>3</code></pre>
 </div>
-</div></main> <!-- /main -->
+</div>
+<p><code>-</code> 한 줄씩</p>
+<div id="a508620b-65fa-4c01-be3e-c390df9f33dc" class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>targets <span class="op">=</span> [[<span class="dv">4</span>,<span class="dv">5</span>],[<span class="dv">4</span>,<span class="dv">8</span>],[<span class="dv">10</span>,<span class="dv">14</span>],[<span class="dv">11</span>,<span class="dv">13</span>],[<span class="dv">5</span>,<span class="dv">12</span>],[<span class="dv">3</span>,<span class="dv">7</span>],[<span class="dv">1</span>,<span class="dv">4</span>]]</span></code></pre></div>
+</div>
+<div id="89b76b33-6fc0-42bd-9e1f-3447c0030a13" class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>targets.sort(key <span class="op">=</span> <span class="kw">lambda</span> x:[x[<span class="dv">1</span>],x[<span class="dv">0</span>]])</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>targets</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="63">
+<pre><code>[[1, 4], [4, 5], [3, 7], [4, 8], [5, 12], [11, 13], [10, 14]]</code></pre>
+</div>
+</div>
+<div id="45e009bc-74f0-481b-977d-a7072b96fa8a" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>count, end <span class="op">=</span> <span class="dv">0</span>,<span class="dv">0</span></span></code></pre></div>
+</div>
+<div id="80ff3535-b3db-4225-b554-098d2f425760" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> target <span class="kw">in</span> targets:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> target[<span class="dv">0</span>] <span class="op">&gt;=</span> end:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        end <span class="op">=</span> target[<span class="dv">1</span>]</span></code></pre></div>
+</div>
+<div id="36486a03-f4f6-47b1-874d-490e258fbd42" class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>count</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="66">
+<pre><code>3</code></pre>
+</div>
+</div>
+<p><code>-</code> 그리디 알고리즘</p>
+<p>그리디 알고리즘은 각 단계에서 최선의 선택을 하는 방식으로 문제를 해결합니다.</p>
+<p>이 문제는 주어진 목표(targets)들 중에서 겹치지 않는 구간의 최대 개수를 찾는 문제로 보입니다. 각 목표는 시작과 끝을 나타내는 쌍으로 주어집니다. 그리디 알고리즘에서는 다음과 같은 방식으로 해결합니다:</p>
+<p>정렬: 끝나는 시간을 기준으로 목표를 오름차순으로 정렬합니다. 끝나는 시간이 빠를수록 더 많은 목표를 선택할 수 있기 때문에 우선적으로 선택됩니다.</p>
+<p>선택: 정렬된 목표들을 순차적으로 검사하면서, 현재 목표의 시작 시간이 이전 목표의 끝 시간 이상인 경우에만 선택합니다. 이렇게 함으로써 겹치지 않는 최대 개수의 목표를 선택할 수 있습니다.</p>
+
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
