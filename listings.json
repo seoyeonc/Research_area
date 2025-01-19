@@ -20,15 +20,20 @@
     ]
   },
   {
-    "listing": "/2_gglite.html",
+    "listing": "/2_no_category.html",
     "items": [
-      "/posts/2_research/2_gglite/2023-08-25-ggplot3_comparison.html",
-      "/posts/2_research/2_gglite/2023-08-10-ggplot3.out.html"
+      "/posts/2_research/2_no_category/2024-10-13-bigcontest.html",
+      "/posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html",
+      "/posts/2_research/2_no_category/2024-06-02-hellokan.html",
+      "/posts/2_research/2_no_category/2023-07-10-fraud_data.html",
+      "/posts/2_research/2_no_category/2023-07-08-stock_on_graph.html",
+      "/posts/2_research/2_no_category/2023-07-07-Stock_Crawling.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2_research/2_coding/2025-01-21-Coding_14.html",
       "/posts/2_research/2_coding/2025-01-19-Coding_13.html",
       "/posts/2_research/2_coding/2025-01-12-Coding_12.html",
       "/posts/2_research/2_coding/2025-01-10-Coding_10.html",
@@ -62,14 +67,10 @@
     ]
   },
   {
-    "listing": "/2_no_category.html",
+    "listing": "/2_gglite.html",
     "items": [
-      "/posts/2_research/2_no_category/2024-10-13-bigcontest.html",
-      "/posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html",
-      "/posts/2_research/2_no_category/2024-06-02-hellokan.html",
-      "/posts/2_research/2_no_category/2023-07-10-fraud_data.html",
-      "/posts/2_research/2_no_category/2023-07-08-stock_on_graph.html",
-      "/posts/2_research/2_no_category/2023-07-07-Stock_Crawling.html"
+      "/posts/2_research/2_gglite/2023-08-25-ggplot3_comparison.html",
+      "/posts/2_research/2_gglite/2023-08-10-ggplot3.out.html"
     ]
   },
   {
@@ -83,6 +84,7 @@
   {
     "listing": "/2_coding.html",
     "items": [
+      "/posts/2_research/2_coding/2025-01-21-Coding_14.html",
       "/posts/2_research/2_coding/2025-01-19-Coding_13.html",
       "/posts/2_research/2_coding/2025-01-12-Coding_12.html",
       "/posts/2_research/2_coding/2025-01-10-Coding_10.html",

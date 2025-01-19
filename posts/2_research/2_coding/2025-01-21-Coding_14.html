@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="SEOYEON CHOI">
+<meta name="dcterms.date" content="2025-01-21">
 
-<title>Research - No Category</title>
+<title>Research - [Coding Test]두 원 사이의 정수 쌍</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +102,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Research</span>
     </a>
   </div>
@@ -155,7 +131,7 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -174,7 +150,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_no_category.html"><strong>Research</strong></a></li><li class="breadcrumb-item"><a href="./2_no_category.html"><strong>No Category</strong></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>[Coding Test]</strong>두 원 사이의 정수 쌍</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -184,7 +160,35 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><strong>[Coding Test]</strong>두 원 사이의 정수 쌍</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>SEOYEON CHOI </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 21, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -196,7 +200,7 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_note.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../1_note.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>Studies</strong></span></a>
   </div>
 </li>
@@ -211,37 +215,37 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_no_category.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../2_no_category.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>No Category</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_pygod.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../2_pygod.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>PYGOD</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_llm.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../2_llm.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>LLM</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_gglite.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../2_gglite.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>gglite</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_report.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../2_report.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>Report</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_coding.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../2_coding.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>Coding Test</strong></span></a>
   </div>
 </li>
@@ -252,123 +256,120 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_no_category.html"><strong>Research</strong></a></li><li class="breadcrumb-item"><a href="./2_no_category.html"><strong>No Category</strong></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><strong>No Category</strong></h1>
+
+
+
+
+<p><code>-</code> 링크</p>
+<p>https://school.programmers.co.kr/learn/courses/30/lessons/181187</p>
+<p>x축과 y축으로 이루어진 2차원 직교 좌표계에 중심이 원점인 서로 다른 크기의 원이 두 개 주어집니다. 반지름을 나타내는 두 정수 r1, r2가 매개변수로 주어질 때, 두 원 사이의 공간에 x좌표와 y좌표가 모두 정수인 점의 개수를 return하도록 solution 함수를 완성해주세요. ※ 각 원 위의 점도 포함하여 셉니다.</p>
+<p>제한 사항</p>
+<p>1 ≤ r1 &lt; r2 ≤ 1,000,000</p>
+<div id="47192e4d-46bb-489e-8eda-bb84131303df" class="cell" data-execution_count="362">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span></code></pre></div>
+</div>
+<div id="9aba5a3f-f290-427c-a235-39d0cc6f7570" class="cell" data-execution_count="369">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>r1, r2 <span class="op">=</span> <span class="dv">2</span>, <span class="dv">3</span></span></code></pre></div>
+</div>
+<div id="da4bb501-2ea3-428c-929b-20cf62c1e630" class="cell" data-execution_count="379">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sq(a,b):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> math.sqrt(a<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> b<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>answer <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,r2<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> r1 :</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        score <span class="op">=</span> math.ceil(sq(r1,i))</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        score <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    enter <span class="op">=</span> <span class="bu">int</span>(sq(r2,i))</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    answer <span class="op">=</span> answer <span class="op">+</span> enter <span class="op">-</span> score <span class="op">+</span> <span class="dv">1</span></span></code></pre></div>
+</div>
+<div id="29ac5248-44d9-433d-b703-f6f71b594e90" class="cell" data-execution_count="380">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>answer <span class="op">*</span> <span class="dv">4</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="380">
+<pre><code>20</code></pre>
+</div>
+</div>
+<p><code>-</code> 답</p>
+<div id="210948fa-dca3-49f3-ae59-cfd4a173505a" class="cell" data-execution_count="384">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solution(r1, r2):</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sq(a,b):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> math.sqrt(a<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> b<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    answer <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,r2<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">&lt;</span> r1 :</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            score <span class="op">=</span> math.ceil(sq(r1,i))</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            score <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        enter <span class="op">=</span> <span class="bu">int</span>(sq(r2,i))</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        answer <span class="op">=</span> answer <span class="op">+</span> enter <span class="op">-</span> score <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> answer <span class="op">*</span> <span class="dv">4</span></span></code></pre></div>
+</div>
+<div id="dfcb04cc-036b-41db-9176-c0cc155b9282" class="cell" data-execution_count="385">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>solution(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 20</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="385">
+<pre><code>20</code></pre>
+</div>
+</div>
+<p><code>-</code> 한줄씩</p>
+<div id="35e7b668-50bf-433c-a059-db34e6cf6203" class="cell" data-execution_count="386">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sq(a,b):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> math.sqrt(a<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> b<span class="op">**</span><span class="dv">2</span>)</span></code></pre></div>
+</div>
+<div id="14208b64-c87e-4afe-9869-2c60795c539b" class="cell" data-execution_count="399">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span><span class="op">**</span><span class="dv">2</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="399">
+<pre><code>3</code></pre>
+</div>
+</div>
+<div id="68206d2d-d98d-48dd-b4cb-b14791ab7fbc" class="cell" data-execution_count="400">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>math.sqrt(<span class="dv">2</span><span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span><span class="op">**</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="400">
+<pre><code>1.7320508075688772</code></pre>
+</div>
+</div>
+<div id="51865734-65b7-41e4-b756-982585a4381c" class="cell" data-execution_count="388">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sq(<span class="dv">2</span>,<span class="dv">1</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="388">
+<pre><code>1.7320508075688772</code></pre>
+</div>
+</div>
+<div id="86e50226-f7ba-4c5a-aba4-c64457d50146" class="cell" data-execution_count="397">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>answer <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
+</div>
+<div id="32c0f651-5a37-4a4d-817a-c357b4820f62" class="cell" data-execution_count="398">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,r2<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> r1 :</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        score <span class="op">=</span> math.ceil(sq(r1,i))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'i = </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> 일때 </span><span class="sc">{</span>score<span class="sc">}</span><span class="ss"> = r1 안의 정수쌍 제거'</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        score <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    enter <span class="op">=</span> <span class="bu">int</span>(sq(r2,i))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    answer <span class="op">=</span> answer <span class="op">+</span> enter <span class="op">-</span> score <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(answer)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>i = 1 일때 2 = r1 안의 정수쌍 제거
+1
+4
+5</code></pre>
+</div>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1728745200000" data-listing-file-modified-sort="1729679593072" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="23" data-listing-word-count-sort="4564" data-listing-title-sort="2024빅콘테스트" data-listing-filename-sort="2024-10-13-bigcontest.ipynb">
-<td>
-<span class="listing-date">Oct 13, 2024</span>
-</td>
-<td>
-<a href="./posts/2_research/2_no_category/2024-10-13-bigcontest.html" class="title listing-title">2024빅콘테스트</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1722351600000" data-listing-file-modified-sort="1737266482257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="783" data-listing-title-sort="[Farm Data] Graphs" data-listing-filename-sort="2024-07-31-Datasafe_Idea.ipynb">
-<td>
-<span class="listing-date">Jul 31, 2024</span>
-</td>
-<td>
-<a href="./posts/2_research/2_no_category/2024-07-31-Datasafe_Idea.html" class="title listing-title">[Farm Data] Graphs</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1717254000000" data-listing-file-modified-sort="1717321970335" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="382" data-listing-title-sort="Kolmogorov-Arnold Network (KAN)" data-listing-filename-sort="2024-06-02-hellokan.ipynb">
-<td>
-<span class="listing-date">Jun 2, 2024</span>
-</td>
-<td>
-<a href="./posts/2_research/2_no_category/2024-06-02-hellokan.html" class="title listing-title">Kolmogorov-Arnold Network (KAN)</a>
-</td>
-<td>
-<span class="listing-author">pykan </span>
-</td>
-</tr>
-<tr data-index="3" data-categories="fraud" data-listing-date-sort="1688914800000" data-listing-file-modified-sort="1701418826086" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="3" data-listing-title-sort="Fraud data" data-listing-filename-sort="2023-07-10-fraud_data.ipynb">
-<td>
-<span class="listing-date">Jul 10, 2023</span>
-</td>
-<td>
-<a href="./posts/2_research/2_no_category/2023-07-10-fraud_data.html" class="title listing-title">Fraud data</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="4" data-categories="STGCN" data-listing-date-sort="1688742000000" data-listing-file-modified-sort="1701418829510" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19" data-listing-title-sort="Stock on Graph" data-listing-filename-sort="2023-07-08-stock_on_graph.ipynb">
-<td>
-<span class="listing-date">Jul 8, 2023</span>
-</td>
-<td>
-<a href="./posts/2_research/2_no_category/2023-07-08-stock_on_graph.html" class="title listing-title">Stock on Graph</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="Stock" data-listing-date-sort="1688655600000" data-listing-file-modified-sort="1701418829510" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="3" data-listing-title-sort="Stock Crawling" data-listing-filename-sort="2023-07-07-Stock_Crawling.ipynb">
-<td>
-<span class="listing-date">Jul 7, 2023</span>
-</td>
-<td>
-<a href="./posts/2_research/2_no_category/2023-07-07-Stock_Crawling.html" class="title listing-title">Stock Crawling</a>
-</td>
-<td>
-<span class="listing-author">SEOYEON CHOI</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
