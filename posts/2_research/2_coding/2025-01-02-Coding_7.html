@@ -423,29 +423,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>(2, 1, 1, 0)</code></pre>
 </div>
 </div>
+<p>크기가 n인 도넛 모양 그래프는 n개의 정점과 n개의 간선이 있습니다. 도넛 모양 그래프의 아무 한 정점에서 출발해 이용한 적 없는 간선을 계속 따라가면 나머지 n-1개의 정점들을 한 번씩 방문한 뒤 원래 출발했던 정점으로 돌아오게 됩니다. - 정점이랑 이어진 점 빼고 나가는 간선의 수와 들어오는 간선의 수가 같다.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 크기</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 정점 i = 2, 1개 정점</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 간선</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 방문하는 정점 수</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>n <span class="op">-</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">1</span></span></code></pre></div>
+<p>크기가 n인 막대 모양 그래프는 n개의 정점과 n-1개의 간선이 있습니다. 막대 모양 그래프는 임의의 한 정점에서 출발해 간선을 계속 따라가면 나머지 n-1개의 정점을 한 번씩 방문하게 되는 정점이 단 하나 존재합니다. - 정점이랑 이어진 점 빼고 나가는 간선만 있다.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 크기</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 정점</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 간선</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>n <span class="op">-</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 방문하는 정점 수</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span></span></code></pre></div>
+<p>크기가 n인 8자 모양 그래프는 2n+1개의 정점과 2n+2개의 간선이 있습니다. 8자 모양 그래프는 크기가 동일한 2개의 도넛 모양 그래프에서 정점을 하나씩 골라 결합시킨 형태의 그래프입니다.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 크기</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>n</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 정점</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="er">n</span> <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 간선</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="er">n</span> <span class="op">+</span> <span class="dv">2</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 방문하는 정점 수</span></span></code></pre></div>
 <ul>
-<li>1번 노드
+<li>1번 노드(도넛)
 <ul>
 <li>나가는 간선 = 1</li>
-<li>들어오는 간선 = 2</li>
+<li>들어오는 간선 = 2 = 1 + 정점에서 오는 간선 1</li>
 <li>특징 나가는 간선이 1</li>
 </ul></li>
 <li>2번 노드(정점)
 <ul>
 <li>나가는 간선 = 2</li>
 <li>들어오는 간선 = 0</li>
-<li>특징 나가는 간선이 2 이상, 들어오는 간선이 0</li>
+<li>특징 나가는 간선이 2, 들어오는 간선이 0</li>
 </ul></li>
-<li>3번 노드
+<li>3번 노드(막대)
 <ul>
 <li>나가는 간선 = 0</li>
 <li>들어오는 간선 = 2</li>
 </ul></li>
-<li>4번 노드
+<li>4번 노드(막대)
 <ul>
 <li>나가는 간선 = 1</li>
 <li>들어오는 간선 = 0</li>
 <li>나가는 간선만 존재</li>
+</ul></li>
+<li>나가는 간선의 수가 0 이면 막대
+<ul>
+<li>3번 노드</li>
+<li>따라서 1</li>
+</ul></li>
+<li>나가는 간선의 수가 2 이상이고 들어오는 간선이 0 이면 정점
+<ul>
+<li>2번 노드</li>
+<li>따라서 정점은 2번 노드</li>
+</ul></li>
+<li>나가는 간선의 수가 2 이고 들어오는 간선의 수가 2 이상이면 8자
+<ul>
+<li>없음</li>
+</ul></li>
+<li>정점에서 나가는 간선의 수에서 막대, 8자 빼면 도넛
+<ul>
+<li>2 - 1 - 1 = 0</li>
+<li>따라서 0</li>
 </ul></li>
 <li>정점 2</li>
 <li>도넛모양 1</li>
@@ -454,22 +499,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><code>-</code> 2번 예제</p>
 <div id="0f8911bf-f529-4e1b-a2c0-59321e41403c" class="cell" data-execution_count="444">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [[<span class="dv">4</span>, <span class="dv">11</span>], [<span class="dv">1</span>, <span class="dv">12</span>], [<span class="dv">8</span>, <span class="dv">3</span>], [<span class="dv">12</span>, <span class="dv">7</span>], [<span class="dv">4</span>, <span class="dv">2</span>], [<span class="dv">7</span>, <span class="dv">11</span>], [<span class="dv">4</span>, <span class="dv">8</span>], [<span class="dv">9</span>, <span class="dv">6</span>], [<span class="dv">10</span>, <span class="dv">11</span>], [<span class="dv">6</span>, <span class="dv">10</span>], [<span class="dv">3</span>, <span class="dv">5</span>], [<span class="dv">11</span>, <span class="dv">1</span>], [<span class="dv">5</span>, <span class="dv">3</span>], [<span class="dv">11</span>, <span class="dv">9</span>], [<span class="dv">3</span>, <span class="dv">8</span>]]</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [[<span class="dv">4</span>, <span class="dv">11</span>], [<span class="dv">1</span>, <span class="dv">12</span>], [<span class="dv">8</span>, <span class="dv">3</span>], [<span class="dv">12</span>, <span class="dv">7</span>], [<span class="dv">4</span>, <span class="dv">2</span>], [<span class="dv">7</span>, <span class="dv">11</span>], [<span class="dv">4</span>, <span class="dv">8</span>], [<span class="dv">9</span>, <span class="dv">6</span>], [<span class="dv">10</span>, <span class="dv">11</span>], [<span class="dv">6</span>, <span class="dv">10</span>], [<span class="dv">3</span>, <span class="dv">5</span>], [<span class="dv">11</span>, <span class="dv">1</span>], [<span class="dv">5</span>, <span class="dv">3</span>], [<span class="dv">11</span>, <span class="dv">9</span>], [<span class="dv">3</span>, <span class="dv">8</span>]]</span></code></pre></div>
 </div>
 <div id="ccbb9d34-82b5-4837-ba40-67ae6f7a1be7" class="cell" data-execution_count="454">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.DiGraph()</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>G.add_edges_from(edges)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spring_layout(G) </span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))  <span class="co"># 명시적으로 Figure와 Axes 생성</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>nx.draw(</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    G, pos, ax<span class="op">=</span>ax, with_labels<span class="op">=</span><span class="va">True</span>, node_size<span class="op">=</span><span class="dv">500</span>, node_color<span class="op">=</span><span class="st">'lightblue'</span>,</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    font_size<span class="op">=</span><span class="dv">12</span>, font_weight<span class="op">=</span><span class="st">'bold'</span>, edge_color<span class="op">=</span><span class="st">'gray'</span>, arrowsize<span class="op">=</span><span class="dv">20</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.DiGraph()</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>G.add_edges_from(edges)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spring_layout(G) </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))  <span class="co"># 명시적으로 Figure와 Axes 생성</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>nx.draw(</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    G, pos, ax<span class="op">=</span>ax, with_labels<span class="op">=</span><span class="va">True</span>, node_size<span class="op">=</span><span class="dv">500</span>, node_color<span class="op">=</span><span class="st">'lightblue'</span>,</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    font_size<span class="op">=</span><span class="dv">12</span>, font_weight<span class="op">=</span><span class="st">'bold'</span>, edge_color<span class="op">=</span><span class="st">'gray'</span>, arrowsize<span class="op">=</span><span class="dv">20</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -480,93 +525,334 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>4번 정점이 생성한 정점이고 막대 모양 그래프 1개, 8자 모양 그래프 2개가 존재합니다. 따라서 [4, 0, 1, 2]를 return 해야 합니다.</p>
 <div id="035e3457-f319-43e8-bf03-0d4c7b90700b" class="cell" data-execution_count="422">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> [[<span class="dv">0</span> <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(edges))] <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(edges))]</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row, col <span class="kw">in</span> edges:</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    matrix[row <span class="op">-</span> <span class="dv">1</span>][col <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span>  <span class="co"># 행과 열은 1부터 시작하므로 -1 처리</span></span></code></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> [[<span class="dv">0</span> <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(edges))] <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(edges))]</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row, col <span class="kw">in</span> edges:</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    matrix[row <span class="op">-</span> <span class="dv">1</span>][col <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span>  <span class="co"># 행과 열은 1부터 시작하므로 -1 처리</span></span></code></pre></div>
 </div>
 <p>나가는 선</p>
 <div id="bd32fcd9-9898-4f36-8d59-b276dd3eb6c9" class="cell" data-execution_count="423">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>row_sums <span class="op">=</span> []</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(matrix)):</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">sum</span>(matrix[i]) <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        row_sums.append(<span class="dv">0</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="bu">sum</span>(matrix[i]) <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        row_sums.append(<span class="bu">sum</span>(matrix[i]))</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>row_sums</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>row_sums <span class="op">=</span> []</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(matrix)):</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">sum</span>(matrix[i]) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>        row_sums.append(<span class="dv">0</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="bu">sum</span>(matrix[i]) <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        row_sums.append(<span class="bu">sum</span>(matrix[i]))</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>row_sums</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="423">
 <pre><code>[1, 0, 2, 3, 1, 1, 1, 1, 1, 1, 2, 1, 0, 0, 0]</code></pre>
 </div>
 </div>
 <p>들어오는 선</p>
 <div id="12b1b361-c5a4-41bd-9c95-29330b7e00b0" class="cell" data-execution_count="424">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>col_sums <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="bu">len</span>(matrix[<span class="dv">0</span>])</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> matrix:</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(row)):</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>        col_sums[j] <span class="op">+=</span> row[j]</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>col_sums</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>col_sums <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="bu">len</span>(matrix[<span class="dv">0</span>])</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> matrix:</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(row)):</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>        col_sums[j] <span class="op">+=</span> row[j]</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>col_sums</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="424">
 <pre><code>[1, 1, 2, 0, 1, 1, 1, 2, 1, 1, 3, 1, 0, 0, 0]</code></pre>
 </div>
 </div>
 <div id="1d527192-1dc5-4904-94aa-4a6850ada19e" class="cell" data-execution_count="425">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>bar <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>eight <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(matrix)):</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> col_sums[i] <span class="op">!=</span> <span class="dv">0</span> <span class="kw">or</span> row_sums[i] <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> row_sums[i] <span class="op">==</span> <span class="dv">0</span> :</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>            bar <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> row_sums[i] <span class="op">&gt;</span> <span class="dv">1</span> <span class="kw">and</span> col_sums[i] <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>            정점 <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> row_sums[i] <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> col_sums[i] <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>            eight <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>donut <span class="op">=</span> row_sums[정점 <span class="op">-</span> <span class="dv">1</span>] <span class="op">-</span> bar <span class="op">-</span> eight</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>정점, donut, bar, eight</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>bar <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>eight <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(matrix)):</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> col_sums[i] <span class="op">!=</span> <span class="dv">0</span> <span class="kw">or</span> row_sums[i] <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> row_sums[i] <span class="op">==</span> <span class="dv">0</span> :</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>            bar <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> row_sums[i] <span class="op">&gt;</span> <span class="dv">1</span> <span class="kw">and</span> col_sums[i] <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>            정점 <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> row_sums[i] <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> col_sums[i] <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>            eight <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>donut <span class="op">=</span> row_sums[정점 <span class="op">-</span> <span class="dv">1</span>] <span class="op">-</span> bar <span class="op">-</span> eight</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>정점, donut, bar, eight</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="425">
 <pre><code>(4, 0, 1, 2)</code></pre>
 </div>
 </div>
-<div id="1ac61e6b-60d1-46b6-8345-4f4ec9a69735" class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> 나가는 간선  <span class="op">=</span> <span class="dv">1</span>, 들어오는 간선 <span class="op">=</span> <span class="dv">2</span>,</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> 나가는 간선  <span class="op">=</span> <span class="dv">1</span>, 들어오는 간선 <span class="op">=</span> <span class="dv">2</span>,</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> 나가는 간선  <span class="op">=</span> <span class="dv">1</span>, 들어오는 간선 <span class="op">=</span> <span class="dv">2</span>,</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> 나가는 간선  <span class="op">=</span> <span class="dv">1</span>, 들어오는 간선 <span class="op">=</span> <span class="dv">2</span>,</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>정점 <span class="dv">4</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>도넛모양 <span class="dv">0</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>막대 모양 <span class="dv">1</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span><span class="er">자</span> 모양 <span class="dv">2</span></span></code></pre></div>
-</div>
+<p>크기가 n인 도넛 모양 그래프는 n개의 정점과 n개의 간선이 있습니다. 도넛 모양 그래프의 아무 한 정점에서 출발해 이용한 적 없는 간선을 계속 따라가면 나머지 n-1개의 정점들을 한 번씩 방문한 뒤 원래 출발했던 정점으로 돌아오게 됩니다. - 정점이랑 이어진 점 빼고 나가는 간선의 수와 들어오는 간선의 수가 같다.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 크기</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>n</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 정점 i = 4, 1개 정점</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>n</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 간선</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>n</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 방문하는 정점 수</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>n <span class="op">-</span> <span class="dv">1</span></span></code></pre></div>
+<p>크기가 n인 막대 모양 그래프는 n개의 정점과 n-1개의 간선이 있습니다. 막대 모양 그래프는 임의의 한 정점에서 출발해 간선을 계속 따라가면 나머지 n-1개의 정점을 한 번씩 방문하게 되는 정점이 단 하나 존재합니다. - 정점이랑 이어진 점 빼고 나가는 간선만 있다.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 크기</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 정점</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 간선</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>n <span class="op">-</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 방문하는 정점 수</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span></span></code></pre></div>
+<p>크기가 n인 8자 모양 그래프는 2n+1개의 정점과 2n+2개의 간선이 있습니다. 8자 모양 그래프는 크기가 동일한 2개의 도넛 모양 그래프에서 정점을 하나씩 골라 결합시킨 형태의 그래프입니다.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 크기</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>n</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 정점</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="er">n</span> <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 간선</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="er">n</span> <span class="op">+</span> <span class="dv">2</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 방문하는 정점 수</span></span></code></pre></div>
+<ul>
+<li>1번 노드
+<ul>
+<li>나가는 간선 = 1</li>
+<li>들어오는 간선 = 1</li>
+</ul></li>
+<li>2번 노드
+<ul>
+<li>나가는 간선 = 0</li>
+<li>들어오는 간선 = 1</li>
+</ul></li>
+<li>3번 노드
+<ul>
+<li>나가는 간선 = 2</li>
+<li>들어오는 간선 = 2</li>
+</ul></li>
+<li>4번 노드
+<ul>
+<li>나가는 간선 = 3</li>
+<li>들어오는 간선 = 0</li>
+</ul></li>
+<li>5번 노드
+<ul>
+<li>나가는 간선 = 1</li>
+<li>들어오는 간선 = 1</li>
+</ul></li>
+<li>6번 노드
+<ul>
+<li>나가는 간선 = 1</li>
+<li>들어오는 간선 = 1</li>
+</ul></li>
+<li>7번 노드
+<ul>
+<li>나가는 간선 = 1</li>
+<li>들어오는 간선 = 1</li>
+</ul></li>
+<li>8번 노드
+<ul>
+<li>나가는 간선 = 1</li>
+<li>들어오는 간선 = 2</li>
+</ul></li>
+<li>9번 노드
+<ul>
+<li>나가는 간선 = 1</li>
+<li>들어오는 간선 = 1</li>
+</ul></li>
+<li>10번 노드
+<ul>
+<li>나가는 간선 = 1</li>
+<li>들어오는 간선 = 1</li>
+</ul></li>
+<li>11번 노드
+<ul>
+<li>나가는 간선 = 2</li>
+<li>들어오는 간선 = 3</li>
+</ul></li>
+<li>12번 노드
+<ul>
+<li>나가는 간선 = 1</li>
+<li>들어오는 간선 = 1</li>
+</ul></li>
+<li>나가는 간선의 수가 0 이면 막대
+<ul>
+<li>2번 노드</li>
+<li>따라서 1</li>
+</ul></li>
+<li>나가는 간선의 수가 2 이상이고 들어오는 간선이 0 이면 정점
+<ul>
+<li>4번 노드</li>
+<li>따라서 정점은 4번 노드</li>
+</ul></li>
+<li>나가는 간선의 수가 2 이고 들어오는 간선의 수가 2 이상이면 8자
+<ul>
+<li>3번 노드</li>
+<li>11번 노드</li>
+<li>따라서 2</li>
+</ul></li>
+<li>정점에서 나가는 간선의 수에서 막대, 8자 빼면 도넛
+<ul>
+<li>3 - 1 - 2 = 0</li>
+<li>따라서 0</li>
+</ul></li>
+<li>정점 4</li>
+<li>도넛모양 0</li>
+<li>막대 모양 1</li>
+<li>8자 모양 2</li>
+</ul>
 <p><code>-</code> ChatGPT 가 정리한 효율적인 답</p>
-<div id="bcc1eaa8-8736-4011-8ed9-a1d3cee81592" class="cell" data-execution_count="410">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solution(edges):</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Determine the size of the matrix</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">max</span>(<span class="bu">max</span>(row, col) <span class="cf">for</span> row, col <span class="kw">in</span> edges)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize adjacency matrix and in/out degree lists</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    row_sums <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    col_sums <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Populate adjacency matrix and calculate row/column sums</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row, col <span class="kw">in</span> edges:</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>        row_sums[row <span class="op">-</span> <span class="dv">1</span>] <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>        col_sums[col <span class="op">-</span> <span class="dv">1</span>] <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize variables</span></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    bar, eight, vertex <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Analyze the graph</span></span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> row_sums[i] <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> col_sums[i] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>            bar <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> row_sums[i] <span class="op">&gt;</span> <span class="dv">1</span> <span class="kw">and</span> col_sums[i] <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>            vertex <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> row_sums[i] <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> col_sums[i] <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>            eight <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate donut</span></span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>    donut <span class="op">=</span> row_sums[vertex <span class="op">-</span> <span class="dv">1</span>] <span class="op">-</span> bar <span class="op">-</span> eight <span class="cf">if</span> vertex <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span> <span class="cf">else</span> <span class="dv">0</span></span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [vertex, donut, bar, eight]</span></code></pre></div>
+<div id="bcc1eaa8-8736-4011-8ed9-a1d3cee81592" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solution(edges):</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">max</span>(<span class="bu">max</span>(row, col) <span class="cf">for</span> row, col <span class="kw">in</span> edges)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    row_sums <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    col_sums <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row, col <span class="kw">in</span> edges:</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>        row_sums[row <span class="op">-</span> <span class="dv">1</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>        col_sums[col <span class="op">-</span> <span class="dv">1</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    bar, eight, vertex <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> row_sums[i] <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> col_sums[i] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>            bar <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> row_sums[i] <span class="op">&gt;</span> <span class="dv">1</span> <span class="kw">and</span> col_sums[i] <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>            vertex <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> row_sums[i] <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> col_sums[i] <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>            eight <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>    donut <span class="op">=</span> row_sums[vertex <span class="op">-</span> <span class="dv">1</span>] <span class="op">-</span> bar <span class="op">-</span> eight <span class="cf">if</span> vertex <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span> <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [vertex, donut, bar, eight]</span></code></pre></div>
+</div>
+<div id="f0b9ee20" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>solution([[<span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">3</span>], [<span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">2</span>, <span class="dv">1</span>]])</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [2, 1, 1, 0]</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>[2, 1, 1, 0]</code></pre>
+</div>
+</div>
+<div id="cfcb4e7b" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>solution([[<span class="dv">4</span>, <span class="dv">11</span>], [<span class="dv">1</span>, <span class="dv">12</span>], [<span class="dv">8</span>, <span class="dv">3</span>], [<span class="dv">12</span>, <span class="dv">7</span>], [<span class="dv">4</span>, <span class="dv">2</span>], [<span class="dv">7</span>, <span class="dv">11</span>], [<span class="dv">4</span>, <span class="dv">8</span>], [<span class="dv">9</span>, <span class="dv">6</span>], [<span class="dv">10</span>, <span class="dv">11</span>], [<span class="dv">6</span>, <span class="dv">10</span>], [<span class="dv">3</span>, <span class="dv">5</span>], [<span class="dv">11</span>, <span class="dv">1</span>], [<span class="dv">5</span>, <span class="dv">3</span>], [<span class="dv">11</span>, <span class="dv">9</span>], [<span class="dv">3</span>, <span class="dv">8</span>]])</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [4, 0, 1, 2]</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>[4, 0, 1, 2]</code></pre>
+</div>
+</div>
+<p>주요 개선 사항</p>
+<ol type="1">
+<li>메모리 절약 및 효율적인 초기화:</li>
+</ol>
+<ul>
+<li>그래프의 크기를 동적으로 계산하여, 불필요한 n x n 행렬 초기화를 제거했습니다.</li>
+</ul>
+<ol start="2" type="1">
+<li>중복 계산 제거:</li>
+</ol>
+<ul>
+<li>row_sums와 col_sums를 바로 계산하여, 행렬 탐색 과정을 줄였습니다.</li>
+</ul>
+<ol start="3" type="1">
+<li>로직 단순화:</li>
+</ol>
+<ul>
+<li>bar, eight, vertex의 계산이 더 명확하고 간결하게 작성되었습니다.</li>
+</ul>
+<ol start="4" type="1">
+<li>가독성 향상:</li>
+</ol>
+<ul>
+<li>변수 이름을 유지하며 코드 블록을 논리적 흐름에 맞게 배치했습니다.</li>
+</ul>
+<p>예 1</p>
+<div id="82ae0546" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [[<span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">3</span>], [<span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">2</span>, <span class="dv">1</span>]]</span></code></pre></div>
+</div>
+<p>몇 행 몇 열의 데이터일지</p>
+<div id="e38b6645" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">max</span>(<span class="bu">max</span>(row, col) <span class="cf">for</span> row, col <span class="kw">in</span> edges)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>n</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>4</code></pre>
+</div>
+</div>
+<p>행렬 구성</p>
+<div id="633422dd" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>row_sums <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>col_sums <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>row_sums,col_sums</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>([0, 0, 0, 0], [0, 0, 0, 0])</code></pre>
+</div>
+</div>
+<p>입력 값으로 들어오는 간선의 수와 나가는 간선의 수 구하기</p>
+<div id="8d53f1f6" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row, col <span class="kw">in</span> edges:</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    row_sums[row <span class="op">-</span> <span class="dv">1</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    col_sums[col <span class="op">-</span> <span class="dv">1</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>row_sums, col_sums</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>([1, 2, 0, 1], [2, 0, 2, 0])</code></pre>
+</div>
+</div>
+<p>들어오는 간선의 수와 나가는 간선의 수로 정점, 막대, 8자 도형 찾기</p>
+<div id="e8807961" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>bar, eight, vertex <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row_sums[i] <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> col_sums[i] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>        bar <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> row_sums[i] <span class="op">&gt;</span> <span class="dv">1</span> <span class="kw">and</span> col_sums[i] <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>        vertex <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> row_sums[i] <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> col_sums[i] <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>        eight <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>bar, eight, vertex</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>(1, 0, 2)</code></pre>
+</div>
+</div>
+<p>정점에서 나가는 간선의 수는 도형의 총 개수이니까 정점에서 나가는 수에서 위애서 구한 막대, 8자 도형의 수 빼기</p>
+<div id="227252f4" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>donut <span class="op">=</span> row_sums[vertex <span class="op">-</span> <span class="dv">1</span>] <span class="op">-</span> bar <span class="op">-</span> eight <span class="cf">if</span> vertex <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span> <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>donut</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>1</code></pre>
+</div>
+</div>
+<p>예 2</p>
+<div id="ca4dc57a" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [[<span class="dv">4</span>, <span class="dv">11</span>], [<span class="dv">1</span>, <span class="dv">12</span>], [<span class="dv">8</span>, <span class="dv">3</span>], [<span class="dv">12</span>, <span class="dv">7</span>], [<span class="dv">4</span>, <span class="dv">2</span>], [<span class="dv">7</span>, <span class="dv">11</span>], [<span class="dv">4</span>, <span class="dv">8</span>], [<span class="dv">9</span>, <span class="dv">6</span>], [<span class="dv">10</span>, <span class="dv">11</span>], [<span class="dv">6</span>, <span class="dv">10</span>], [<span class="dv">3</span>, <span class="dv">5</span>], [<span class="dv">11</span>, <span class="dv">1</span>], [<span class="dv">5</span>, <span class="dv">3</span>], [<span class="dv">11</span>, <span class="dv">9</span>], [<span class="dv">3</span>, <span class="dv">8</span>]]</span></code></pre></div>
+</div>
+<div id="a4505e85" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">max</span>(<span class="bu">max</span>(row, col) <span class="cf">for</span> row, col <span class="kw">in</span> edges)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>n</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>12</code></pre>
+</div>
+</div>
+<div id="ece61b1c" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>row_sums <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>col_sums <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> n</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>row_sums, col_sums</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])</code></pre>
+</div>
+</div>
+<div id="5d1d5bfd" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row, col <span class="kw">in</span> edges:</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    row_sums[row <span class="op">-</span> <span class="dv">1</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    col_sums[col <span class="op">-</span> <span class="dv">1</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>row_sums, col_sums</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>([1, 0, 2, 3, 1, 1, 1, 1, 1, 1, 2, 1], [1, 1, 2, 0, 1, 1, 1, 2, 1, 1, 3, 1])</code></pre>
+</div>
+</div>
+<div id="ee38bf4f" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>bar, eight, vertex <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row_sums[i] <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> col_sums[i] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>        bar <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> row_sums[i] <span class="op">&gt;</span> <span class="dv">1</span> <span class="kw">and</span> col_sums[i] <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>        vertex <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> row_sums[i] <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> col_sums[i] <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>        eight <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>bar, eight, vertex</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>(1, 2, 4)</code></pre>
+</div>
+</div>
+<div id="7385d8ed" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>donut <span class="op">=</span> row_sums[vertex <span class="op">-</span> <span class="dv">1</span>] <span class="op">-</span> bar <span class="op">-</span> eight <span class="cf">if</span> vertex <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span> <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>donut</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>0</code></pre>
+</div>
 </div>
 
 
