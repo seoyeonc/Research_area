@@ -462,23 +462,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>1113353000</code></pre>
 </div>
 </div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(y.<span class="fu">Value</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> yogurt_production y</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> y.<span class="dt">Year</span> <span class="op">=</span> <span class="dv">2022</span> <span class="kw">AND</span> y.State_ANSI <span class="kw">IN</span> (</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="kw">DISTINCT</span> c.State_ANSI <span class="kw">FROM</span> cheese_production c <span class="kw">WHERE</span> c.<span class="dt">Year</span> <span class="op">=</span> <span class="dv">2023</span>);</span></code></pre></div>
 <ol start="8" type="1">
 <li>2023년 milk_production에 누락된 state_lookup의 모든 주를 나열합니다. 몇 개의 주가 있나요?</li>
 </ol>
 <p>6 -&gt; 4 로 바꾸기</p>
 <p>® 틀립니다</p>
 <div id="990bb551-ac77-4354-ba43-5f87082fae79" class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'milk_production.csv'</span>).State_ANSI.isna().<span class="bu">sum</span>()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'milk_production.csv'</span>).State_ANSI.isna().<span class="bu">sum</span>()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>4</code></pre>
 </div>
 </div>
 <div id="a2f11946-fcec-49d6-8078-436bc4a12fdd" class="cell" data-execution_count="130">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>state_lookup <span class="op">=</span> pd.read_csv(<span class="st">'state_lookup.csv'</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>milk_production <span class="op">=</span> pd.read_csv(<span class="st">'milk_production.csv'</span>).query(<span class="st">'Year==2023'</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>state_lookup <span class="op">=</span> pd.read_csv(<span class="st">'state_lookup.csv'</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>milk_production <span class="op">=</span> pd.read_csv(<span class="st">'milk_production.csv'</span>).query(<span class="st">'Year==2023'</span>)</span></code></pre></div>
 </div>
 <div id="ecab60c4-8333-410d-a996-eb58e67f0a3a" class="cell" data-execution_count="135">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>state_lookup[<span class="op">~</span>state_lookup[<span class="st">"State_ANSI"</span>].isin(milk_production[<span class="st">"State_ANSI"</span>])].reset_index()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>state_lookup[<span class="op">~</span>state_lookup[<span class="st">"State_ANSI"</span>].isin(milk_production[<span class="st">"State_ANSI"</span>])].reset_index()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="135">
 <div>
 
@@ -655,18 +659,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.State</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> state_lookup s</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> milk_production m <span class="kw">ON</span> s.State_ANSI <span class="op">=</span> m.State_ANSI <span class="kw">AND</span> m.<span class="dt">Year</span> <span class="op">=</span> <span class="dv">2023</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> m.State_ANSI <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre></div>
 <ol start="9" type="1">
 <li>2023년 4월에 치즈를 생산하지 않은 주를 포함하여 치즈 생산량이 있는 모든 주를 나열합니다. 2023년 4월에 델라웨어에서 치즈를 생산한 적이 있나요?</li>
 </ol>
 <p>아니오</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.State, c.<span class="fu">Value</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> state_lookup s</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> cheese_production c <span class="kw">ON</span> s.State_ANSI <span class="op">=</span> c.State_ANSI <span class="kw">AND</span> c.<span class="dt">Year</span> <span class="op">=</span> <span class="dv">2023</span> <span class="kw">AND</span> c.Period <span class="op">=</span> <span class="st">'APR'</span>;</span></code></pre></div>
 <p>10 꿀 생산량이 1백만 개를 초과한 모든 연도의 평균 커피 생산량을 구합니다.</p>
 <p>192800000 로 쓰기</p>
 <div id="b63a7166-c37d-4034-ba4d-989473474d33" class="cell" data-execution_count="111">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>year_list <span class="op">=</span> pd.read_csv(<span class="st">'honey_production.csv'</span>).loc[<span class="kw">lambda</span> df: df[<span class="st">'Value'</span>].notna() <span class="op">&amp;</span> (df[<span class="st">'Value'</span>].<span class="bu">str</span>.replace(<span class="st">","</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">False</span>).astype(<span class="bu">int</span>) <span class="op">&gt;</span> <span class="dv">1000000</span>)][<span class="st">'Year'</span>].unique().tolist()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>year_list <span class="op">=</span> pd.read_csv(<span class="st">'honey_production.csv'</span>).loc[<span class="kw">lambda</span> df: df[<span class="st">'Value'</span>].notna() <span class="op">&amp;</span> (df[<span class="st">'Value'</span>].<span class="bu">str</span>.replace(<span class="st">","</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">False</span>).astype(<span class="bu">int</span>) <span class="op">&gt;</span> <span class="dv">1000000</span>)][<span class="st">'Year'</span>].unique().tolist()</span></code></pre></div>
 </div>
 <div id="2bc5e0c5-3f11-45f6-8a2d-21a4071d62c3" class="cell" data-execution_count="112">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'coffee_production.csv'</span>).query(<span class="st">'Year in @year_list'</span>)<span class="op">\</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  [<span class="st">'Value'</span>].<span class="bu">str</span>.replace(<span class="st">","</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">False</span>).astype(<span class="bu">int</span>).mean()</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'coffee_production.csv'</span>).query(<span class="st">'Year in @year_list'</span>)<span class="op">\</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  [<span class="st">'Value'</span>].<span class="bu">str</span>.replace(<span class="st">","</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">False</span>).astype(<span class="bu">int</span>).mean()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="112">
 <pre><code>6426666.666666667</code></pre>
 </div>
