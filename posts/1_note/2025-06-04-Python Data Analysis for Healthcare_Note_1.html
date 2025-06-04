@@ -621,6 +621,2041 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div id="9e36bb25-4843-4fc6-8381-58e20437c5d2" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
+</div>
+<div id="4ebaf591-3b34-46fd-973b-b1c14fe837f8" class="cell" data-executioninfo="{&quot;elapsed&quot;:1614,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1701966504054,&quot;user&quot;:{&quot;displayName&quot;:&quot;Wuraola Oyewusi&quot;,&quot;userId&quot;:&quot;00359427092648181298&quot;},&quot;user_tz&quot;:0}" data-outputid="019476e2-2ab5-4905-ad7f-71496025b30c" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df_visit <span class="op">=</span> pd.read_csv(<span class="st">"../../../delete/Demo Patient Experience Data_NHC.csv"</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>df_visit</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">Entry Code</th>
+<th data-quarto-table-cell-role="th">Feedback Date</th>
+<th data-quarto-table-cell-role="th">Patient Age</th>
+<th data-quarto-table-cell-role="th">Staff Rating</th>
+<th data-quarto-table-cell-role="th">Speed Rating</th>
+<th data-quarto-table-cell-role="th">Wait Time (minutes)</th>
+<th data-quarto-table-cell-role="th">Test Type</th>
+<th data-quarto-table-cell-role="th">Review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>1</td>
+<td>2022-10-22</td>
+<td>61</td>
+<td>5</td>
+<td>3</td>
+<td>29</td>
+<td>Urine Test</td>
+<td>I couldn't have asked for better service from ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>2</td>
+<td>2022-01-12</td>
+<td>26</td>
+<td>3</td>
+<td>4</td>
+<td>171</td>
+<td>Biopsy</td>
+<td>I'm indifferent about the service provided by ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>3</td>
+<td>2022-04-06</td>
+<td>53</td>
+<td>3</td>
+<td>5</td>
+<td>176</td>
+<td>Urine Test</td>
+<td>My experience with the staff was neither good ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3</td>
+<td>4</td>
+<td>2022-12-11</td>
+<td>40</td>
+<td>4</td>
+<td>5</td>
+<td>94</td>
+<td>CT Scan</td>
+<td>I might consider returning for future tests, b...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4</td>
+<td>5</td>
+<td>2022-10-31</td>
+<td>96</td>
+<td>2</td>
+<td>1</td>
+<td>165</td>
+<td>Biopsy</td>
+<td>The service was poor, there are serious improv...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19995</td>
+<td>19995</td>
+<td>19996</td>
+<td>2022-09-01</td>
+<td>34</td>
+<td>3</td>
+<td>2</td>
+<td>128</td>
+<td>CT Scan</td>
+<td>It was okay, the staff's performance was nothi...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19996</td>
+<td>19996</td>
+<td>19997</td>
+<td>2022-05-26</td>
+<td>80</td>
+<td>2</td>
+<td>4</td>
+<td>84</td>
+<td>Blood Test</td>
+<td>I was quite disappointed, and there is a lot o...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19997</td>
+<td>19997</td>
+<td>19998</td>
+<td>2022-11-01</td>
+<td>60</td>
+<td>2</td>
+<td>1</td>
+<td>76</td>
+<td>Ultrasound</td>
+<td>I was quite disappointed, and there is a lot o...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19998</td>
+<td>19998</td>
+<td>19999</td>
+<td>2022-10-09</td>
+<td>62</td>
+<td>1</td>
+<td>5</td>
+<td>16</td>
+<td>Biopsy</td>
+<td>There are no redeeming qualities about the ser...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19999</td>
+<td>19999</td>
+<td>20000</td>
+<td>2022-02-16</td>
+<td>13</td>
+<td>5</td>
+<td>1</td>
+<td>86</td>
+<td>Ultrasound</td>
+<td>The staff's expertise and dedication made my v...</td>
+</tr>
+</tbody>
+</table>
+
+<p>20000 rows × 9 columns</p>
+</div>
+</div>
+</div>
+<div id="a5f7655c-d3a0-4d41-a31f-60ba7cfc5c64" class="cell" data-executioninfo="{&quot;elapsed&quot;:584,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1701966527698,&quot;user&quot;:{&quot;displayName&quot;:&quot;Wuraola Oyewusi&quot;,&quot;userId&quot;:&quot;00359427092648181298&quot;},&quot;user_tz&quot;:0}" data-outputid="84116936-d76e-4315-c0f5-1e55333c2202" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df_visit.info()</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 20000 entries, 0 to 19999
+Data columns (total 9 columns):
+ #   Column               Non-Null Count  Dtype 
+---  ------               --------------  ----- 
+ 0   Unnamed: 0           20000 non-null  int64 
+ 1   Entry Code           20000 non-null  int64 
+ 2   Feedback Date        20000 non-null  object
+ 3   Patient Age          20000 non-null  int64 
+ 4   Staff Rating         20000 non-null  int64 
+ 5   Speed Rating         20000 non-null  int64 
+ 6   Wait Time (minutes)  20000 non-null  int64 
+ 7   Test Type            20000 non-null  object
+ 8   Review               20000 non-null  object
+dtypes: int64(6), object(3)
+memory usage: 1.4+ MB</code></pre>
+</div>
+</div>
+<div id="6edf6e1c-6ddb-4dae-9072-89f80c4dc30e" class="cell" data-executioninfo="{&quot;elapsed&quot;:1752,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1701966587894,&quot;user&quot;:{&quot;displayName&quot;:&quot;Wuraola Oyewusi&quot;,&quot;userId&quot;:&quot;00359427092648181298&quot;},&quot;user_tz&quot;:0}" data-outputid="9e496277-7264-4155-bbed-cd837e8fb44f" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>df_visit.isna()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">Entry Code</th>
+<th data-quarto-table-cell-role="th">Feedback Date</th>
+<th data-quarto-table-cell-role="th">Patient Age</th>
+<th data-quarto-table-cell-role="th">Staff Rating</th>
+<th data-quarto-table-cell-role="th">Speed Rating</th>
+<th data-quarto-table-cell-role="th">Wait Time (minutes)</th>
+<th data-quarto-table-cell-role="th">Test Type</th>
+<th data-quarto-table-cell-role="th">Review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19995</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19996</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19997</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19998</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19999</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+
+<p>20000 rows × 9 columns</p>
+</div>
+</div>
+</div>
+<p>결측값 확인</p>
+<div id="d63717be-f51a-4fb3-9716-e7fb8ac211db" class="cell" data-executioninfo="{&quot;elapsed&quot;:1254,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1701966614855,&quot;user&quot;:{&quot;displayName&quot;:&quot;Wuraola Oyewusi&quot;,&quot;userId&quot;:&quot;00359427092648181298&quot;},&quot;user_tz&quot;:0}" data-outputid="4d91387c-2bfe-40b4-c40a-e5919f7fce04" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df_visit.isna().<span class="bu">sum</span>()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>Unnamed: 0             0
+Entry Code             0
+Feedback Date          0
+Patient Age            0
+Staff Rating           0
+Speed Rating           0
+Wait Time (minutes)    0
+Test Type              0
+Review                 0
+dtype: int64</code></pre>
+</div>
+</div>
+<p>결측값 갯수 확인</p>
+<div id="63a22a2c-d5d9-4066-8515-4224faece284" class="cell" data-executioninfo="{&quot;elapsed&quot;:944,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1701966656914,&quot;user&quot;:{&quot;displayName&quot;:&quot;Wuraola Oyewusi&quot;,&quot;userId&quot;:&quot;00359427092648181298&quot;},&quot;user_tz&quot;:0}" data-outputid="720fe219-a4fe-4998-fb53-21d5c2f0c9af" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df_visit.dropna()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">Entry Code</th>
+<th data-quarto-table-cell-role="th">Feedback Date</th>
+<th data-quarto-table-cell-role="th">Patient Age</th>
+<th data-quarto-table-cell-role="th">Staff Rating</th>
+<th data-quarto-table-cell-role="th">Speed Rating</th>
+<th data-quarto-table-cell-role="th">Wait Time (minutes)</th>
+<th data-quarto-table-cell-role="th">Test Type</th>
+<th data-quarto-table-cell-role="th">Review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>1</td>
+<td>2022-10-22</td>
+<td>61</td>
+<td>5</td>
+<td>3</td>
+<td>29</td>
+<td>Urine Test</td>
+<td>I couldn't have asked for better service from ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>2</td>
+<td>2022-01-12</td>
+<td>26</td>
+<td>3</td>
+<td>4</td>
+<td>171</td>
+<td>Biopsy</td>
+<td>I'm indifferent about the service provided by ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>3</td>
+<td>2022-04-06</td>
+<td>53</td>
+<td>3</td>
+<td>5</td>
+<td>176</td>
+<td>Urine Test</td>
+<td>My experience with the staff was neither good ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3</td>
+<td>4</td>
+<td>2022-12-11</td>
+<td>40</td>
+<td>4</td>
+<td>5</td>
+<td>94</td>
+<td>CT Scan</td>
+<td>I might consider returning for future tests, b...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4</td>
+<td>5</td>
+<td>2022-10-31</td>
+<td>96</td>
+<td>2</td>
+<td>1</td>
+<td>165</td>
+<td>Biopsy</td>
+<td>The service was poor, there are serious improv...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19995</td>
+<td>19995</td>
+<td>19996</td>
+<td>2022-09-01</td>
+<td>34</td>
+<td>3</td>
+<td>2</td>
+<td>128</td>
+<td>CT Scan</td>
+<td>It was okay, the staff's performance was nothi...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19996</td>
+<td>19996</td>
+<td>19997</td>
+<td>2022-05-26</td>
+<td>80</td>
+<td>2</td>
+<td>4</td>
+<td>84</td>
+<td>Blood Test</td>
+<td>I was quite disappointed, and there is a lot o...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19997</td>
+<td>19997</td>
+<td>19998</td>
+<td>2022-11-01</td>
+<td>60</td>
+<td>2</td>
+<td>1</td>
+<td>76</td>
+<td>Ultrasound</td>
+<td>I was quite disappointed, and there is a lot o...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19998</td>
+<td>19998</td>
+<td>19999</td>
+<td>2022-10-09</td>
+<td>62</td>
+<td>1</td>
+<td>5</td>
+<td>16</td>
+<td>Biopsy</td>
+<td>There are no redeeming qualities about the ser...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19999</td>
+<td>19999</td>
+<td>20000</td>
+<td>2022-02-16</td>
+<td>13</td>
+<td>5</td>
+<td>1</td>
+<td>86</td>
+<td>Ultrasound</td>
+<td>The staff's expertise and dedication made my v...</td>
+</tr>
+</tbody>
+</table>
+
+<p>20000 rows × 9 columns</p>
+</div>
+</div>
+</div>
+<p>결측값 제거</p>
+<p>근데 dropna 함부로 쓰면 안 됌..</p>
+<div id="c589529b-9486-49ab-b4f1-74063bfe5a51" class="cell" data-executioninfo="{&quot;elapsed&quot;:1100,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1701966693180,&quot;user&quot;:{&quot;displayName&quot;:&quot;Wuraola Oyewusi&quot;,&quot;userId&quot;:&quot;00359427092648181298&quot;},&quot;user_tz&quot;:0}" data-outputid="c2e88f4f-0826-49d7-d89e-e62c4e9257e8" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>df_visit <span class="op">=</span> df_visit.dropna()</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>df_visit</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">Entry Code</th>
+<th data-quarto-table-cell-role="th">Feedback Date</th>
+<th data-quarto-table-cell-role="th">Patient Age</th>
+<th data-quarto-table-cell-role="th">Staff Rating</th>
+<th data-quarto-table-cell-role="th">Speed Rating</th>
+<th data-quarto-table-cell-role="th">Wait Time (minutes)</th>
+<th data-quarto-table-cell-role="th">Test Type</th>
+<th data-quarto-table-cell-role="th">Review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>1</td>
+<td>2022-10-22</td>
+<td>61</td>
+<td>5</td>
+<td>3</td>
+<td>29</td>
+<td>Urine Test</td>
+<td>I couldn't have asked for better service from ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>2</td>
+<td>2022-01-12</td>
+<td>26</td>
+<td>3</td>
+<td>4</td>
+<td>171</td>
+<td>Biopsy</td>
+<td>I'm indifferent about the service provided by ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>3</td>
+<td>2022-04-06</td>
+<td>53</td>
+<td>3</td>
+<td>5</td>
+<td>176</td>
+<td>Urine Test</td>
+<td>My experience with the staff was neither good ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3</td>
+<td>4</td>
+<td>2022-12-11</td>
+<td>40</td>
+<td>4</td>
+<td>5</td>
+<td>94</td>
+<td>CT Scan</td>
+<td>I might consider returning for future tests, b...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4</td>
+<td>5</td>
+<td>2022-10-31</td>
+<td>96</td>
+<td>2</td>
+<td>1</td>
+<td>165</td>
+<td>Biopsy</td>
+<td>The service was poor, there are serious improv...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19995</td>
+<td>19995</td>
+<td>19996</td>
+<td>2022-09-01</td>
+<td>34</td>
+<td>3</td>
+<td>2</td>
+<td>128</td>
+<td>CT Scan</td>
+<td>It was okay, the staff's performance was nothi...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19996</td>
+<td>19996</td>
+<td>19997</td>
+<td>2022-05-26</td>
+<td>80</td>
+<td>2</td>
+<td>4</td>
+<td>84</td>
+<td>Blood Test</td>
+<td>I was quite disappointed, and there is a lot o...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19997</td>
+<td>19997</td>
+<td>19998</td>
+<td>2022-11-01</td>
+<td>60</td>
+<td>2</td>
+<td>1</td>
+<td>76</td>
+<td>Ultrasound</td>
+<td>I was quite disappointed, and there is a lot o...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19998</td>
+<td>19998</td>
+<td>19999</td>
+<td>2022-10-09</td>
+<td>62</td>
+<td>1</td>
+<td>5</td>
+<td>16</td>
+<td>Biopsy</td>
+<td>There are no redeeming qualities about the ser...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19999</td>
+<td>19999</td>
+<td>20000</td>
+<td>2022-02-16</td>
+<td>13</td>
+<td>5</td>
+<td>1</td>
+<td>86</td>
+<td>Ultrasound</td>
+<td>The staff's expertise and dedication made my v...</td>
+</tr>
+</tbody>
+</table>
+
+<p>20000 rows × 9 columns</p>
+</div>
+</div>
+</div>
+<div id="853c3697-8f80-4d22-822b-2552e62ddc7f" class="cell" data-executioninfo="{&quot;elapsed&quot;:224,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1701966708343,&quot;user&quot;:{&quot;displayName&quot;:&quot;Wuraola Oyewusi&quot;,&quot;userId&quot;:&quot;00359427092648181298&quot;},&quot;user_tz&quot;:0}" data-outputid="c12d6517-8c10-40ae-c105-e98ab1707ae5" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>df_visit.head()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">Entry Code</th>
+<th data-quarto-table-cell-role="th">Feedback Date</th>
+<th data-quarto-table-cell-role="th">Patient Age</th>
+<th data-quarto-table-cell-role="th">Staff Rating</th>
+<th data-quarto-table-cell-role="th">Speed Rating</th>
+<th data-quarto-table-cell-role="th">Wait Time (minutes)</th>
+<th data-quarto-table-cell-role="th">Test Type</th>
+<th data-quarto-table-cell-role="th">Review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>1</td>
+<td>2022-10-22</td>
+<td>61</td>
+<td>5</td>
+<td>3</td>
+<td>29</td>
+<td>Urine Test</td>
+<td>I couldn't have asked for better service from ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>2</td>
+<td>2022-01-12</td>
+<td>26</td>
+<td>3</td>
+<td>4</td>
+<td>171</td>
+<td>Biopsy</td>
+<td>I'm indifferent about the service provided by ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>3</td>
+<td>2022-04-06</td>
+<td>53</td>
+<td>3</td>
+<td>5</td>
+<td>176</td>
+<td>Urine Test</td>
+<td>My experience with the staff was neither good ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3</td>
+<td>4</td>
+<td>2022-12-11</td>
+<td>40</td>
+<td>4</td>
+<td>5</td>
+<td>94</td>
+<td>CT Scan</td>
+<td>I might consider returning for future tests, b...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4</td>
+<td>5</td>
+<td>2022-10-31</td>
+<td>96</td>
+<td>2</td>
+<td>1</td>
+<td>165</td>
+<td>Biopsy</td>
+<td>The service was poor, there are serious improv...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="8e21e98a-e30d-4cb2-a243-c4ea57ca79bd" class="cell" data-executioninfo="{&quot;elapsed&quot;:263,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1701966723155,&quot;user&quot;:{&quot;displayName&quot;:&quot;Wuraola Oyewusi&quot;,&quot;userId&quot;:&quot;00359427092648181298&quot;},&quot;user_tz&quot;:0}" data-outputid="9852c64c-e233-465b-b81c-ffe39a46f8f0" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>df_visit.head(<span class="dv">20</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">Entry Code</th>
+<th data-quarto-table-cell-role="th">Feedback Date</th>
+<th data-quarto-table-cell-role="th">Patient Age</th>
+<th data-quarto-table-cell-role="th">Staff Rating</th>
+<th data-quarto-table-cell-role="th">Speed Rating</th>
+<th data-quarto-table-cell-role="th">Wait Time (minutes)</th>
+<th data-quarto-table-cell-role="th">Test Type</th>
+<th data-quarto-table-cell-role="th">Review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>1</td>
+<td>2022-10-22</td>
+<td>61</td>
+<td>5</td>
+<td>3</td>
+<td>29</td>
+<td>Urine Test</td>
+<td>I couldn't have asked for better service from ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>2</td>
+<td>2022-01-12</td>
+<td>26</td>
+<td>3</td>
+<td>4</td>
+<td>171</td>
+<td>Biopsy</td>
+<td>I'm indifferent about the service provided by ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>3</td>
+<td>2022-04-06</td>
+<td>53</td>
+<td>3</td>
+<td>5</td>
+<td>176</td>
+<td>Urine Test</td>
+<td>My experience with the staff was neither good ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3</td>
+<td>4</td>
+<td>2022-12-11</td>
+<td>40</td>
+<td>4</td>
+<td>5</td>
+<td>94</td>
+<td>CT Scan</td>
+<td>I might consider returning for future tests, b...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4</td>
+<td>5</td>
+<td>2022-10-31</td>
+<td>96</td>
+<td>2</td>
+<td>1</td>
+<td>165</td>
+<td>Biopsy</td>
+<td>The service was poor, there are serious improv...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>5</td>
+<td>6</td>
+<td>2022-01-20</td>
+<td>37</td>
+<td>1</td>
+<td>1</td>
+<td>13</td>
+<td>CT Scan</td>
+<td>The service was abysmal, and I'm extremely uns...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>6</td>
+<td>7</td>
+<td>2022-10-06</td>
+<td>46</td>
+<td>1</td>
+<td>1</td>
+<td>12</td>
+<td>X-ray</td>
+<td>The service was abysmal, and I'm extremely uns...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>7</td>
+<td>8</td>
+<td>2022-03-10</td>
+<td>55</td>
+<td>5</td>
+<td>4</td>
+<td>167</td>
+<td>MRI</td>
+<td>I couldn't have asked for better service from ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>8</td>
+<td>9</td>
+<td>2022-11-14</td>
+<td>19</td>
+<td>5</td>
+<td>5</td>
+<td>125</td>
+<td>CT Scan</td>
+<td>The staff was outstanding, I couldn't be happi...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>9</td>
+<td>10</td>
+<td>2022-01-28</td>
+<td>84</td>
+<td>2</td>
+<td>1</td>
+<td>125</td>
+<td>Urine Test</td>
+<td>I had a below-average experience, with several...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>10</td>
+<td>11</td>
+<td>2022-06-25</td>
+<td>35</td>
+<td>2</td>
+<td>1</td>
+<td>174</td>
+<td>MRI</td>
+<td>I had a below-average experience, with several...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>11</td>
+<td>12</td>
+<td>2022-08-04</td>
+<td>36</td>
+<td>1</td>
+<td>2</td>
+<td>100</td>
+<td>CT Scan</td>
+<td>I had a nightmarish experience, and I'm highly...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>12</td>
+<td>13</td>
+<td>2022-10-28</td>
+<td>84</td>
+<td>4</td>
+<td>4</td>
+<td>167</td>
+<td>Biopsy</td>
+<td>A good but not great experience with the staff...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>13</td>
+<td>14</td>
+<td>2022-04-07</td>
+<td>67</td>
+<td>2</td>
+<td>1</td>
+<td>64</td>
+<td>Blood Test</td>
+<td>I was quite disappointed, and there is a lot o...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>14</td>
+<td>15</td>
+<td>2022-03-03</td>
+<td>27</td>
+<td>2</td>
+<td>5</td>
+<td>92</td>
+<td>X-ray</td>
+<td>I was quite disappointed, and there is a lot o...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>15</td>
+<td>16</td>
+<td>2022-08-12</td>
+<td>90</td>
+<td>1</td>
+<td>3</td>
+<td>91</td>
+<td>CT Scan</td>
+<td>I'll never return to this lab, and I'm sharing...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>16</td>
+<td>17</td>
+<td>2022-02-26</td>
+<td>65</td>
+<td>5</td>
+<td>2</td>
+<td>161</td>
+<td>Ultrasound</td>
+<td>I'm very impressed with the quality of service...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>17</td>
+<td>18</td>
+<td>2022-03-06</td>
+<td>38</td>
+<td>3</td>
+<td>4</td>
+<td>65</td>
+<td>Ultrasound</td>
+<td>The staff's service fell in the middle ground;...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>18</td>
+<td>19</td>
+<td>2022-06-26</td>
+<td>66</td>
+<td>2</td>
+<td>1</td>
+<td>15</td>
+<td>Blood Test</td>
+<td>A disappointing experience, with many areas re...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>19</td>
+<td>20</td>
+<td>2022-11-22</td>
+<td>39</td>
+<td>1</td>
+<td>2</td>
+<td>130</td>
+<td>Ultrasound</td>
+<td>The service was abysmal, and I'm extremely uns...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="6a5cb5f6-b811-45bf-be7e-105c3c53de30" class="cell" data-executioninfo="{&quot;elapsed&quot;:234,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1701966864147,&quot;user&quot;:{&quot;displayName&quot;:&quot;Wuraola Oyewusi&quot;,&quot;userId&quot;:&quot;00359427092648181298&quot;},&quot;user_tz&quot;:0}" data-outputid="d528cef9-25e3-40ff-fd82-2ad945c571a4" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>df_visit.rename(columns<span class="op">=</span>{<span class="st">'Registration'</span>: <span class="st">'Registration_minutes'</span>})</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">Entry Code</th>
+<th data-quarto-table-cell-role="th">Feedback Date</th>
+<th data-quarto-table-cell-role="th">Patient Age</th>
+<th data-quarto-table-cell-role="th">Staff Rating</th>
+<th data-quarto-table-cell-role="th">Speed Rating</th>
+<th data-quarto-table-cell-role="th">Wait Time (minutes)</th>
+<th data-quarto-table-cell-role="th">Test Type</th>
+<th data-quarto-table-cell-role="th">Review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>1</td>
+<td>2022-10-22</td>
+<td>61</td>
+<td>5</td>
+<td>3</td>
+<td>29</td>
+<td>Urine Test</td>
+<td>I couldn't have asked for better service from ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>2</td>
+<td>2022-01-12</td>
+<td>26</td>
+<td>3</td>
+<td>4</td>
+<td>171</td>
+<td>Biopsy</td>
+<td>I'm indifferent about the service provided by ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>3</td>
+<td>2022-04-06</td>
+<td>53</td>
+<td>3</td>
+<td>5</td>
+<td>176</td>
+<td>Urine Test</td>
+<td>My experience with the staff was neither good ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3</td>
+<td>4</td>
+<td>2022-12-11</td>
+<td>40</td>
+<td>4</td>
+<td>5</td>
+<td>94</td>
+<td>CT Scan</td>
+<td>I might consider returning for future tests, b...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4</td>
+<td>5</td>
+<td>2022-10-31</td>
+<td>96</td>
+<td>2</td>
+<td>1</td>
+<td>165</td>
+<td>Biopsy</td>
+<td>The service was poor, there are serious improv...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19995</td>
+<td>19995</td>
+<td>19996</td>
+<td>2022-09-01</td>
+<td>34</td>
+<td>3</td>
+<td>2</td>
+<td>128</td>
+<td>CT Scan</td>
+<td>It was okay, the staff's performance was nothi...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19996</td>
+<td>19996</td>
+<td>19997</td>
+<td>2022-05-26</td>
+<td>80</td>
+<td>2</td>
+<td>4</td>
+<td>84</td>
+<td>Blood Test</td>
+<td>I was quite disappointed, and there is a lot o...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19997</td>
+<td>19997</td>
+<td>19998</td>
+<td>2022-11-01</td>
+<td>60</td>
+<td>2</td>
+<td>1</td>
+<td>76</td>
+<td>Ultrasound</td>
+<td>I was quite disappointed, and there is a lot o...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19998</td>
+<td>19998</td>
+<td>19999</td>
+<td>2022-10-09</td>
+<td>62</td>
+<td>1</td>
+<td>5</td>
+<td>16</td>
+<td>Biopsy</td>
+<td>There are no redeeming qualities about the ser...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19999</td>
+<td>19999</td>
+<td>20000</td>
+<td>2022-02-16</td>
+<td>13</td>
+<td>5</td>
+<td>1</td>
+<td>86</td>
+<td>Ultrasound</td>
+<td>The staff's expertise and dedication made my v...</td>
+</tr>
+</tbody>
+</table>
+
+<p>20000 rows × 9 columns</p>
+</div>
+</div>
+</div>
+<p>열 이름 변경</p>
+<div id="5edea715-292f-4a48-b0b4-cd01af756343" class="cell" data-executioninfo="{&quot;elapsed&quot;:409,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1701966891980,&quot;user&quot;:{&quot;displayName&quot;:&quot;Wuraola Oyewusi&quot;,&quot;userId&quot;:&quot;00359427092648181298&quot;},&quot;user_tz&quot;:0}" data-outputid="245e400c-d457-40c3-9c80-ac6ff7007223" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df_visit.head()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">Entry Code</th>
+<th data-quarto-table-cell-role="th">Feedback Date</th>
+<th data-quarto-table-cell-role="th">Patient Age</th>
+<th data-quarto-table-cell-role="th">Staff Rating</th>
+<th data-quarto-table-cell-role="th">Speed Rating</th>
+<th data-quarto-table-cell-role="th">Wait Time (minutes)</th>
+<th data-quarto-table-cell-role="th">Test Type</th>
+<th data-quarto-table-cell-role="th">Review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>1</td>
+<td>2022-10-22</td>
+<td>61</td>
+<td>5</td>
+<td>3</td>
+<td>29</td>
+<td>Urine Test</td>
+<td>I couldn't have asked for better service from ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>2</td>
+<td>2022-01-12</td>
+<td>26</td>
+<td>3</td>
+<td>4</td>
+<td>171</td>
+<td>Biopsy</td>
+<td>I'm indifferent about the service provided by ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>3</td>
+<td>2022-04-06</td>
+<td>53</td>
+<td>3</td>
+<td>5</td>
+<td>176</td>
+<td>Urine Test</td>
+<td>My experience with the staff was neither good ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3</td>
+<td>4</td>
+<td>2022-12-11</td>
+<td>40</td>
+<td>4</td>
+<td>5</td>
+<td>94</td>
+<td>CT Scan</td>
+<td>I might consider returning for future tests, b...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4</td>
+<td>5</td>
+<td>2022-10-31</td>
+<td>96</td>
+<td>2</td>
+<td>1</td>
+<td>165</td>
+<td>Biopsy</td>
+<td>The service was poor, there are serious improv...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="659436a2-c97a-4574-817e-6f5e53e46fcd" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df_visit.rename(columns<span class="op">=</span>{<span class="st">'Registration'</span>: <span class="st">'Registration_minutes'</span>},inplace<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+</div>
+<p><code>inplce</code>로 원본인 df_visit 자체를 변경할 수 있는데</p>
+<p>원본 데이터를 건드는 것이기 때문에 신중히 처리할 것</p>
+<div id="959062c1-81b0-4ebd-a0db-d1b8bd77ca07" class="cell" data-executioninfo="{&quot;elapsed&quot;:7,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1701966948164,&quot;user&quot;:{&quot;displayName&quot;:&quot;Wuraola Oyewusi&quot;,&quot;userId&quot;:&quot;00359427092648181298&quot;},&quot;user_tz&quot;:0}" data-outputid="940388d7-170c-47db-e358-2424e53c5d8e">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>df_visit.head()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+
+  <div id="df-251f07d9-66aa-4d2e-bb2c-1a8061d152c2" class="colab-df-container">
+    <div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Visit_Date</th>
+<th data-quarto-table-cell-role="th">Patient_ID</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Gender</th>
+<th data-quarto-table-cell-role="th">Diagnosis</th>
+<th data-quarto-table-cell-role="th">Has_Insurance</th>
+<th data-quarto-table-cell-role="th">Postcode</th>
+<th data-quarto-table-cell-role="th">Total_Cost</th>
+<th data-quarto-table-cell-role="th">Registration_minutes</th>
+<th data-quarto-table-cell-role="th">Nursing</th>
+<th data-quarto-table-cell-role="th">Laboratory</th>
+<th data-quarto-table-cell-role="th">Consultation</th>
+<th data-quarto-table-cell-role="th">Pharmacy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2020-05-06</td>
+<td>688923</td>
+<td>68</td>
+<td>Female</td>
+<td>Diabetes</td>
+<td>True</td>
+<td>20006</td>
+<td>2274.0</td>
+<td>33</td>
+<td>105</td>
+<td>101</td>
+<td>28</td>
+<td>112</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2018-08-04</td>
+<td>886361</td>
+<td>62</td>
+<td>Female</td>
+<td>Urinary Tract Infection</td>
+<td>False</td>
+<td>20005</td>
+<td>3430.0</td>
+<td>46</td>
+<td>75</td>
+<td>84</td>
+<td>102</td>
+<td>36</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2021-04-10</td>
+<td>464823</td>
+<td>70</td>
+<td>Female</td>
+<td>Upper Respiratory Tract Infection</td>
+<td>True</td>
+<td>10003</td>
+<td>1836.0</td>
+<td>107</td>
+<td>81</td>
+<td>5</td>
+<td>77</td>
+<td>36</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2021-10-01</td>
+<td>655214</td>
+<td>8</td>
+<td>Female</td>
+<td>Upper Respiratory Tract Infection</td>
+<td>False</td>
+<td>10006</td>
+<td>3250.0</td>
+<td>66</td>
+<td>31</td>
+<td>101</td>
+<td>35</td>
+<td>92</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2018-04-30</td>
+<td>454666</td>
+<td>24</td>
+<td>Male</td>
+<td>Malaria</td>
+<td>True</td>
+<td>10006</td>
+<td>2262.0</td>
+<td>68</td>
+<td>55</td>
+<td>60</td>
+<td>90</td>
+<td>104</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-251f07d9-66aa-4d2e-bb2c-1a8061d152c2')" title="Convert this dataframe to an interactive table." style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"></path>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-251f07d9-66aa-4d2e-bb2c-1a8061d152c2 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-251f07d9-66aa-4d2e-bb2c-1a8061d152c2');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-c31e67f8-46dc-42ea-87be-49b5f476681d">
+  <button class="colab-df-quickchart" onclick="quickchart('df-c31e67f8-46dc-42ea-87be-49b5f476681d')" title="Suggest charts" style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 0 24 24" width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-c31e67f8-46dc-42ea-87be-49b5f476681d button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+<div id="ca003508-5c73-48ee-a807-0f19f45a93d6" class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>column_mapping <span class="op">=</span> {<span class="st">'Nursing'</span>:<span class="st">'Nursing_minutes'</span>,<span class="st">'Laboratory'</span>: <span class="st">'Laboratory_minutes'</span>,<span class="st">'Consultation'</span>:<span class="st">'Consulation_minutes'</span>,<span class="st">'Pharmacy'</span>: <span class="st">'Pharmacy_minutes'</span>}</span></code></pre></div>
+</div>
+<div id="58e65a61-6e1e-4b60-ae7f-c5e48919e116" class="cell" data-executioninfo="{&quot;elapsed&quot;:7,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1701967142578,&quot;user&quot;:{&quot;displayName&quot;:&quot;Wuraola Oyewusi&quot;,&quot;userId&quot;:&quot;00359427092648181298&quot;},&quot;user_tz&quot;:0}" data-outputid="82fb5acd-a786-4151-bd75-89ed9c4a8af8">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>df_visit.rename(columns<span class="op">=</span>column_mapping,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>df_visit</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+
+  <div id="df-66a19396-a87c-458c-80cf-9dd3bb7d43b6" class="colab-df-container">
+    <div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Visit_Date</th>
+<th data-quarto-table-cell-role="th">Patient_ID</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Gender</th>
+<th data-quarto-table-cell-role="th">Diagnosis</th>
+<th data-quarto-table-cell-role="th">Has_Insurance</th>
+<th data-quarto-table-cell-role="th">Postcode</th>
+<th data-quarto-table-cell-role="th">Total_Cost</th>
+<th data-quarto-table-cell-role="th">Registration_minutes</th>
+<th data-quarto-table-cell-role="th">Nursing_minutes</th>
+<th data-quarto-table-cell-role="th">Laboratory_minutes</th>
+<th data-quarto-table-cell-role="th">Consulation_minutes</th>
+<th data-quarto-table-cell-role="th">Pharmacy_minutes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2020-05-06</td>
+<td>688923</td>
+<td>68</td>
+<td>Female</td>
+<td>Diabetes</td>
+<td>True</td>
+<td>20006</td>
+<td>2274.0</td>
+<td>33</td>
+<td>105</td>
+<td>101</td>
+<td>28</td>
+<td>112</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2018-08-04</td>
+<td>886361</td>
+<td>62</td>
+<td>Female</td>
+<td>Urinary Tract Infection</td>
+<td>False</td>
+<td>20005</td>
+<td>3430.0</td>
+<td>46</td>
+<td>75</td>
+<td>84</td>
+<td>102</td>
+<td>36</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2021-04-10</td>
+<td>464823</td>
+<td>70</td>
+<td>Female</td>
+<td>Upper Respiratory Tract Infection</td>
+<td>True</td>
+<td>10003</td>
+<td>1836.0</td>
+<td>107</td>
+<td>81</td>
+<td>5</td>
+<td>77</td>
+<td>36</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2021-10-01</td>
+<td>655214</td>
+<td>8</td>
+<td>Female</td>
+<td>Upper Respiratory Tract Infection</td>
+<td>False</td>
+<td>10006</td>
+<td>3250.0</td>
+<td>66</td>
+<td>31</td>
+<td>101</td>
+<td>35</td>
+<td>92</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2018-04-30</td>
+<td>454666</td>
+<td>24</td>
+<td>Male</td>
+<td>Malaria</td>
+<td>True</td>
+<td>10006</td>
+<td>2262.0</td>
+<td>68</td>
+<td>55</td>
+<td>60</td>
+<td>90</td>
+<td>104</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">999995</td>
+<td>2018-09-30</td>
+<td>385435</td>
+<td>9</td>
+<td>Male</td>
+<td>Abdominal pain</td>
+<td>True</td>
+<td>10004</td>
+<td>1458.0</td>
+<td>80</td>
+<td>52</td>
+<td>11</td>
+<td>42</td>
+<td>58</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">999996</td>
+<td>2020-05-08</td>
+<td>117261</td>
+<td>29</td>
+<td>Female</td>
+<td>Urinary Tract Infection</td>
+<td>True</td>
+<td>20009</td>
+<td>1836.0</td>
+<td>59</td>
+<td>57</td>
+<td>64</td>
+<td>66</td>
+<td>60</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">999997</td>
+<td>2019-12-31</td>
+<td>594613</td>
+<td>39</td>
+<td>Female</td>
+<td>Upper Respiratory Tract Infection</td>
+<td>False</td>
+<td>10001</td>
+<td>1930.0</td>
+<td>10</td>
+<td>14</td>
+<td>69</td>
+<td>14</td>
+<td>86</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">999998</td>
+<td>2019-11-04</td>
+<td>152179</td>
+<td>39</td>
+<td>Female</td>
+<td>Malaria</td>
+<td>False</td>
+<td>20006</td>
+<td>3950.0</td>
+<td>119</td>
+<td>52</td>
+<td>60</td>
+<td>94</td>
+<td>70</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">999999</td>
+<td>2019-05-11</td>
+<td>370584</td>
+<td>76</td>
+<td>Female</td>
+<td>Malaria</td>
+<td>False</td>
+<td>20012</td>
+<td>3500.0</td>
+<td>34</td>
+<td>90</td>
+<td>29</td>
+<td>97</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+
+<p>1000000 rows × 13 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-66a19396-a87c-458c-80cf-9dd3bb7d43b6')" title="Convert this dataframe to an interactive table." style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"></path>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-66a19396-a87c-458c-80cf-9dd3bb7d43b6 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-66a19396-a87c-458c-80cf-9dd3bb7d43b6');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-48faf39e-545f-41a0-98ec-bcf1f24337e4">
+  <button class="colab-df-quickchart" onclick="quickchart('df-48faf39e-545f-41a0-98ec-bcf1f24337e4')" title="Suggest charts" style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 0 24 24" width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-48faf39e-545f-41a0-98ec-bcf1f24337e4 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+    </div>
+  </div>
+</div>
+</div>
 
 
 
