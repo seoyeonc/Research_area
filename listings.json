@@ -11,6 +11,7 @@
     "items": [
       "/posts/1_note/2025-06-05-Python Data Analysis for Healthcare_Note_3.html",
       "/posts/1_note/2025-06-05-Python Data Analysis for Healthcare_Note_2.html",
+      "/posts/1_note/2025-06-05-Python Data Analysis for Healthcare_Note_4.html",
       "/posts/1_note/2025-06-04-Python Data Analysis for Healthcare_Note_1.html"
     ]
   },
@@ -24,6 +25,7 @@
   {
     "listing": "/2_no_category.html",
     "items": [
+      "/posts/2_research/2_no_category/2025-06-13-sleephealth.html",
       "/posts/2_research/2_no_category/2025-04-01-sql.html",
       "/posts/2_research/2_no_category/2025-03-03-baysian.html",
       "/posts/2_research/2_no_category/2024-10-13-bigcontest.html",
@@ -37,8 +39,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2_research/2_no_category/2025-06-13-sleephealth.html",
       "/posts/1_note/2025-06-05-Python Data Analysis for Healthcare_Note_2.html",
       "/posts/1_note/2025-06-05-Python Data Analysis for Healthcare_Note_3.html",
+      "/posts/1_note/2025-06-05-Python Data Analysis for Healthcare_Note_4.html",
       "/posts/1_note/2025-06-04-Python Data Analysis for Healthcare_Note_1.html",
       "/posts/2_research/2_no_category/2025-04-01-sql.html",
       "/posts/2_research/2_no_category/2025-03-03-baysian.html",
